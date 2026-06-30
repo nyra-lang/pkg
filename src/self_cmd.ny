@@ -1,8 +1,3 @@
-import "stdlib/strings.ny"
-import "stdlib/builtins_string.ny"
-import "stdlib/fs.ny"
-import "stdlib/process.ny"
-import "stdlib/vec_str.ny"
 import "paths.ny"
 import "version.ny"
 import "ui.ny"

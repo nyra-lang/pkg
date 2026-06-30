@@ -1,11 +1,3 @@
-import "stdlib/strings.ny"
-import "stdlib/builtins_string.ny"
-import "stdlib/vec_str.ny"
-import "stdlib/json/mod.ny"
-import "stdlib/json/jsonl.ny"
-import "stdlib/env/mod.ny"
-import "stdlib/http.ny"
-import "stdlib/fs.ny"
 import "semver.ny"
 
 pub struct RegistryEntry {

@@ -1,7 +1,3 @@
-import "stdlib/strings.ny"
-import "stdlib/builtins_string.ny"
-import "stdlib/io.ny"
-
 const UI_RESET = "\033[0m"
 const UI_RED = "\033[31m"
 const UI_GREEN = "\033[32m"

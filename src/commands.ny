@@ -1,7 +1,3 @@
-import "stdlib/strings.ny"
-import "stdlib/fs.ny"
-import "stdlib/vec_str.ny"
-import "stdlib/process.ny"
 import "paths.ny"
 import "manifest.ny"
 import "lockfile.ny"

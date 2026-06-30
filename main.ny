@@ -1,4 +1,3 @@
-import "stdlib/vec_str.ny"
 import "src/commands.ny"
 
 fn main_argv_normalized() -> StrVec {

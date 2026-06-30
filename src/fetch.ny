@@ -1,10 +1,3 @@
-import "stdlib/strings.ny"
-import "stdlib/strings/ops.ny"
-import "stdlib/process.ny"
-import "stdlib/vec_str.ny"
-import "stdlib/fs.ny"
-import "stdlib/env/mod.ny"
-import "stdlib/pkg/git_fetch.ny"
 import "paths.ny"
 import "registry.ny"
 

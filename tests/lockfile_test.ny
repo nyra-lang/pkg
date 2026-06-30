@@ -1,7 +1,4 @@
-import "stdlib/testing.ny"
-import "stdlib/json/mod.ny"
-import "stdlib/json/jsonl.ny"
-import "stdlib/fs.ny"
+
 import "../src/lockfile.ny"
 
 test fn test_lockfile_roundtrip_local() {

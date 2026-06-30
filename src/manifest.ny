@@ -1,7 +1,3 @@
-import "stdlib/strings.ny"
-import "stdlib/builtins_string.ny"
-import "stdlib/vec_str.ny"
-import "stdlib/fs.ny"
 import "semver.ny"
 
 struct RequireEntry {

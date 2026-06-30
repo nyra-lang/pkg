@@ -1,8 +1,3 @@
-import "stdlib/strings.ny"
-import "stdlib/strings/ops.ny"
-import "stdlib/builtins_string.ny"
-import "stdlib/vec_str.ny"
-
 struct Version {
     major: i32
     minor: i32

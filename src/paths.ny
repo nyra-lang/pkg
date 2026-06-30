@@ -1,9 +1,3 @@
-import "stdlib/builtins_string.ny"
-import "stdlib/fs.ny"
-import "stdlib/fs/dir.ny"
-import "stdlib/env/mod.ny"
-import "stdlib/vec_str.ny"
-
 fn cache_root() -> string {
     return ".nyra/cache"
 }

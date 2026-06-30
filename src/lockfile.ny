@@ -1,12 +1,3 @@
-import "stdlib/strings.ny"
-import "stdlib/strings/ops.ny"
-import "stdlib/builtins_string.ny"
-import "stdlib/vec_str.ny"
-import "stdlib/crypto/sha256.ny"
-import "stdlib/json/mod.ny"
-import "stdlib/json/jsonl.ny"
-import "stdlib/fs.ny"
-
 pub struct LockEntry {
     pkg_name: string
     version: string

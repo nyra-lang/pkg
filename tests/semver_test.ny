@@ -1,4 +1,3 @@
-import "stdlib/testing.ny"
 import "../src/semver.ny"
 
 test fn test_caret_allows_compatible_minor() {

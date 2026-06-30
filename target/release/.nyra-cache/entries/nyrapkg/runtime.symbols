@@ -62,6 +62,7 @@ rt_tls_validate_pem_files
 rt_tls_write
 sha256_hex
 sleep_ms
+stdout_writeln_str
 str_cat
 str_clone
 str_cmp

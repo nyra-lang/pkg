@@ -48,12 +48,44 @@ while [ $# -gt 0 ]; do
 done
 
 die() {
-  echo "error: $*" >&2
+  if [ -t 1 ]; then
+    printf '\033[31m✖\033[0m error: %s\n' "$*" >&2
+  else
+    echo "error: $*" >&2
+  fi
   exit 1
 }
 
 info() {
-  echo "$*"
+  if [ -t 1 ]; then
+    printf '\033[32m✔\033[0m %s\n' "$*"
+  else
+    echo "$*"
+  fi
+}
+
+note() {
+  if [ -t 1 ]; then
+    printf '\033[33m!\033[0m  %s\n' "$*"
+  else
+    echo "$*"
+  fi
+}
+
+step() {
+  if [ -t 1 ]; then
+    printf '\033[36m→\033[0m  %s\n' "$*"
+  else
+    echo "$*"
+  fi
+}
+
+tip() {
+  if [ -t 1 ]; then
+    printf '\033[36mtip\033[0m  \033[37m%s\033[0m\n' "$*"
+  else
+    echo "  tip  $*"
+  fi
 }
 
 if ! command -v curl >/dev/null 2>&1; then
@@ -94,7 +126,7 @@ Create a release (e.g. v0.1.0) and attach ${ASSET}.
 If the release is a pre-release, either uncheck 'pre-release' on GitHub
 or pass an explicit tag: ... | sh -s -- --version 0.1.0"
     fi
-    info "note: no published 'latest' release — using newest tag (pre-release is OK)"
+    note "no published 'latest' release — using newest tag (pre-release is OK)"
   fi
 else
   TAG="v${VERSION#v}"
@@ -114,7 +146,7 @@ fi
 TMP="$(mktemp -d "${TMPDIR:-/tmp}/nyrapkg-install.XXXXXX")"
 trap 'rm -rf "$TMP"' EXIT INT TERM
 
-info "Downloading ${ASSET} ..."
+step "Downloading ${ASSET} ..."
 curl -fsSL -o "$TMP/$ASSET" "$ASSET_URL"
 
 mkdir -p "$INSTALL_DIR/bin"
@@ -144,18 +176,21 @@ append_profile() {
     echo "export NYRA_HOME=\"${INSTALL_DIR}\""
     echo "export PATH=\"\${NYRA_HOME}/bin:\${PATH}\""
   } >> "$profile"
-  info "Updated $profile — run: source $profile"
+  info "Updated $profile"
+  tip "run: source $profile"
 }
 
 case "${SHELL:-}" in
   */zsh) append_profile "$HOME/.zshrc" ;;
   */bash) append_profile "$HOME/.bashrc" ;;
+  *)
+    append_profile "$HOME/.zshrc"
+    append_profile "$HOME/.bashrc"
+    ;;
 esac
-append_profile "$HOME/.zshrc"
-append_profile "$HOME/.bashrc"
 
 info ""
 info "nyrapkg installed to $INSTALL_DIR/bin/nyrapkg"
 "$INSTALL_DIR/bin/nyrapkg" --version
 info ""
-info "Next: source your shell profile, then: nyrapkg init"
+tip "source your shell profile, then: nyrapkg init"

@@ -9,14 +9,7 @@ import "fetch.ny"
 import "registry.ny"
 import "semver.ny"
 import "self_cmd.ny"
-
-fn Cmd_print_ok(msg: string) -> void {
-    print(strcat("✔  ", msg))
-}
-
-fn Cmd_print_field(label: string, value: string) -> void {
-    print(strcat(strcat(strcat("      ", label), "  "), value))
-}
+import "ui.ny"
 
 fn Cmd_project_root(path: string) -> string {
     if strlen(path) == 0 {
@@ -30,7 +23,10 @@ fn Cmd_init(path: string) -> i32 {
     ensure_dir(dir)
     let mod_path = join_path(dir, "nyra.mod")
     if file_exists(mod_path) == 1 {
-        print("nyra.mod already exists")
+        ui_warn("nyra.mod already exists in this directory")
+        ui_field("path", mod_path)
+        ui_tip("already a Nyra package — try `nyrapkg verify` or `nyra run .`")
+        ui_tip("scaffold elsewhere: nyrapkg init /path/to/new-project")
         return 1
     }
     write_file(mod_path, "module example.local\n\n")
@@ -111,7 +107,7 @@ fn Cmd_add_name_req(name: string, req_text: string) -> i32 {
     let dir = "."
     let mod_path = join_path(dir, "nyra.mod")
     if file_exists(mod_path) == 0 {
-        print("nyra.mod not found — run `nyrapkg init` first")
+        ui_err("nyra.mod not found — run `nyrapkg init` first")
         return 1
     }
     Manifest_append_require(mod_path, name, req_text)
@@ -170,8 +166,8 @@ fn Cmd_verify(path: string) -> i32 {
             return 1
         }
     }
-    Cmd_print_ok("verify ok")
-    Cmd_print_field("", dir)
+    ui_ok("verify ok")
+    ui_field("", dir)
     return 0
 }
 
@@ -271,10 +267,10 @@ fn Cmd_dispatch(args: StrVec) -> i32 {
         if Cmd_init(path) != 0 {
             return 1
         }
-        Cmd_print_ok("initialized Nyra package")
-        Cmd_print_field("nyra.mod", join_path(path, "nyra.mod"))
-        Cmd_print_field("main.ny", join_path(path, "main.ny"))
-        print("  tip  nyra run .")
+        ui_ok("initialized Nyra package")
+        ui_field("nyra.mod", join_path(path, "nyra.mod"))
+        ui_field("main.ny", join_path(path, "main.ny"))
+        ui_tip("nyra run .")
         return 0
     }
     if strcmp(sub, "add") == 0 {
@@ -286,14 +282,14 @@ fn Cmd_dispatch(args: StrVec) -> i32 {
             if Cmd_add_name_req(args.get(1), args.get(2)) != 0 {
                 return 1
             }
-            Cmd_print_ok(strcat(strcat(strcat("added ", args.get(1)), " "), args.get(2)))
+            ui_ok(strcat(strcat(strcat("added ", args.get(1)), " "), args.get(2)))
             return 0
         }
         let spec = Cmd_parse_module_spec(args.get(1))
         if Cmd_add_name_req(spec.name, spec.req_text) != 0 {
             return 1
         }
-        Cmd_print_ok(strcat("added ", args.get(1)))
+        ui_ok(strcat("added ", args.get(1)))
         return 0
     }
     if strcmp(sub, "install") == 0 {
@@ -305,16 +301,16 @@ fn Cmd_dispatch(args: StrVec) -> i32 {
             if Cmd_add_name_req(args.get(1), args.get(2)) != 0 {
                 return 1
             }
-            Cmd_print_ok(strcat(strcat(strcat("installed ", args.get(1)), " "), args.get(2)))
-            Cmd_print_field("updated", "nyra.mod, nyra.lock, nyra.sum")
+            ui_ok(strcat(strcat(strcat("installed ", args.get(1)), " "), args.get(2)))
+            ui_field("updated", "nyra.mod, nyra.lock, nyra.sum")
             return 0
         }
         let spec = Cmd_parse_module_spec(args.get(1))
         if Cmd_add_name_req(spec.name, spec.req_text) != 0 {
             return 1
         }
-        Cmd_print_ok(strcat("installed ", args.get(1)))
-        Cmd_print_field("updated", "nyra.mod, nyra.lock, nyra.sum")
+        ui_ok(strcat("installed ", args.get(1)))
+        ui_field("updated", "nyra.mod, nyra.lock, nyra.sum")
         return 0
     }
     if strcmp(sub, "verify") == 0 {

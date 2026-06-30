@@ -5,14 +5,7 @@ import "stdlib/process.ny"
 import "stdlib/vec_str.ny"
 import "paths.ny"
 import "version.ny"
-
-fn Self_print_ok(msg: string) -> void {
-    print(strcat("✔  ", msg))
-}
-
-fn Self_print_field(label: string, value: string) -> void {
-    print(strcat(strcat(strcat("      ", label), "  "), value))
-}
+import "ui.ny"
 
 fn Self_nyra_version_text() -> string {
     let bin = nyra_bin_resolved()
@@ -21,27 +14,34 @@ fn Self_nyra_version_text() -> string {
     if result.code != 0 {
         return ""
     }
-    return trim(result.stdout)
+    return ui_clean_line(result.stdout)
+}
+
+fn Self_nyra_version_number(raw: string) -> string {
+    if str_starts_with(raw, "nyra ") == 1 {
+        return trim(substring(raw, 5, strlen(raw) - 5))
+    }
+    return raw
 }
 
 fn Self_cmd_version() -> i32 {
-    print(strcat("nyrapkg ", Version_string()))
-    let nyra_ver = Self_nyra_version_text()
-    if strlen(nyra_ver) > 0 {
-        print(nyra_ver)
+    ui_version_line("nyrapkg", Version_string())
+    let nyra_raw = Self_nyra_version_text()
+    if strlen(nyra_raw) > 0 {
+        ui_version_line("nyra", Self_nyra_version_number(nyra_raw))
     } else {
-        print("nyra (not found — install with `nyrapkg toolchain update`)")
+        ui_warn("nyra not found — install with `nyrapkg toolchain update`")
     }
     return 0
 }
 
 fn Self_cmd_which() -> i32 {
-    Self_print_field("NYRA_HOME", nyra_home_dir())
-    Self_print_field("bin", bin_dir())
-    Self_print_field("config", config_path())
-    Self_print_field("nyrapkg", nyrapkg_installed_bin())
-    Self_print_field("nyra", nyra_bin_resolved())
-    Self_print_field("executable", current_executable())
+    ui_field("NYRA_HOME", nyra_home_dir())
+    ui_field("bin", bin_dir())
+    ui_field("config", config_path())
+    ui_field("nyrapkg", nyrapkg_installed_bin())
+    ui_field("nyra", nyra_bin_resolved())
+    ui_field("executable", current_executable())
     return 0
 }
 
@@ -93,29 +93,29 @@ fn Self_cmd_bootstrap() -> i32 {
         print(strcat(strcat("failed to copy to ", dest), ""))
         return 1
     }
-    Self_print_ok("installed nyrapkg")
-    Self_print_field("path", dest)
-    print("  tip  add to PATH: export PATH=\"$HOME/.nyra/bin:$PATH\"")
+    ui_ok("installed nyrapkg")
+    ui_field("path", dest)
+    ui_tip("add to PATH: export PATH=\"$HOME/.nyra/bin:$PATH\"")
     return 0
 }
 
 fn Self_cmd_self_update(version: string) -> i32 {
     let dir = nyra_home_dir()
     if Self_run_install_script(NYRAPKG_REPO, dir, version) != 0 {
-        print("self-update failed (no release yet? try `nyrapkg bootstrap` from a local build)")
+        ui_err("self-update failed (no release yet? try `nyrapkg bootstrap` from a local build)")
         return 1
     }
-    Self_print_ok("updated nyrapkg")
+    ui_ok("updated nyrapkg")
     return Self_cmd_version()
 }
 
 fn Self_cmd_toolchain_update(version: string) -> i32 {
     let dir = nyra_home_dir()
     if Self_run_install_script(NYRA_REPO, dir, version) != 0 {
-        print("nyra update failed")
+        ui_err("nyra update failed")
         return 1
     }
-    Self_print_ok("updated nyra toolchain")
+    ui_ok("updated nyra toolchain")
     return Self_cmd_version()
 }
 

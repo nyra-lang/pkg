@@ -41,6 +41,10 @@
       "content_hash": 17711610907437047664
     },
     {
+      "path": "/Volumes/Macbook/npm_projects/me/nyra/stdlib/io.ny",
+      "content_hash": 10558364282908139277
+    },
+    {
       "path": "/Volumes/Macbook/npm_projects/me/nyra/stdlib/json/jsonl.ny",
       "content_hash": 18225005615234908853
     },
@@ -102,11 +106,11 @@
     },
     {
       "path": "/Volumes/Macbook/npm_projects/me/nyrapkg/main.ny",
-      "content_hash": 992718356601334191
+      "content_hash": 4182180238382815543
     },
     {
       "path": "/Volumes/Macbook/npm_projects/me/nyrapkg/src/commands.ny",
-      "content_hash": 1253541096807220192
+      "content_hash": 2624315871770439518
     },
     {
       "path": "/Volumes/Macbook/npm_projects/me/nyrapkg/src/fetch.ny",
@@ -130,11 +134,15 @@
     },
     {
       "path": "/Volumes/Macbook/npm_projects/me/nyrapkg/src/self_cmd.ny",
-      "content_hash": 2757515477037632865
+      "content_hash": 4433521678240909851
     },
     {
       "path": "/Volumes/Macbook/npm_projects/me/nyrapkg/src/semver.ny",
       "content_hash": 17532784548314979380
+    },
+    {
+      "path": "/Volumes/Macbook/npm_projects/me/nyrapkg/src/ui.ny",
+      "content_hash": 15107516444551321456
     },
     {
       "path": "/Volumes/Macbook/npm_projects/me/nyrapkg/src/version.ny",

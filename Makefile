@@ -2,12 +2,28 @@
 #
 # Usage:
 #   make dist              # → dist/nyrapkg-<arch>-<os>.tar.gz
-#   make dist NYRA_HOME=../nyra
+#   make dist NYRA_SRC=../nyra
 #   make clean
+#
+# Note: NYRA_HOME in your shell often points at ~/.nyra (install root, no stdlib/).
+# make uses NYRA_SRC for the Nyra source tree; it auto-detects ../nyra when needed.
 
-NYRA_HOME ?= ../nyra
 NYRA      ?= nyra
 VERSION   ?= 0.1.0
+
+# Explicit NYRA_SRC wins. Else use NYRA_HOME only if it contains stdlib/. Else ../nyra.
+NYRA_SRC ?=
+ifeq ($(NYRA_SRC),)
+  ifneq ($(wildcard $(NYRA_HOME)/stdlib),)
+    NYRA_SRC := $(NYRA_HOME)
+  else ifneq ($(wildcard ../nyra/stdlib),)
+    NYRA_SRC := ../nyra
+  else ifneq ($(wildcard ../../nyra/stdlib),)
+    NYRA_SRC := ../../nyra
+  else
+    NYRA_SRC := ../nyra
+  endif
+endif
 
 BINARY    := target/release/nyrapkg
 DIST_DIR  := dist
@@ -52,13 +68,13 @@ help:
 	@echo "  make clean        remove target/release/nyrapkg and dist/"
 	@echo ""
 	@echo "Variables:"
-	@echo "  NYRA_HOME=$(NYRA_HOME)"
+	@echo "  NYRA_SRC=$(NYRA_SRC)"
 	@echo "  NYRA=$(NYRA)"
 	@echo "  VERSION=$(VERSION)"
 
 build:
-	@test -d "$(NYRA_HOME)/stdlib" || (echo "error: NYRA_HOME must point at Nyra (stdlib/ missing): $(NYRA_HOME)" >&2; exit 1)
-	NYRA_HOME="$(NYRA_HOME)" "$(NYRA)" build --release -o nyrapkg .
+	@test -d "$(NYRA_SRC)/stdlib" || (echo "error: Nyra source not found (need stdlib/): $(NYRA_SRC)" >&2; echo "  hint: make dist NYRA_SRC=/path/to/nyra" >&2; exit 1)
+	NYRA_HOME="$(NYRA_SRC)" "$(NYRA)" build --release -o nyrapkg .
 	@test -x "$(BINARY)" || (echo "error: build did not produce $(BINARY)" >&2; exit 1)
 	@"$(BINARY)" --version || true
 

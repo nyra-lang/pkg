@@ -28,7 +28,7 @@ target triple = "arm64-apple-darwin24.6.0"
 %TcpListener = type { i32 }
 %TcpStream = type { i32 }
 
-@.str.0 = private unnamed_addr constant [6 x i8] c"0.1.0\00", align 1
+@.str.0 = private unnamed_addr constant [6 x i8] c"0.1.1\00", align 1
 @.str.1 = private unnamed_addr constant [14 x i8] c"nyra-lang/pkg\00", align 1
 @.str.2 = private unnamed_addr constant [15 x i8] c"nyra-lang/nyra\00", align 1
 @.str.3 = private unnamed_addr constant [5 x i8] c"\1B[0m\00", align 1
@@ -201,115 +201,116 @@ target triple = "arm64-apple-darwin24.6.0"
 @.str.171 = private unnamed_addr constant [7 x i8] c".jsonl\00", align 1
 @.str.172 = private unnamed_addr constant [8 x i8] c"file://\00", align 1
 @.str.173 = private unnamed_addr constant [10 x i8] c"ny-sqlite\00", align 1
-@.str.174 = private unnamed_addr constant [28 x i8] c"examples/packages/ny-sqlite\00", align 1
-@.str.175 = private unnamed_addr constant [9 x i8] c"ny-serde\00", align 1
-@.str.176 = private unnamed_addr constant [27 x i8] c"examples/packages/ny-serde\00", align 1
-@.str.177 = private unnamed_addr constant [8 x i8] c"ny-toml\00", align 1
-@.str.178 = private unnamed_addr constant [26 x i8] c"examples/packages/ny-toml\00", align 1
-@.str.179 = private unnamed_addr constant [6 x i8] c"query\00", align 1
-@.str.180 = private unnamed_addr constant [4 x i8] c"raw\00", align 1
-@.str.181 = private unnamed_addr constant [41 x i8] c"cannot determine current executable path\00", align 1
-@.str.182 = private unnamed_addr constant [23 x i8] c"executable not found: \00", align 1
-@.str.183 = private unnamed_addr constant [5 x i8] c"cp \22\00", align 1
-@.str.184 = private unnamed_addr constant [4 x i8] c"\22 \22\00", align 1
-@.str.185 = private unnamed_addr constant [2 x i8] c"\22\00", align 1
-@.str.186 = private unnamed_addr constant [3 x i8] c"-c\00", align 1
-@.str.187 = private unnamed_addr constant [3 x i8] c"sh\00", align 1
-@.str.188 = private unnamed_addr constant [19 x i8] c"failed to copy to \00", align 1
-@.str.189 = private unnamed_addr constant [18 x i8] c"installed nyrapkg\00", align 1
-@.str.190 = private unnamed_addr constant [49 x i8] c"add to PATH: export PATH=\22$HOME/.nyra/bin:$PATH\22\00", align 1
-@.str.191 = private unnamed_addr constant [80 x i8] c"self-update failed (no release yet? try `nyrapkg bootstrap` from a local build)\00", align 1
-@.str.192 = private unnamed_addr constant [16 x i8] c"updated nyrapkg\00", align 1
-@.str.193 = private unnamed_addr constant [19 x i8] c"nyra update failed\00", align 1
-@.str.194 = private unnamed_addr constant [23 x i8] c"updated nyra toolchain\00", align 1
-@.str.195 = private unnamed_addr constant [8 x i8] c"nyrapkg\00", align 1
-@.str.196 = private unnamed_addr constant [5 x i8] c"nyra\00", align 1
-@.str.197 = private unnamed_addr constant [59 x i8] c"nyra not found \E2\80\94 install with `nyrapkg toolchain update`\00", align 1
-@.str.198 = private unnamed_addr constant [4 x i8] c"bin\00", align 1
-@.str.199 = private unnamed_addr constant [11 x i8] c"executable\00", align 1
-@.str.200 = private unnamed_addr constant [37 x i8] c"usage: nyrapkg self update [version]\00", align 1
-@.str.201 = private unnamed_addr constant [42 x i8] c"usage: nyrapkg toolchain update [version]\00", align 1
-@.str.202 = private unnamed_addr constant [44 x i8] c"usage: nyrapkg update <nyra|self> [version]\00", align 1
-@.str.203 = private unnamed_addr constant [6 x i8] c"nyra \00", align 1
-@.str.204 = private unnamed_addr constant [35 x i8] c"https://raw.githubusercontent.com/\00", align 1
-@.str.205 = private unnamed_addr constant [25 x i8] c"/main/scripts/install.sh\00", align 1
-@.str.206 = private unnamed_addr constant [13 x i8] c"curl -fsSL \22\00", align 1
-@.str.207 = private unnamed_addr constant [29 x i8] c"\22 | sh -s -- --install-dir \22\00", align 1
-@.str.208 = private unnamed_addr constant [12 x i8] c" --version \00", align 1
-@.str.209 = private unnamed_addr constant [2 x i8] c"^\00", align 1
-@.str.210 = private unnamed_addr constant [3 x i8] c">=\00", align 1
-@.str.211 = private unnamed_addr constant [2 x i8] c"~\00", align 1
-@.str.212 = private unnamed_addr constant [7 x i8] c"router\00", align 1
-@.str.213 = private unnamed_addr constant [5 x i8] c"cors\00", align 1
-@.str.214 = private unnamed_addr constant [11 x i8] c"keep_alive\00", align 1
-@.str.215 = private unnamed_addr constant [3 x i8] c"fd\00", align 1
-@.str.216 = private unnamed_addr constant [6 x i8] c"major\00", align 1
-@.str.217 = private unnamed_addr constant [6 x i8] c"minor\00", align 1
-@.str.218 = private unnamed_addr constant [6 x i8] c"patch\00", align 1
-@.str.219 = private unnamed_addr constant [5 x i8] c"\0D\0A\0D\0A\00", align 1
-@.str.220 = private unnamed_addr constant [269 x i8] c"HTTP/1.1 204 No Content\0D\0AAccess-Control-Allow-Origin: *\0D\0AAccess-Control-Allow-Methods: GET, POST, PUT, DELETE, PATCH, OPTIONS, HEAD\0D\0AAccess-Control-Allow-Headers: Content-Type, Authorization\0D\0AAccess-Control-Max-Age: 86400\0D\0AContent-Length: 0\0D\0AConnection: keep-alive\0D\0A\0D\0A\00", align 1
-@.str.221 = private unnamed_addr constant [10 x i8] c"HTTP/1.1 \00", align 1
-@.str.222 = private unnamed_addr constant [3 x i8] c"\0D\0A\00", align 1
-@.str.223 = private unnamed_addr constant [15 x i8] c"Content-Type: \00", align 1
-@.str.224 = private unnamed_addr constant [17 x i8] c"Content-Length: \00", align 1
-@.str.225 = private unnamed_addr constant [25 x i8] c"Connection: keep-alive\0D\0A\00", align 1
-@.str.226 = private unnamed_addr constant [20 x i8] c"Connection: close\0D\0A\00", align 1
-@.str.227 = private unnamed_addr constant [2 x i8] c"/\00", align 1
-@.str.228 = private unnamed_addr constant [12 x i8] c".nyra/cache\00", align 1
-@.str.229 = private unnamed_addr constant [13 x i8] c".nyra/config\00", align 1
-@.str.230 = private unnamed_addr constant [3 x i8] c": \00", align 1
-@.str.231 = private unnamed_addr constant [18 x i8] c" HTTP/1.1\0D\0AHost: \00", align 1
-@.str.232 = private unnamed_addr constant [38 x i8] c"\0D\0AUser-Agent: Nyra/1.0\0D\0AAccept: */*\0D\0A\00", align 1
-@.str.233 = private unnamed_addr constant [22 x i8] c"Connection: close\0D\0A\0D\0A\00", align 1
-@.str.234 = private unnamed_addr constant [6 x i8] c"HTTP/\00", align 1
-@.str.235 = private unnamed_addr constant [18 x i8] c"Transfer-Encoding\00", align 1
-@.str.236 = private unnamed_addr constant [8 x i8] c"chunked\00", align 1
-@.str.237 = private unnamed_addr constant [4 x i8] c"GET\00", align 1
-@.str.238 = private unnamed_addr constant [5 x i8] c"POST\00", align 1
-@.str.239 = private unnamed_addr constant [5 x i8] c"HEAD\00", align 1
-@.str.240 = private unnamed_addr constant [4 x i8] c"PUT\00", align 1
-@.str.241 = private unnamed_addr constant [7 x i8] c"DELETE\00", align 1
-@.str.242 = private unnamed_addr constant [8 x i8] c"OPTIONS\00", align 1
-@.str.243 = private unnamed_addr constant [6 x i8] c"PATCH\00", align 1
-@.str.244 = private unnamed_addr constant [7 x i8] c"/.nyra\00", align 1
-@.str.245 = private unnamed_addr constant [6 x i8] c".nyra\00", align 1
-@.str.246 = private unnamed_addr constant [8 x i8] c"http://\00", align 1
-@.str.247 = private unnamed_addr constant [10 x i8] c"localhost\00", align 1
-@.str.248 = private unnamed_addr constant [2 x i8] c"?\00", align 1
-@.str.249 = private unnamed_addr constant [24 x i8] c"{\22error\22:\22bad request\22}\00", align 1
-@.str.250 = private unnamed_addr constant [25 x i8] c"text/html; charset=utf-8\00", align 1
-@.str.251 = private unnamed_addr constant [34 x i8] c"{\22error\22:\22internal server error\22}\00", align 1
-@.str.252 = private unnamed_addr constant [32 x i8] c"application/json; charset=utf-8\00", align 1
-@.str.253 = private unnamed_addr constant [31 x i8] c"{\22error\22:\22method not allowed\22}\00", align 1
-@.str.254 = private unnamed_addr constant [22 x i8] c"{\22error\22:\22not found\22}\00", align 1
-@.str.255 = private unnamed_addr constant [26 x i8] c"text/plain; charset=utf-8\00", align 1
-@.str.256 = private unnamed_addr constant [25 x i8] c"{\22error\22:\22unauthorized\22}\00", align 1
-@.str.257 = private unnamed_addr constant [2 x i8] c":\00", align 1
-@.str.258 = private unnamed_addr constant [3 x i8] c"OK\00", align 1
-@.str.259 = private unnamed_addr constant [8 x i8] c"Created\00", align 1
-@.str.260 = private unnamed_addr constant [11 x i8] c"No Content\00", align 1
-@.str.261 = private unnamed_addr constant [12 x i8] c"Bad Request\00", align 1
-@.str.262 = private unnamed_addr constant [13 x i8] c"Unauthorized\00", align 1
-@.str.263 = private unnamed_addr constant [10 x i8] c"Not Found\00", align 1
-@.str.264 = private unnamed_addr constant [19 x i8] c"Method Not Allowed\00", align 1
-@.str.265 = private unnamed_addr constant [21 x i8] c"Unprocessable Entity\00", align 1
-@.str.266 = private unnamed_addr constant [18 x i8] c"Too Many Requests\00", align 1
-@.str.267 = private unnamed_addr constant [22 x i8] c"Internal Server Error\00", align 1
-@.str.268 = private unnamed_addr constant [29 x i8] c": OpenSSL not available \E2\80\94 \00", align 1
-@.str.269 = private unnamed_addr constant [64 x i8] c"install OpenSSL (brew install openssl / apt install libssl-dev)\00", align 1
-@.str.270 = private unnamed_addr constant [86 x i8] c"HTTPS unavailable \E2\80\94 install OpenSSL (brew install openssl / apt install libssl-dev)\00", align 1
-@.str.271 = private unnamed_addr constant [3 x i8] c"\\n\00", align 1
-@.str.272 = private unnamed_addr constant [6 x i8] c"\E2\9C\96  \00", align 1
-@.str.273 = private unnamed_addr constant [7 x i8] c"      \00", align 1
-@.str.274 = private unnamed_addr constant [3 x i8] c"  \00", align 1
-@.str.275 = private unnamed_addr constant [6 x i8] c"\E2\86\92  \00", align 1
-@.str.276 = private unnamed_addr constant [6 x i8] c"\E2\9C\94  \00", align 1
-@.str.277 = private unnamed_addr constant [4 x i8] c"tip\00", align 1
-@.str.278 = private unnamed_addr constant [4 x i8] c"!  \00", align 1
-@.str.279 = private unnamed_addr constant [11 x i8] c"Connection\00", align 1
-@.str.280 = private unnamed_addr constant [11 x i8] c"keep-alive\00", align 1
-@.str.281 = private unnamed_addr constant [11 x i8] c"Keep-Alive\00", align 1
-@switch.table.route_key = private unnamed_addr constant [6 x ptr] [ptr @.str.238, ptr @.str.240, ptr @.str.241, ptr @.str.242, ptr @.str.239, ptr @.str.243], align 8
+@.str.174 = private unnamed_addr constant [6 x i8] c"0.1.0\00", align 1
+@.str.175 = private unnamed_addr constant [28 x i8] c"examples/packages/ny-sqlite\00", align 1
+@.str.176 = private unnamed_addr constant [9 x i8] c"ny-serde\00", align 1
+@.str.177 = private unnamed_addr constant [27 x i8] c"examples/packages/ny-serde\00", align 1
+@.str.178 = private unnamed_addr constant [8 x i8] c"ny-toml\00", align 1
+@.str.179 = private unnamed_addr constant [26 x i8] c"examples/packages/ny-toml\00", align 1
+@.str.180 = private unnamed_addr constant [6 x i8] c"query\00", align 1
+@.str.181 = private unnamed_addr constant [4 x i8] c"raw\00", align 1
+@.str.182 = private unnamed_addr constant [41 x i8] c"cannot determine current executable path\00", align 1
+@.str.183 = private unnamed_addr constant [23 x i8] c"executable not found: \00", align 1
+@.str.184 = private unnamed_addr constant [5 x i8] c"cp \22\00", align 1
+@.str.185 = private unnamed_addr constant [4 x i8] c"\22 \22\00", align 1
+@.str.186 = private unnamed_addr constant [2 x i8] c"\22\00", align 1
+@.str.187 = private unnamed_addr constant [3 x i8] c"-c\00", align 1
+@.str.188 = private unnamed_addr constant [3 x i8] c"sh\00", align 1
+@.str.189 = private unnamed_addr constant [19 x i8] c"failed to copy to \00", align 1
+@.str.190 = private unnamed_addr constant [18 x i8] c"installed nyrapkg\00", align 1
+@.str.191 = private unnamed_addr constant [49 x i8] c"add to PATH: export PATH=\22$HOME/.nyra/bin:$PATH\22\00", align 1
+@.str.192 = private unnamed_addr constant [80 x i8] c"self-update failed (no release yet? try `nyrapkg bootstrap` from a local build)\00", align 1
+@.str.193 = private unnamed_addr constant [16 x i8] c"updated nyrapkg\00", align 1
+@.str.194 = private unnamed_addr constant [19 x i8] c"nyra update failed\00", align 1
+@.str.195 = private unnamed_addr constant [23 x i8] c"updated nyra toolchain\00", align 1
+@.str.196 = private unnamed_addr constant [8 x i8] c"nyrapkg\00", align 1
+@.str.197 = private unnamed_addr constant [5 x i8] c"nyra\00", align 1
+@.str.198 = private unnamed_addr constant [59 x i8] c"nyra not found \E2\80\94 install with `nyrapkg toolchain update`\00", align 1
+@.str.199 = private unnamed_addr constant [4 x i8] c"bin\00", align 1
+@.str.200 = private unnamed_addr constant [11 x i8] c"executable\00", align 1
+@.str.201 = private unnamed_addr constant [37 x i8] c"usage: nyrapkg self update [version]\00", align 1
+@.str.202 = private unnamed_addr constant [42 x i8] c"usage: nyrapkg toolchain update [version]\00", align 1
+@.str.203 = private unnamed_addr constant [44 x i8] c"usage: nyrapkg update <nyra|self> [version]\00", align 1
+@.str.204 = private unnamed_addr constant [6 x i8] c"nyra \00", align 1
+@.str.205 = private unnamed_addr constant [35 x i8] c"https://raw.githubusercontent.com/\00", align 1
+@.str.206 = private unnamed_addr constant [25 x i8] c"/main/scripts/install.sh\00", align 1
+@.str.207 = private unnamed_addr constant [13 x i8] c"curl -fsSL \22\00", align 1
+@.str.208 = private unnamed_addr constant [29 x i8] c"\22 | sh -s -- --install-dir \22\00", align 1
+@.str.209 = private unnamed_addr constant [12 x i8] c" --version \00", align 1
+@.str.210 = private unnamed_addr constant [2 x i8] c"^\00", align 1
+@.str.211 = private unnamed_addr constant [3 x i8] c">=\00", align 1
+@.str.212 = private unnamed_addr constant [2 x i8] c"~\00", align 1
+@.str.213 = private unnamed_addr constant [7 x i8] c"router\00", align 1
+@.str.214 = private unnamed_addr constant [5 x i8] c"cors\00", align 1
+@.str.215 = private unnamed_addr constant [11 x i8] c"keep_alive\00", align 1
+@.str.216 = private unnamed_addr constant [3 x i8] c"fd\00", align 1
+@.str.217 = private unnamed_addr constant [6 x i8] c"major\00", align 1
+@.str.218 = private unnamed_addr constant [6 x i8] c"minor\00", align 1
+@.str.219 = private unnamed_addr constant [6 x i8] c"patch\00", align 1
+@.str.220 = private unnamed_addr constant [5 x i8] c"\0D\0A\0D\0A\00", align 1
+@.str.221 = private unnamed_addr constant [269 x i8] c"HTTP/1.1 204 No Content\0D\0AAccess-Control-Allow-Origin: *\0D\0AAccess-Control-Allow-Methods: GET, POST, PUT, DELETE, PATCH, OPTIONS, HEAD\0D\0AAccess-Control-Allow-Headers: Content-Type, Authorization\0D\0AAccess-Control-Max-Age: 86400\0D\0AContent-Length: 0\0D\0AConnection: keep-alive\0D\0A\0D\0A\00", align 1
+@.str.222 = private unnamed_addr constant [10 x i8] c"HTTP/1.1 \00", align 1
+@.str.223 = private unnamed_addr constant [3 x i8] c"\0D\0A\00", align 1
+@.str.224 = private unnamed_addr constant [15 x i8] c"Content-Type: \00", align 1
+@.str.225 = private unnamed_addr constant [17 x i8] c"Content-Length: \00", align 1
+@.str.226 = private unnamed_addr constant [25 x i8] c"Connection: keep-alive\0D\0A\00", align 1
+@.str.227 = private unnamed_addr constant [20 x i8] c"Connection: close\0D\0A\00", align 1
+@.str.228 = private unnamed_addr constant [2 x i8] c"/\00", align 1
+@.str.229 = private unnamed_addr constant [12 x i8] c".nyra/cache\00", align 1
+@.str.230 = private unnamed_addr constant [13 x i8] c".nyra/config\00", align 1
+@.str.231 = private unnamed_addr constant [3 x i8] c": \00", align 1
+@.str.232 = private unnamed_addr constant [18 x i8] c" HTTP/1.1\0D\0AHost: \00", align 1
+@.str.233 = private unnamed_addr constant [38 x i8] c"\0D\0AUser-Agent: Nyra/1.0\0D\0AAccept: */*\0D\0A\00", align 1
+@.str.234 = private unnamed_addr constant [22 x i8] c"Connection: close\0D\0A\0D\0A\00", align 1
+@.str.235 = private unnamed_addr constant [6 x i8] c"HTTP/\00", align 1
+@.str.236 = private unnamed_addr constant [18 x i8] c"Transfer-Encoding\00", align 1
+@.str.237 = private unnamed_addr constant [8 x i8] c"chunked\00", align 1
+@.str.238 = private unnamed_addr constant [4 x i8] c"GET\00", align 1
+@.str.239 = private unnamed_addr constant [5 x i8] c"POST\00", align 1
+@.str.240 = private unnamed_addr constant [5 x i8] c"HEAD\00", align 1
+@.str.241 = private unnamed_addr constant [4 x i8] c"PUT\00", align 1
+@.str.242 = private unnamed_addr constant [7 x i8] c"DELETE\00", align 1
+@.str.243 = private unnamed_addr constant [8 x i8] c"OPTIONS\00", align 1
+@.str.244 = private unnamed_addr constant [6 x i8] c"PATCH\00", align 1
+@.str.245 = private unnamed_addr constant [7 x i8] c"/.nyra\00", align 1
+@.str.246 = private unnamed_addr constant [6 x i8] c".nyra\00", align 1
+@.str.247 = private unnamed_addr constant [8 x i8] c"http://\00", align 1
+@.str.248 = private unnamed_addr constant [10 x i8] c"localhost\00", align 1
+@.str.249 = private unnamed_addr constant [2 x i8] c"?\00", align 1
+@.str.250 = private unnamed_addr constant [24 x i8] c"{\22error\22:\22bad request\22}\00", align 1
+@.str.251 = private unnamed_addr constant [25 x i8] c"text/html; charset=utf-8\00", align 1
+@.str.252 = private unnamed_addr constant [34 x i8] c"{\22error\22:\22internal server error\22}\00", align 1
+@.str.253 = private unnamed_addr constant [32 x i8] c"application/json; charset=utf-8\00", align 1
+@.str.254 = private unnamed_addr constant [31 x i8] c"{\22error\22:\22method not allowed\22}\00", align 1
+@.str.255 = private unnamed_addr constant [22 x i8] c"{\22error\22:\22not found\22}\00", align 1
+@.str.256 = private unnamed_addr constant [26 x i8] c"text/plain; charset=utf-8\00", align 1
+@.str.257 = private unnamed_addr constant [25 x i8] c"{\22error\22:\22unauthorized\22}\00", align 1
+@.str.258 = private unnamed_addr constant [2 x i8] c":\00", align 1
+@.str.259 = private unnamed_addr constant [3 x i8] c"OK\00", align 1
+@.str.260 = private unnamed_addr constant [8 x i8] c"Created\00", align 1
+@.str.261 = private unnamed_addr constant [11 x i8] c"No Content\00", align 1
+@.str.262 = private unnamed_addr constant [12 x i8] c"Bad Request\00", align 1
+@.str.263 = private unnamed_addr constant [13 x i8] c"Unauthorized\00", align 1
+@.str.264 = private unnamed_addr constant [10 x i8] c"Not Found\00", align 1
+@.str.265 = private unnamed_addr constant [19 x i8] c"Method Not Allowed\00", align 1
+@.str.266 = private unnamed_addr constant [21 x i8] c"Unprocessable Entity\00", align 1
+@.str.267 = private unnamed_addr constant [18 x i8] c"Too Many Requests\00", align 1
+@.str.268 = private unnamed_addr constant [22 x i8] c"Internal Server Error\00", align 1
+@.str.269 = private unnamed_addr constant [29 x i8] c": OpenSSL not available \E2\80\94 \00", align 1
+@.str.270 = private unnamed_addr constant [64 x i8] c"install OpenSSL (brew install openssl / apt install libssl-dev)\00", align 1
+@.str.271 = private unnamed_addr constant [86 x i8] c"HTTPS unavailable \E2\80\94 install OpenSSL (brew install openssl / apt install libssl-dev)\00", align 1
+@.str.272 = private unnamed_addr constant [3 x i8] c"\\n\00", align 1
+@.str.273 = private unnamed_addr constant [6 x i8] c"\E2\9C\96  \00", align 1
+@.str.274 = private unnamed_addr constant [7 x i8] c"      \00", align 1
+@.str.275 = private unnamed_addr constant [3 x i8] c"  \00", align 1
+@.str.276 = private unnamed_addr constant [6 x i8] c"\E2\86\92  \00", align 1
+@.str.277 = private unnamed_addr constant [6 x i8] c"\E2\9C\94  \00", align 1
+@.str.278 = private unnamed_addr constant [4 x i8] c"tip\00", align 1
+@.str.279 = private unnamed_addr constant [4 x i8] c"!  \00", align 1
+@.str.280 = private unnamed_addr constant [11 x i8] c"Connection\00", align 1
+@.str.281 = private unnamed_addr constant [11 x i8] c"keep-alive\00", align 1
+@.str.282 = private unnamed_addr constant [11 x i8] c"Keep-Alive\00", align 1
+@switch.table.route_key = private unnamed_addr constant [6 x ptr] [ptr @.str.239, ptr @.str.241, ptr @.str.242, ptr @.str.243, ptr @.str.240, ptr @.str.244], align 8
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr noundef readonly) local_unnamed_addr #0
@@ -616,7 +617,7 @@ endif.756.i:                                      ; preds = %entry
   br i1 %bin.4051.i, label %common.ret.sink.split.i, label %endif.759.i
 
 endif.759.i:                                      ; preds = %endif.756.i
-  %call.4057.i = tail call ptr @str_cat(ptr nonnull @.str.16, ptr nonnull @.str.227)
+  %call.4057.i = tail call ptr @str_cat(ptr nonnull @.str.16, ptr nonnull @.str.228)
   br label %common.ret.sink.split.i
 
 join_path.exit:                                   ; preds = %entry, %common.ret.sink.split.i
@@ -630,7 +631,7 @@ common.ret:                                       ; preds = %join_path.exit14, %
   ret i32 %common.ret.op
 
 then.0:                                           ; preds = %join_path.exit
-  %call.4595.i = tail call ptr @str_cat(ptr nonnull @.str.272, ptr nonnull @.str.18)
+  %call.4595.i = tail call ptr @str_cat(ptr nonnull @.str.273, ptr nonnull @.str.18)
   %call.4588.i.i = tail call ptr @str_cat(ptr nonnull @.str.4, ptr %call.4595.i)
   %call.4591.i.i = tail call ptr @str_cat(ptr %call.4588.i.i, ptr nonnull @.str.3)
   tail call void @stdout_writeln_str(ptr %call.4591.i.i)
@@ -638,25 +639,25 @@ then.0:                                           ; preds = %join_path.exit
 
 endif.2:                                          ; preds = %join_path.exit
   %call.58 = tail call i32 @Manifest_append_require(ptr %common.ret.op.i, ptr %0, ptr %1)
-  %call.3392.i.i = tail call ptr @str_replace(ptr %0, ptr nonnull @.str.16, ptr nonnull @.str.227)
-  %call.4044.i.i = tail call i32 @str_len(ptr nonnull @.str.228)
+  %call.3392.i.i = tail call ptr @str_replace(ptr %0, ptr nonnull @.str.16, ptr nonnull @.str.228)
+  %call.4044.i.i = tail call i32 @str_len(ptr nonnull @.str.229)
   %bin.4045.i.i = icmp eq i32 %call.4044.i.i, 0
   br i1 %bin.4045.i.i, label %cache_module_path.exit, label %endif.756.i.i
 
 common.ret.sink.split.i.i:                        ; preds = %endif.759.i.i, %endif.756.i.i
-  %call.4057.sink.i.i = phi ptr [ %call.4057.i.i, %endif.759.i.i ], [ @.str.228, %endif.756.i.i ]
+  %call.4057.sink.i.i = phi ptr [ %call.4057.i.i, %endif.759.i.i ], [ @.str.229, %endif.756.i.i ]
   %call.4059.i.i = tail call ptr @str_cat(ptr %call.4057.sink.i.i, ptr %call.3392.i.i)
   br label %cache_module_path.exit
 
 endif.756.i.i:                                    ; preds = %endif.2
-  %call.4048.i.i = tail call i32 @str_len(ptr nonnull @.str.228)
+  %call.4048.i.i = tail call i32 @str_len(ptr nonnull @.str.229)
   %bin.4049.i.i = add i32 %call.4048.i.i, -1
-  %call.4050.i.i = tail call i32 @char_at(ptr nonnull @.str.228, i32 %bin.4049.i.i)
+  %call.4050.i.i = tail call i32 @char_at(ptr nonnull @.str.229, i32 %bin.4049.i.i)
   %bin.4051.i.i = icmp eq i32 %call.4050.i.i, 47
   br i1 %bin.4051.i.i, label %common.ret.sink.split.i.i, label %endif.759.i.i
 
 endif.759.i.i:                                    ; preds = %endif.756.i.i
-  %call.4057.i.i = tail call ptr @str_cat(ptr nonnull @.str.228, ptr nonnull @.str.227)
+  %call.4057.i.i = tail call ptr @str_cat(ptr nonnull @.str.229, ptr nonnull @.str.228)
   br label %common.ret.sink.split.i.i
 
 cache_module_path.exit:                           ; preds = %endif.2, %common.ret.sink.split.i.i
@@ -678,7 +679,7 @@ endif.756.i3:                                     ; preds = %cache_module_path.e
   br i1 %bin.4051.i7, label %common.ret.sink.split.i10, label %endif.759.i8
 
 endif.759.i8:                                     ; preds = %endif.756.i3
-  %call.4057.i9 = tail call ptr @str_cat(ptr nonnull @.str.16, ptr nonnull @.str.227)
+  %call.4057.i9 = tail call ptr @str_cat(ptr nonnull @.str.16, ptr nonnull @.str.228)
   br label %common.ret.sink.split.i10
 
 join_path.exit14:                                 ; preds = %cache_module_path.exit, %common.ret.sink.split.i10
@@ -997,7 +998,7 @@ endif.756.i:                                      ; preds = %entry
   br i1 %bin.4051.i, label %common.ret.sink.split.i, label %endif.759.i
 
 endif.759.i:                                      ; preds = %endif.756.i
-  %call.4057.i = tail call ptr @str_cat(ptr %spec.select.i, ptr nonnull @.str.227)
+  %call.4057.i = tail call ptr @str_cat(ptr %spec.select.i, ptr nonnull @.str.228)
   br label %common.ret.sink.split.i
 
 join_path.exit:                                   ; preds = %entry, %common.ret.sink.split.i
@@ -1011,36 +1012,36 @@ common.ret:                                       ; preds = %endif.74, %then.69
   ret i32 %common.ret.op
 
 then.69:                                          ; preds = %join_path.exit
-  %call.4690.i = tail call ptr @str_cat(ptr nonnull @.str.278, ptr nonnull @.str.40)
+  %call.4690.i = tail call ptr @str_cat(ptr nonnull @.str.279, ptr nonnull @.str.40)
   %call.4588.i.i = tail call ptr @str_cat(ptr nonnull @.str.6, ptr %call.4690.i)
   %call.4591.i.i = tail call ptr @str_cat(ptr %call.4588.i.i, ptr nonnull @.str.3)
   tail call void @stdout_writeln_str(ptr %call.4591.i.i)
-  %call.4599.i = tail call ptr @str_cat(ptr nonnull @.str.273, ptr nonnull @.str.7)
+  %call.4599.i = tail call ptr @str_cat(ptr nonnull @.str.274, ptr nonnull @.str.7)
   %call.4601.i = tail call ptr @str_cat(ptr %call.4599.i, ptr nonnull @.str.41)
   %call.4604.i = tail call ptr @str_cat(ptr %call.4601.i, ptr nonnull @.str.3)
   %call.4609.i = tail call ptr @str_cat(ptr nonnull @.str.8, ptr %common.ret.op.i)
   %call.4612.i = tail call ptr @str_cat(ptr %call.4609.i, ptr nonnull @.str.3)
-  %call.4617.i = tail call ptr @str_cat(ptr %call.4604.i, ptr nonnull @.str.274)
+  %call.4617.i = tail call ptr @str_cat(ptr %call.4604.i, ptr nonnull @.str.275)
   %call.4620.i = tail call ptr @str_cat(ptr %call.4617.i, ptr %call.4612.i)
   tail call void @stdout_writeln_str(ptr %call.4620.i)
   tail call void @heap_free(ptr %call.4604.i)
   tail call void @heap_free(ptr %call.4612.i)
-  %call.4634.i = tail call ptr @str_cat(ptr nonnull @.str.274, ptr nonnull @.str.7)
-  %call.4636.i = tail call ptr @str_cat(ptr %call.4634.i, ptr nonnull @.str.277)
+  %call.4634.i = tail call ptr @str_cat(ptr nonnull @.str.275, ptr nonnull @.str.7)
+  %call.4636.i = tail call ptr @str_cat(ptr %call.4634.i, ptr nonnull @.str.278)
   %call.4639.i = tail call ptr @str_cat(ptr %call.4636.i, ptr nonnull @.str.3)
   %call.4644.i = tail call ptr @str_cat(ptr nonnull @.str.8, ptr nonnull @.str.42)
   %call.4647.i = tail call ptr @str_cat(ptr %call.4644.i, ptr nonnull @.str.3)
-  %call.4652.i = tail call ptr @str_cat(ptr %call.4639.i, ptr nonnull @.str.274)
+  %call.4652.i = tail call ptr @str_cat(ptr %call.4639.i, ptr nonnull @.str.275)
   %call.4655.i = tail call ptr @str_cat(ptr %call.4652.i, ptr %call.4647.i)
   tail call void @stdout_writeln_str(ptr %call.4655.i)
   tail call void @heap_free(ptr %call.4647.i)
   tail call void @heap_free(ptr %call.4639.i)
-  %call.4634.i1 = tail call ptr @str_cat(ptr nonnull @.str.274, ptr nonnull @.str.7)
-  %call.4636.i2 = tail call ptr @str_cat(ptr %call.4634.i1, ptr nonnull @.str.277)
+  %call.4634.i1 = tail call ptr @str_cat(ptr nonnull @.str.275, ptr nonnull @.str.7)
+  %call.4636.i2 = tail call ptr @str_cat(ptr %call.4634.i1, ptr nonnull @.str.278)
   %call.4639.i3 = tail call ptr @str_cat(ptr %call.4636.i2, ptr nonnull @.str.3)
   %call.4644.i4 = tail call ptr @str_cat(ptr nonnull @.str.8, ptr nonnull @.str.43)
   %call.4647.i5 = tail call ptr @str_cat(ptr %call.4644.i4, ptr nonnull @.str.3)
-  %call.4652.i6 = tail call ptr @str_cat(ptr %call.4639.i3, ptr nonnull @.str.274)
+  %call.4652.i6 = tail call ptr @str_cat(ptr %call.4639.i3, ptr nonnull @.str.275)
   %call.4655.i7 = tail call ptr @str_cat(ptr %call.4652.i6, ptr %call.4647.i5)
   tail call void @stdout_writeln_str(ptr %call.4655.i7)
   tail call void @heap_free(ptr %call.4647.i5)
@@ -1066,7 +1067,7 @@ endif.756.i10:                                    ; preds = %endif.71
   br i1 %bin.4051.i14, label %common.ret.sink.split.i17, label %endif.759.i15
 
 endif.759.i15:                                    ; preds = %endif.756.i10
-  %call.4057.i16 = tail call ptr @str_cat(ptr %spec.select.i, ptr nonnull @.str.227)
+  %call.4057.i16 = tail call ptr @str_cat(ptr %spec.select.i, ptr nonnull @.str.228)
   br label %common.ret.sink.split.i17
 
 join_path.exit21:                                 ; preds = %endif.71, %common.ret.sink.split.i17
@@ -1325,7 +1326,7 @@ endif.756.i:                                      ; preds = %entry
   br i1 %bin.4051.i, label %common.ret.sink.split.i, label %endif.759.i
 
 endif.759.i:                                      ; preds = %endif.756.i
-  %call.4057.i = tail call ptr @str_cat(ptr %0, ptr nonnull @.str.227)
+  %call.4057.i = tail call ptr @str_cat(ptr %0, ptr nonnull @.str.228)
   br label %common.ret.sink.split.i
 
 join_path.exit:                                   ; preds = %entry, %common.ret.sink.split.i
@@ -1347,7 +1348,7 @@ endif.756.i13:                                    ; preds = %join_path.exit
   br i1 %bin.4051.i17, label %common.ret.sink.split.i20, label %endif.759.i18
 
 endif.759.i18:                                    ; preds = %endif.756.i13
-  %call.4057.i19 = tail call ptr @str_cat(ptr %0, ptr nonnull @.str.227)
+  %call.4057.i19 = tail call ptr @str_cat(ptr %0, ptr nonnull @.str.228)
   br label %common.ret.sink.split.i20
 
 join_path.exit24:                                 ; preds = %join_path.exit, %common.ret.sink.split.i20
@@ -1369,7 +1370,7 @@ endif.756.i27:                                    ; preds = %join_path.exit24
   br i1 %bin.4051.i31, label %common.ret.sink.split.i34, label %endif.759.i32
 
 endif.759.i32:                                    ; preds = %endif.756.i27
-  %call.4057.i33 = tail call ptr @str_cat(ptr %0, ptr nonnull @.str.227)
+  %call.4057.i33 = tail call ptr @str_cat(ptr %0, ptr nonnull @.str.228)
   br label %common.ret.sink.split.i34
 
 join_path.exit38:                                 ; preds = %join_path.exit24, %common.ret.sink.split.i34
@@ -1435,25 +1436,25 @@ endif.385.i:                                      ; preds = %Manifest_require_na
 
 Manifest_require_req_at.exit:                     ; preds = %Manifest_require_name_at.exit, %endif.385.i
   %common.ret.op.i40 = phi ptr [ %call.2028.i, %endif.385.i ], [ @.str.11, %Manifest_require_name_at.exit ]
-  %call.3392.i.i = tail call ptr @str_replace(ptr %common.ret.op.i39, ptr nonnull @.str.16, ptr nonnull @.str.227)
-  %call.4044.i.i = tail call i32 @str_len(ptr nonnull @.str.228)
+  %call.3392.i.i = tail call ptr @str_replace(ptr %common.ret.op.i39, ptr nonnull @.str.16, ptr nonnull @.str.228)
+  %call.4044.i.i = tail call i32 @str_len(ptr nonnull @.str.229)
   %bin.4045.i.i = icmp eq i32 %call.4044.i.i, 0
   br i1 %bin.4045.i.i, label %cache_module_path.exit, label %endif.756.i.i
 
 common.ret.sink.split.i.i:                        ; preds = %endif.759.i.i, %endif.756.i.i
-  %call.4057.sink.i.i = phi ptr [ %call.4057.i.i, %endif.759.i.i ], [ @.str.228, %endif.756.i.i ]
+  %call.4057.sink.i.i = phi ptr [ %call.4057.i.i, %endif.759.i.i ], [ @.str.229, %endif.756.i.i ]
   %call.4059.i.i = tail call ptr @str_cat(ptr %call.4057.sink.i.i, ptr %call.3392.i.i)
   br label %cache_module_path.exit
 
 endif.756.i.i:                                    ; preds = %Manifest_require_req_at.exit
-  %call.4048.i.i = tail call i32 @str_len(ptr nonnull @.str.228)
+  %call.4048.i.i = tail call i32 @str_len(ptr nonnull @.str.229)
   %bin.4049.i.i = add i32 %call.4048.i.i, -1
-  %call.4050.i.i = tail call i32 @char_at(ptr nonnull @.str.228, i32 %bin.4049.i.i)
+  %call.4050.i.i = tail call i32 @char_at(ptr nonnull @.str.229, i32 %bin.4049.i.i)
   %bin.4051.i.i = icmp eq i32 %call.4050.i.i, 47
   br i1 %bin.4051.i.i, label %common.ret.sink.split.i.i, label %endif.759.i.i
 
 endif.759.i.i:                                    ; preds = %endif.756.i.i
-  %call.4057.i.i = tail call ptr @str_cat(ptr nonnull @.str.228, ptr nonnull @.str.227)
+  %call.4057.i.i = tail call ptr @str_cat(ptr nonnull @.str.229, ptr nonnull @.str.228)
   br label %common.ret.sink.split.i.i
 
 cache_module_path.exit:                           ; preds = %Manifest_require_req_at.exit, %common.ret.sink.split.i.i
@@ -1475,7 +1476,7 @@ endif.756.i43:                                    ; preds = %cache_module_path.e
   br i1 %bin.4051.i47, label %common.ret.sink.split.i50, label %endif.759.i48
 
 endif.759.i48:                                    ; preds = %endif.756.i43
-  %call.4057.i49 = tail call ptr @str_cat(ptr %0, ptr nonnull @.str.227)
+  %call.4057.i49 = tail call ptr @str_cat(ptr %0, ptr nonnull @.str.228)
   br label %common.ret.sink.split.i50
 
 join_path.exit54:                                 ; preds = %cache_module_path.exit, %common.ret.sink.split.i50
@@ -1578,7 +1579,7 @@ endif.756.i:                                      ; preds = %entry
   br i1 %bin.4051.i, label %common.ret.sink.split.i, label %endif.759.i
 
 endif.759.i:                                      ; preds = %endif.756.i
-  %call.4057.i = tail call ptr @str_cat(ptr %spec.select.i, ptr nonnull @.str.227)
+  %call.4057.i = tail call ptr @str_cat(ptr %spec.select.i, ptr nonnull @.str.228)
   br label %common.ret.sink.split.i
 
 join_path.exit:                                   ; preds = %entry, %common.ret.sink.split.i
@@ -1600,7 +1601,7 @@ endif.756.i35:                                    ; preds = %join_path.exit
   br i1 %bin.4051.i39, label %common.ret.sink.split.i42, label %endif.759.i40
 
 endif.759.i40:                                    ; preds = %endif.756.i35
-  %call.4057.i41 = tail call ptr @str_cat(ptr %spec.select.i, ptr nonnull @.str.227)
+  %call.4057.i41 = tail call ptr @str_cat(ptr %spec.select.i, ptr nonnull @.str.228)
   br label %common.ret.sink.split.i42
 
 join_path.exit46:                                 ; preds = %join_path.exit, %common.ret.sink.split.i42
@@ -1622,7 +1623,7 @@ endif.756.i49:                                    ; preds = %join_path.exit46
   br i1 %bin.4051.i53, label %common.ret.sink.split.i56, label %endif.759.i54
 
 endif.759.i54:                                    ; preds = %endif.756.i49
-  %call.4057.i55 = tail call ptr @str_cat(ptr %spec.select.i, ptr nonnull @.str.227)
+  %call.4057.i55 = tail call ptr @str_cat(ptr %spec.select.i, ptr nonnull @.str.228)
   br label %common.ret.sink.split.i56
 
 join_path.exit60:                                 ; preds = %join_path.exit46, %common.ret.sink.split.i56
@@ -1828,16 +1829,16 @@ then.162:                                         ; preds = %endif.149
   br i1 %bin.518.not, label %endif.164, label %common.ret
 
 endif.164:                                        ; preds = %endif.149, %then.162
-  %call.4630.i = tail call ptr @str_cat(ptr nonnull @.str.276, ptr nonnull @.str.87)
+  %call.4630.i = tail call ptr @str_cat(ptr nonnull @.str.277, ptr nonnull @.str.87)
   %call.4588.i.i = tail call ptr @str_cat(ptr nonnull @.str.5, ptr %call.4630.i)
   %call.4591.i.i = tail call ptr @str_cat(ptr %call.4588.i.i, ptr nonnull @.str.3)
   tail call void @stdout_writeln_str(ptr %call.4591.i.i)
-  %call.4599.i = tail call ptr @str_cat(ptr nonnull @.str.273, ptr nonnull @.str.7)
+  %call.4599.i = tail call ptr @str_cat(ptr nonnull @.str.274, ptr nonnull @.str.7)
   %call.4601.i = tail call ptr @str_cat(ptr %call.4599.i, ptr nonnull @.str.11)
   %call.4604.i = tail call ptr @str_cat(ptr %call.4601.i, ptr nonnull @.str.3)
   %call.4609.i = tail call ptr @str_cat(ptr nonnull @.str.8, ptr %spec.select.i)
   %call.4612.i = tail call ptr @str_cat(ptr %call.4609.i, ptr nonnull @.str.3)
-  %call.4617.i = tail call ptr @str_cat(ptr %call.4604.i, ptr nonnull @.str.274)
+  %call.4617.i = tail call ptr @str_cat(ptr %call.4604.i, ptr nonnull @.str.275)
   %call.4620.i = tail call ptr @str_cat(ptr %call.4617.i, ptr %call.4612.i)
   tail call void @stdout_writeln_str(ptr %call.4620.i)
   tail call void @heap_free(ptr %call.4604.i)
@@ -2048,7 +2049,7 @@ entry:
   br i1 %bin.658, label %then.168, label %endif.170
 
 then.168:                                         ; preds = %entry
-  %call.660 = tail call i32 @GitFetch_http_tarball(ptr %0, ptr %1, ptr %2, ptr nonnull @.str.228)
+  %call.660 = tail call i32 @GitFetch_http_tarball(ptr %0, ptr %1, ptr %2, ptr nonnull @.str.229)
   %bin.661 = icmp eq i32 %call.660, 0
   br i1 %bin.661, label %common.ret, label %endif.170
 
@@ -2071,7 +2072,7 @@ endif.176:                                        ; preds = %endif.170
   br i1 %bin.670, label %then.177, label %common.ret.sink.split
 
 then.177:                                         ; preds = %endif.176
-  %call.672 = tail call i32 @GitFetch_http_tarball(ptr %0, ptr %1, ptr %2, ptr nonnull @.str.228)
+  %call.672 = tail call i32 @GitFetch_http_tarball(ptr %0, ptr %1, ptr %2, ptr nonnull @.str.229)
   %bin.673 = icmp eq i32 %call.672, 0
   br i1 %bin.673, label %common.ret, label %common.ret.sink.split
 }
@@ -2097,7 +2098,7 @@ endif.756.i:                                      ; preds = %entry
   br i1 %bin.4051.i, label %common.ret.sink.split.i, label %endif.759.i
 
 endif.759.i:                                      ; preds = %endif.756.i
-  %call.4057.i = tail call ptr @str_cat(ptr %2, ptr nonnull @.str.227)
+  %call.4057.i = tail call ptr @str_cat(ptr %2, ptr nonnull @.str.228)
   br label %common.ret.sink.split.i
 
 join_path.exit:                                   ; preds = %entry, %common.ret.sink.split.i
@@ -2149,7 +2150,7 @@ endif.188:                                        ; preds = %then.183
   br label %common.ret
 
 endif.185:                                        ; preds = %join_path.exit
-  %call.3770.i = tail call i32 @create_dir_all(ptr nonnull @.str.228)
+  %call.3770.i = tail call i32 @create_dir_all(ptr nonnull @.str.229)
   %call.3379.i33 = tail call ptr @vec_str_new()
   tail call void @vec_str_push(ptr %call.3379.i33, ptr nonnull @.str.104)
   tail call void @vec_str_push(ptr %call.3379.i33, ptr nonnull @.str.99)
@@ -2188,7 +2189,7 @@ endif.756.i:                                      ; preds = %entry
   br i1 %bin.4051.i, label %common.ret.sink.split.i, label %endif.759.i
 
 endif.759.i:                                      ; preds = %endif.756.i
-  %call.4057.i = tail call ptr @str_cat(ptr %call.4172.i.i, ptr nonnull @.str.227)
+  %call.4057.i = tail call ptr @str_cat(ptr %call.4172.i.i, ptr nonnull @.str.228)
   br label %common.ret.sink.split.i
 
 join_path.exit:                                   ; preds = %entry, %common.ret.sink.split.i
@@ -2241,7 +2242,7 @@ endif.756.i:                                      ; preds = %entry
   br i1 %bin.4051.i, label %common.ret.sink.split.i, label %endif.759.i
 
 endif.759.i:                                      ; preds = %endif.756.i
-  %call.4057.i = tail call ptr @str_cat(ptr %1, ptr nonnull @.str.227)
+  %call.4057.i = tail call ptr @str_cat(ptr %1, ptr nonnull @.str.228)
   br label %common.ret.sink.split.i
 
 join_path.exit:                                   ; preds = %entry, %common.ret.sink.split.i
@@ -2432,7 +2433,7 @@ endif.756.i:                                      ; preds = %endif.239
   br i1 %bin.4051.i, label %common.ret.sink.split.i, label %endif.759.i
 
 endif.759.i:                                      ; preds = %endif.756.i
-  %call.4057.i = tail call ptr @str_cat(ptr %3, ptr nonnull @.str.227)
+  %call.4057.i = tail call ptr @str_cat(ptr %3, ptr nonnull @.str.228)
   br label %common.ret.sink.split.i
 
 join_path.exit:                                   ; preds = %endif.239, %common.ret.sink.split.i
@@ -2454,7 +2455,7 @@ endif.756.i3:                                     ; preds = %join_path.exit
   br i1 %bin.4051.i7, label %common.ret.sink.split.i10, label %endif.759.i8
 
 endif.759.i8:                                     ; preds = %endif.756.i3
-  %call.4057.i9 = tail call ptr @str_cat(ptr %3, ptr nonnull @.str.227)
+  %call.4057.i9 = tail call ptr @str_cat(ptr %3, ptr nonnull @.str.228)
   br label %common.ret.sink.split.i10
 
 join_path.exit14:                                 ; preds = %join_path.exit, %common.ret.sink.split.i10
@@ -2476,7 +2477,7 @@ endif.756.i17:                                    ; preds = %join_path.exit14
   br i1 %bin.4051.i21, label %common.ret.sink.split.i24, label %endif.759.i22
 
 endif.759.i22:                                    ; preds = %endif.756.i17
-  %call.4057.i23 = tail call ptr @str_cat(ptr %3, ptr nonnull @.str.227)
+  %call.4057.i23 = tail call ptr @str_cat(ptr %3, ptr nonnull @.str.228)
   br label %common.ret.sink.split.i24
 
 join_path.exit28:                                 ; preds = %join_path.exit14, %common.ret.sink.split.i24
@@ -2699,7 +2700,7 @@ endif.756.i:                                      ; preds = %endif.257
   br i1 %bin.4051.i, label %common.ret.sink.split.i, label %endif.759.i
 
 endif.759.i:                                      ; preds = %endif.756.i
-  %call.4057.i = tail call ptr @str_cat(ptr %0, ptr nonnull @.str.227)
+  %call.4057.i = tail call ptr @str_cat(ptr %0, ptr nonnull @.str.228)
   br label %common.ret.sink.split.i
 
 join_path.exit:                                   ; preds = %endif.257, %common.ret.sink.split.i
@@ -3533,12 +3534,11 @@ Json_is_array_body.exit:                          ; preds = %entry
   br i1 %bin.1551, label %common.ret, label %endif.296
 
 common.ret:                                       ; preds = %while.body.298, %endif.296, %Json_is_array_body.exit, %entry
-  %call.1529.sink = phi ptr [ %call.1534, %Json_is_array_body.exit ], [ %call.1534, %entry ], [ %call.1529, %endif.296 ], [ %call.1529, %while.body.298 ]
+  %call.1529.sink = phi ptr [ %call.1547, %Json_is_array_body.exit ], [ %call.1547, %entry ], [ %call.1529, %endif.296 ], [ %call.1529, %while.body.298 ]
   %call.1547.sink = phi ptr [ %call.1529, %Json_is_array_body.exit ], [ %call.1529, %entry ], [ %call.1547, %endif.296 ], [ %call.1547, %while.body.298 ]
-  %call.1534.sink = phi ptr [ %call.1547, %Json_is_array_body.exit ], [ %call.1547, %entry ], [ %call.1534, %endif.296 ], [ %call.1534, %while.body.298 ]
   tail call void @heap_free(ptr %call.1529.sink)
+  tail call void @heap_free(ptr %call.1534)
   tail call void @heap_free(ptr %call.1547.sink)
-  tail call void @heap_free(ptr %call.1534.sink)
   %load.1555.fca.0.insert.pn = insertvalue %LockFile poison, i32 %call.1539, 0
   %load.1555.fca.1.insert.pn = insertvalue %LockFile %load.1555.fca.0.insert.pn, ptr %str_clone.1521.i, 1
   %common.ret.op = insertvalue %LockFile %load.1555.fca.1.insert.pn, ptr %call.1523.i, 2
@@ -3602,8 +3602,8 @@ common.ret:                                       ; preds = %entry, %then.300
   %str_clone.1361.i = tail call ptr @str_clone(ptr %.str.11.sink1)
   %str_clone.1364.i = tail call ptr @str_clone(ptr %.str.11.sink)
   %str_clone.1366.i = tail call ptr @str_clone(ptr %call.1593)
-  tail call void @heap_free(ptr %call.1581)
   tail call void @heap_free(ptr %call.1576)
+  tail call void @heap_free(ptr %call.1581)
   %load.1303.fca.0.insert.i.pn = insertvalue %LockEntry poison, ptr %str_clone.1353.i, 0
   %load.1303.fca.1.insert.i.pn = insertvalue %LockEntry %load.1303.fca.0.insert.i.pn, ptr %str_clone.1355.i, 1
   %load.1303.fca.2.insert.i.pn = insertvalue %LockEntry %load.1303.fca.1.insert.i.pn, ptr %str_clone.1358.i, 2
@@ -4846,13 +4846,13 @@ entry:
   ]
 
 common.ret:                                       ; preds = %entry, %endif.433, %then.431
-  %.str.177.sink = phi ptr [ @.str.177, %endif.433 ], [ @.str.175, %then.431 ], [ @.str.173, %entry ]
-  %.str.178.sink = phi ptr [ @.str.178, %endif.433 ], [ @.str.176, %then.431 ], [ @.str.174, %entry ]
-  %str_clone.2527 = tail call ptr @str_clone(ptr nonnull %.str.177.sink)
-  %str_clone.2530 = tail call ptr @str_clone(ptr nonnull @.str.0)
+  %.str.178.sink = phi ptr [ @.str.178, %endif.433 ], [ @.str.176, %then.431 ], [ @.str.173, %entry ]
+  %.str.179.sink = phi ptr [ @.str.179, %endif.433 ], [ @.str.177, %then.431 ], [ @.str.175, %entry ]
+  %str_clone.2527 = tail call ptr @str_clone(ptr nonnull %.str.178.sink)
+  %str_clone.2530 = tail call ptr @str_clone(ptr nonnull @.str.174)
   %str_clone.2533 = tail call ptr @str_clone(ptr nonnull @.str.11)
   %str_clone.2536 = tail call ptr @str_clone(ptr nonnull @.str.107)
-  %str_clone.2539 = tail call ptr @str_clone(ptr nonnull %.str.178.sink)
+  %str_clone.2539 = tail call ptr @str_clone(ptr nonnull %.str.179.sink)
   %.pn44 = insertvalue %PackageSpec poison, ptr %str_clone.2527, 0
   %.pn43 = insertvalue %PackageSpec %.pn44, ptr %str_clone.2530, 1
   %.pn42 = insertvalue %PackageSpec %.pn43, ptr %str_clone.2533, 2
@@ -5333,30 +5333,30 @@ endif.470:                                        ; preds = %Registry_fetch_vers
 define %PackageSpec @Registry_resolve_name(ptr %0) local_unnamed_addr {
 Registry_known_at.exit:
   %str_clone.2527.i = tail call ptr @str_clone(ptr nonnull @.str.173)
-  %str_clone.2530.i = tail call ptr @str_clone(ptr nonnull @.str.0)
+  %str_clone.2530.i = tail call ptr @str_clone(ptr nonnull @.str.174)
   %str_clone.2533.i = tail call ptr @str_clone(ptr nonnull @.str.11)
   %str_clone.2536.i = tail call ptr @str_clone(ptr nonnull @.str.107)
-  %str_clone.2539.i = tail call ptr @str_clone(ptr nonnull @.str.174)
+  %str_clone.2539.i = tail call ptr @str_clone(ptr nonnull @.str.175)
   %call.2657 = tail call i32 @str_cmp(ptr %str_clone.2527.i, ptr %0)
   %bin.2658 = icmp eq i32 %call.2657, 0
   br i1 %bin.2658, label %common.ret, label %Registry_known_at.exit.1
 
 Registry_known_at.exit.1:                         ; preds = %Registry_known_at.exit
-  %str_clone.2527.i.1 = tail call ptr @str_clone(ptr nonnull @.str.175)
-  %str_clone.2530.i.1 = tail call ptr @str_clone(ptr nonnull @.str.0)
+  %str_clone.2527.i.1 = tail call ptr @str_clone(ptr nonnull @.str.176)
+  %str_clone.2530.i.1 = tail call ptr @str_clone(ptr nonnull @.str.174)
   %str_clone.2533.i.1 = tail call ptr @str_clone(ptr nonnull @.str.11)
   %str_clone.2536.i.1 = tail call ptr @str_clone(ptr nonnull @.str.107)
-  %str_clone.2539.i.1 = tail call ptr @str_clone(ptr nonnull @.str.176)
+  %str_clone.2539.i.1 = tail call ptr @str_clone(ptr nonnull @.str.177)
   %call.2657.1 = tail call i32 @str_cmp(ptr %str_clone.2527.i.1, ptr %0)
   %bin.2658.1 = icmp eq i32 %call.2657.1, 0
   br i1 %bin.2658.1, label %common.ret, label %Registry_known_at.exit.2
 
 Registry_known_at.exit.2:                         ; preds = %Registry_known_at.exit.1
-  %str_clone.2527.i.2 = tail call ptr @str_clone(ptr nonnull @.str.177)
-  %str_clone.2530.i.2 = tail call ptr @str_clone(ptr nonnull @.str.0)
+  %str_clone.2527.i.2 = tail call ptr @str_clone(ptr nonnull @.str.178)
+  %str_clone.2530.i.2 = tail call ptr @str_clone(ptr nonnull @.str.174)
   %str_clone.2533.i.2 = tail call ptr @str_clone(ptr nonnull @.str.11)
   %str_clone.2536.i.2 = tail call ptr @str_clone(ptr nonnull @.str.107)
-  %str_clone.2539.i.2 = tail call ptr @str_clone(ptr nonnull @.str.178)
+  %str_clone.2539.i.2 = tail call ptr @str_clone(ptr nonnull @.str.179)
   %call.2657.2 = tail call i32 @str_cmp(ptr %str_clone.2527.i.2, ptr %0)
   %bin.2658.2 = icmp eq i32 %call.2657.2, 0
   br i1 %bin.2658.2, label %common.ret, label %while.cond.471.2
@@ -5437,7 +5437,7 @@ entry:
 
 define %RequestContext @RequestContext_from_raw(ptr %0) local_unnamed_addr {
 entry:
-  %call.3842.i = tail call i32 @strstr_pos(ptr %0, ptr nonnull @.str.222)
+  %call.3842.i = tail call i32 @strstr_pos(ptr %0, ptr nonnull @.str.223)
   %bin.3843.i = icmp slt i32 %call.3842.i, 0
   br i1 %bin.3843.i, label %first_line.exit, label %endif.708.i
 
@@ -5450,7 +5450,7 @@ first_line.exit:                                  ; preds = %entry, %endif.708.i
   %call.2704 = tail call i32 @method_from_line(ptr %common.ret.op.i)
   %call.2706 = tail call ptr @path_from_line(ptr %common.ret.op.i)
   %str_clone.2707 = tail call ptr @str_clone(ptr %call.2706)
-  %call.3602.i = tail call i32 @strstr_pos(ptr %0, ptr nonnull @.str.219)
+  %call.3602.i = tail call i32 @strstr_pos(ptr %0, ptr nonnull @.str.220)
   %bin.3603.i = icmp slt i32 %call.3602.i, 0
   br i1 %bin.3603.i, label %body_from_raw.exit, label %endif.657.i
 
@@ -5459,8 +5459,8 @@ endif.657.i:                                      ; preds = %first_line.exit
   %call.3608.i = tail call i32 @str_len(ptr %0)
   %bin.3610.i = sub i32 %call.3608.i, %bin.3606.i
   %call.3611.i = tail call ptr @substring(ptr %0, i32 %bin.3606.i, i32 %bin.3610.i)
-  %call.4037.i.i = tail call ptr @header_value(ptr %0, ptr nonnull @.str.235)
-  %call.4040.i.i = tail call i32 @strstr_pos(ptr %call.4037.i.i, ptr nonnull @.str.236)
+  %call.4037.i.i = tail call ptr @header_value(ptr %0, ptr nonnull @.str.236)
+  %call.4040.i.i = tail call i32 @strstr_pos(ptr %call.4037.i.i, ptr nonnull @.str.237)
   %bin.4041.i.i = icmp slt i32 %call.4040.i.i, 0
   br i1 %bin.4041.i.i, label %body_from_raw.exit, label %then.658.i
 
@@ -5489,9 +5489,9 @@ entry:
   %str_clone.2724 = tail call ptr @str_clone(ptr %call.3755.i)
   %call.3755.i1 = tail call ptr @json_get_string(ptr %0, ptr nonnull @.str.117)
   %str_clone.2728 = tail call ptr @str_clone(ptr %call.3755.i1)
-  %call.3755.i2 = tail call ptr @json_get_string(ptr %0, ptr nonnull @.str.179)
+  %call.3755.i2 = tail call ptr @json_get_string(ptr %0, ptr nonnull @.str.180)
   %str_clone.2732 = tail call ptr @str_clone(ptr %call.3755.i2)
-  %call.3755.i3 = tail call ptr @json_get_string(ptr %0, ptr nonnull @.str.180)
+  %call.3755.i3 = tail call ptr @json_get_string(ptr %0, ptr nonnull @.str.181)
   %str_clone.2736 = tail call ptr @str_clone(ptr %call.3755.i3)
   %load.2737.fca.0.insert = insertvalue %RequestContext poison, i32 %call.3751.i, 0
   %load.2737.fca.1.insert = insertvalue %RequestContext %load.2737.fca.0.insert, ptr %str_clone.2724, 1
@@ -5517,11 +5517,11 @@ entry:
   %gep.2748 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %load.2749 = load ptr, ptr %gep.2748, align 8
   tail call void @vec_str_push(ptr %call.2739, ptr %load.2749)
-  tail call void @vec_str_push(ptr %call.2738, ptr nonnull @.str.179)
+  tail call void @vec_str_push(ptr %call.2738, ptr nonnull @.str.180)
   %gep.2751 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %load.2752 = load ptr, ptr %gep.2751, align 8
   tail call void @vec_str_push(ptr %call.2739, ptr %load.2752)
-  tail call void @vec_str_push(ptr %call.2738, ptr nonnull @.str.180)
+  tail call void @vec_str_push(ptr %call.2738, ptr nonnull @.str.181)
   %gep.2754 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %load.2755 = load ptr, ptr %gep.2754, align 8
   tail call void @vec_str_push(ptr %call.2739, ptr %load.2755)
@@ -5553,7 +5553,7 @@ common.ret:                                       ; preds = %endif.485, %endif.4
   ret i32 %common.ret.op
 
 then.477:                                         ; preds = %current_executable.exit
-  %0 = tail call i32 @puts(ptr nonnull dereferenceable(1) @.str.181)
+  %0 = tail call i32 @puts(ptr nonnull dereferenceable(1) @.str.182)
   br label %common.ret
 
 endif.479:                                        ; preds = %current_executable.exit
@@ -5562,7 +5562,7 @@ endif.479:                                        ; preds = %current_executable.
   br i1 %bin.2763, label %then.480, label %endif.482
 
 then.480:                                         ; preds = %endif.479
-  %call.2766 = tail call ptr @str_cat(ptr nonnull @.str.182, ptr %common.ret.op.i)
+  %call.2766 = tail call ptr @str_cat(ptr nonnull @.str.183, ptr %common.ret.op.i)
   %call.2768 = tail call ptr @str_cat(ptr %call.2766, ptr nonnull @.str.11)
   %puts2 = tail call i32 @puts(ptr nonnull dereferenceable(1) %call.2768)
   br label %common.ret
@@ -5575,7 +5575,7 @@ endif.482:                                        ; preds = %endif.479
 
 common.ret.sink.split.i.i:                        ; preds = %endif.759.i.i, %endif.756.i.i
   %call.4057.sink.i.i = phi ptr [ %call.4057.i.i, %endif.759.i.i ], [ %call.4169.i, %endif.756.i.i ]
-  %call.4059.i.i = tail call ptr @str_cat(ptr %call.4057.sink.i.i, ptr nonnull @.str.195)
+  %call.4059.i.i = tail call ptr @str_cat(ptr %call.4057.sink.i.i, ptr nonnull @.str.196)
   br label %nyrapkg_installed_bin.exit
 
 endif.756.i.i:                                    ; preds = %endif.482
@@ -5586,24 +5586,24 @@ endif.756.i.i:                                    ; preds = %endif.482
   br i1 %bin.4051.i.i, label %common.ret.sink.split.i.i, label %endif.759.i.i
 
 endif.759.i.i:                                    ; preds = %endif.756.i.i
-  %call.4057.i.i = tail call ptr @str_cat(ptr %call.4169.i, ptr nonnull @.str.227)
+  %call.4057.i.i = tail call ptr @str_cat(ptr %call.4169.i, ptr nonnull @.str.228)
   br label %common.ret.sink.split.i.i
 
 nyrapkg_installed_bin.exit:                       ; preds = %endif.482, %common.ret.sink.split.i.i
-  %common.ret.op.i.i = phi ptr [ @.str.195, %endif.482 ], [ %call.4059.i.i, %common.ret.sink.split.i.i ]
+  %common.ret.op.i.i = phi ptr [ @.str.196, %endif.482 ], [ %call.4059.i.i, %common.ret.sink.split.i.i ]
   %call.2771 = tail call ptr @bin_dir()
   %call.3770.i = tail call i32 @create_dir_all(ptr %call.2771)
-  %call.2775 = tail call ptr @str_cat(ptr nonnull @.str.183, ptr %common.ret.op.i)
-  %call.2777 = tail call ptr @str_cat(ptr %call.2775, ptr nonnull @.str.184)
+  %call.2775 = tail call ptr @str_cat(ptr nonnull @.str.184, ptr %common.ret.op.i)
+  %call.2777 = tail call ptr @str_cat(ptr %call.2775, ptr nonnull @.str.185)
   %call.2782 = tail call ptr @str_cat(ptr %call.2777, ptr %common.ret.op.i.i)
-  %call.2784 = tail call ptr @str_cat(ptr %call.2782, ptr nonnull @.str.185)
+  %call.2784 = tail call ptr @str_cat(ptr %call.2782, ptr nonnull @.str.186)
   tail call void @heap_free(ptr %call.2777)
   %call.3379.i = tail call ptr @vec_str_new()
-  tail call void @vec_str_push(ptr %call.3379.i, ptr nonnull @.str.186)
+  tail call void @vec_str_push(ptr %call.3379.i, ptr nonnull @.str.187)
   tail call void @vec_str_push(ptr %call.3379.i, ptr %call.2784)
   %arg.tmp.2794 = alloca %StrVec, align 8
   store ptr %call.3379.i, ptr %arg.tmp.2794, align 8
-  %call.2795 = call %ExecResult @exec(ptr nonnull @.str.187, ptr nonnull %arg.tmp.2794)
+  %call.2795 = call %ExecResult @exec(ptr nonnull @.str.188, ptr nonnull %arg.tmp.2794)
   %alloca.2797 = alloca %ExecResult, align 8
   store %ExecResult %call.2795, ptr %alloca.2797, align 8
   %load.2798 = load i32, ptr %alloca.2797, align 8
@@ -5628,33 +5628,33 @@ then.486:                                         ; preds = %then.483
   br label %endif.488
 
 endif.488:                                        ; preds = %then.483, %then.486
-  %call.2811 = tail call ptr @str_cat(ptr nonnull @.str.188, ptr %common.ret.op.i.i)
+  %call.2811 = tail call ptr @str_cat(ptr nonnull @.str.189, ptr %common.ret.op.i.i)
   %call.2813 = tail call ptr @str_cat(ptr %call.2811, ptr nonnull @.str.11)
   %puts1 = tail call i32 @puts(ptr nonnull dereferenceable(1) %call.2813)
   tail call void @heap_free(ptr %call.2784)
   br label %common.ret
 
 endif.485:                                        ; preds = %nyrapkg_installed_bin.exit
-  %call.4630.i = tail call ptr @str_cat(ptr nonnull @.str.276, ptr nonnull @.str.189)
+  %call.4630.i = tail call ptr @str_cat(ptr nonnull @.str.277, ptr nonnull @.str.190)
   %call.4588.i.i = tail call ptr @str_cat(ptr nonnull @.str.5, ptr %call.4630.i)
   %call.4591.i.i = tail call ptr @str_cat(ptr %call.4588.i.i, ptr nonnull @.str.3)
   tail call void @stdout_writeln_str(ptr %call.4591.i.i)
-  %call.4599.i = tail call ptr @str_cat(ptr nonnull @.str.273, ptr nonnull @.str.7)
+  %call.4599.i = tail call ptr @str_cat(ptr nonnull @.str.274, ptr nonnull @.str.7)
   %call.4601.i = tail call ptr @str_cat(ptr %call.4599.i, ptr nonnull @.str.41)
   %call.4604.i = tail call ptr @str_cat(ptr %call.4601.i, ptr nonnull @.str.3)
   %call.4609.i = tail call ptr @str_cat(ptr nonnull @.str.8, ptr %common.ret.op.i.i)
   %call.4612.i = tail call ptr @str_cat(ptr %call.4609.i, ptr nonnull @.str.3)
-  %call.4617.i = tail call ptr @str_cat(ptr %call.4604.i, ptr nonnull @.str.274)
+  %call.4617.i = tail call ptr @str_cat(ptr %call.4604.i, ptr nonnull @.str.275)
   %call.4620.i = tail call ptr @str_cat(ptr %call.4617.i, ptr %call.4612.i)
   tail call void @stdout_writeln_str(ptr %call.4620.i)
   tail call void @heap_free(ptr %call.4604.i)
   tail call void @heap_free(ptr %call.4612.i)
-  %call.4634.i = tail call ptr @str_cat(ptr nonnull @.str.274, ptr nonnull @.str.7)
-  %call.4636.i = tail call ptr @str_cat(ptr %call.4634.i, ptr nonnull @.str.277)
+  %call.4634.i = tail call ptr @str_cat(ptr nonnull @.str.275, ptr nonnull @.str.7)
+  %call.4636.i = tail call ptr @str_cat(ptr %call.4634.i, ptr nonnull @.str.278)
   %call.4639.i = tail call ptr @str_cat(ptr %call.4636.i, ptr nonnull @.str.3)
-  %call.4644.i = tail call ptr @str_cat(ptr nonnull @.str.8, ptr nonnull @.str.190)
+  %call.4644.i = tail call ptr @str_cat(ptr nonnull @.str.8, ptr nonnull @.str.191)
   %call.4647.i = tail call ptr @str_cat(ptr %call.4644.i, ptr nonnull @.str.3)
-  %call.4652.i = tail call ptr @str_cat(ptr %call.4639.i, ptr nonnull @.str.274)
+  %call.4652.i = tail call ptr @str_cat(ptr %call.4639.i, ptr nonnull @.str.275)
   %call.4655.i = tail call ptr @str_cat(ptr %call.4652.i, ptr %call.4647.i)
   tail call void @stdout_writeln_str(ptr %call.4655.i)
   tail call void @heap_free(ptr %call.4647.i)
@@ -5677,11 +5677,11 @@ endif.831.i:                                      ; preds = %entry
   br i1 %bin.4161.i, label %then.832.i, label %nyra_home_dir.exit
 
 then.832.i:                                       ; preds = %endif.831.i
-  %call.4164.i = tail call ptr @str_cat(ptr %call.4172.i.i1.i, ptr nonnull @.str.244)
+  %call.4164.i = tail call ptr @str_cat(ptr %call.4172.i.i1.i, ptr nonnull @.str.245)
   br label %nyra_home_dir.exit
 
 nyra_home_dir.exit:                               ; preds = %entry, %endif.831.i, %then.832.i
-  %common.ret.op.i = phi ptr [ %call.4172.i.i.i, %entry ], [ %call.4164.i, %then.832.i ], [ @.str.245, %endif.831.i ]
+  %common.ret.op.i = phi ptr [ %call.4172.i.i.i, %entry ], [ %call.4164.i, %then.832.i ], [ @.str.246, %endif.831.i ]
   %call.2822 = tail call i32 @Self_run_install_script(ptr nonnull @.str.1, ptr %common.ret.op.i, ptr %0)
   %bin.2823.not = icmp eq i32 %call.2822, 0
   br i1 %bin.2823.not, label %endif.491, label %then.489
@@ -5691,14 +5691,14 @@ common.ret:                                       ; preds = %endif.491, %then.48
   ret i32 %common.ret.op
 
 then.489:                                         ; preds = %nyra_home_dir.exit
-  %call.4595.i = tail call ptr @str_cat(ptr nonnull @.str.272, ptr nonnull @.str.191)
+  %call.4595.i = tail call ptr @str_cat(ptr nonnull @.str.273, ptr nonnull @.str.192)
   %call.4588.i.i = tail call ptr @str_cat(ptr nonnull @.str.4, ptr %call.4595.i)
   %call.4591.i.i = tail call ptr @str_cat(ptr %call.4588.i.i, ptr nonnull @.str.3)
   tail call void @stdout_writeln_str(ptr %call.4591.i.i)
   br label %common.ret
 
 endif.491:                                        ; preds = %nyra_home_dir.exit
-  %call.4630.i = tail call ptr @str_cat(ptr nonnull @.str.276, ptr nonnull @.str.192)
+  %call.4630.i = tail call ptr @str_cat(ptr nonnull @.str.277, ptr nonnull @.str.193)
   %call.4588.i.i1 = tail call ptr @str_cat(ptr nonnull @.str.5, ptr %call.4630.i)
   %call.4591.i.i2 = tail call ptr @str_cat(ptr %call.4588.i.i1, ptr nonnull @.str.3)
   tail call void @stdout_writeln_str(ptr %call.4591.i.i2)
@@ -5720,11 +5720,11 @@ endif.831.i:                                      ; preds = %entry
   br i1 %bin.4161.i, label %then.832.i, label %nyra_home_dir.exit
 
 then.832.i:                                       ; preds = %endif.831.i
-  %call.4164.i = tail call ptr @str_cat(ptr %call.4172.i.i1.i, ptr nonnull @.str.244)
+  %call.4164.i = tail call ptr @str_cat(ptr %call.4172.i.i1.i, ptr nonnull @.str.245)
   br label %nyra_home_dir.exit
 
 nyra_home_dir.exit:                               ; preds = %entry, %endif.831.i, %then.832.i
-  %common.ret.op.i = phi ptr [ %call.4172.i.i.i, %entry ], [ %call.4164.i, %then.832.i ], [ @.str.245, %endif.831.i ]
+  %common.ret.op.i = phi ptr [ %call.4172.i.i.i, %entry ], [ %call.4164.i, %then.832.i ], [ @.str.246, %endif.831.i ]
   %call.2829 = tail call i32 @Self_run_install_script(ptr nonnull @.str.2, ptr %common.ret.op.i, ptr %0)
   %bin.2830.not = icmp eq i32 %call.2829, 0
   br i1 %bin.2830.not, label %endif.494, label %then.492
@@ -5734,14 +5734,14 @@ common.ret:                                       ; preds = %endif.494, %then.49
   ret i32 %common.ret.op
 
 then.492:                                         ; preds = %nyra_home_dir.exit
-  %call.4595.i = tail call ptr @str_cat(ptr nonnull @.str.272, ptr nonnull @.str.193)
+  %call.4595.i = tail call ptr @str_cat(ptr nonnull @.str.273, ptr nonnull @.str.194)
   %call.4588.i.i = tail call ptr @str_cat(ptr nonnull @.str.4, ptr %call.4595.i)
   %call.4591.i.i = tail call ptr @str_cat(ptr %call.4588.i.i, ptr nonnull @.str.3)
   tail call void @stdout_writeln_str(ptr %call.4591.i.i)
   br label %common.ret
 
 endif.494:                                        ; preds = %nyra_home_dir.exit
-  %call.4630.i = tail call ptr @str_cat(ptr nonnull @.str.276, ptr nonnull @.str.194)
+  %call.4630.i = tail call ptr @str_cat(ptr nonnull @.str.277, ptr nonnull @.str.195)
   %call.4588.i.i1 = tail call ptr @str_cat(ptr nonnull @.str.5, ptr %call.4630.i)
   %call.4591.i.i2 = tail call ptr @str_cat(ptr %call.4588.i.i1, ptr nonnull @.str.3)
   tail call void @stdout_writeln_str(ptr %call.4591.i.i2)
@@ -5751,14 +5751,14 @@ endif.494:                                        ; preds = %nyra_home_dir.exit
 
 define noundef i32 @Self_cmd_version() local_unnamed_addr {
 entry:
-  tail call void @ui_version_line(ptr nonnull @.str.195, ptr nonnull @.str.0)
+  tail call void @ui_version_line(ptr nonnull @.str.196, ptr nonnull @.str.0)
   %call.2836 = tail call ptr @Self_nyra_version_text()
   %call.2838 = tail call i32 @str_len(ptr %call.2836)
   %bin.2839 = icmp sgt i32 %call.2838, 0
   br i1 %bin.2839, label %then.495, label %else.496
 
 then.495:                                         ; preds = %entry
-  %call.2970.i = tail call i32 @str_starts_with(ptr %call.2836, ptr nonnull @.str.203)
+  %call.2970.i = tail call i32 @str_starts_with(ptr %call.2836, ptr nonnull @.str.204)
   %bin.2971.i = icmp eq i32 %call.2970.i, 1
   br i1 %bin.2971.i, label %then.549.i, label %Self_nyra_version_number.exit
 
@@ -5771,11 +5771,11 @@ then.549.i:                                       ; preds = %then.495
 
 Self_nyra_version_number.exit:                    ; preds = %then.495, %then.549.i
   %common.ret.op.i = phi ptr [ %call.4569.i.i, %then.549.i ], [ %call.2836, %then.495 ]
-  tail call void @ui_version_line(ptr nonnull @.str.196, ptr %common.ret.op.i)
+  tail call void @ui_version_line(ptr nonnull @.str.197, ptr %common.ret.op.i)
   br label %endif.497
 
 else.496:                                         ; preds = %entry
-  %call.4690.i = tail call ptr @str_cat(ptr nonnull @.str.278, ptr nonnull @.str.197)
+  %call.4690.i = tail call ptr @str_cat(ptr nonnull @.str.279, ptr nonnull @.str.198)
   %call.4588.i.i = tail call ptr @str_cat(ptr nonnull @.str.6, ptr %call.4690.i)
   %call.4591.i.i = tail call ptr @str_cat(ptr %call.4588.i.i, ptr nonnull @.str.3)
   tail call void @stdout_writeln_str(ptr %call.4591.i.i)
@@ -5799,28 +5799,28 @@ endif.831.i:                                      ; preds = %entry
   br i1 %bin.4161.i, label %then.832.i, label %nyra_home_dir.exit
 
 then.832.i:                                       ; preds = %endif.831.i
-  %call.4164.i = tail call ptr @str_cat(ptr %call.4172.i.i1.i, ptr nonnull @.str.244)
+  %call.4164.i = tail call ptr @str_cat(ptr %call.4172.i.i1.i, ptr nonnull @.str.245)
   br label %nyra_home_dir.exit
 
 nyra_home_dir.exit:                               ; preds = %entry, %endif.831.i, %then.832.i
-  %common.ret.op.i = phi ptr [ %call.4172.i.i.i, %entry ], [ %call.4164.i, %then.832.i ], [ @.str.245, %endif.831.i ]
-  %call.4599.i = tail call ptr @str_cat(ptr nonnull @.str.273, ptr nonnull @.str.7)
+  %common.ret.op.i = phi ptr [ %call.4172.i.i.i, %entry ], [ %call.4164.i, %then.832.i ], [ @.str.246, %endif.831.i ]
+  %call.4599.i = tail call ptr @str_cat(ptr nonnull @.str.274, ptr nonnull @.str.7)
   %call.4601.i = tail call ptr @str_cat(ptr %call.4599.i, ptr nonnull @.str.106)
   %call.4604.i = tail call ptr @str_cat(ptr %call.4601.i, ptr nonnull @.str.3)
   %call.4609.i = tail call ptr @str_cat(ptr nonnull @.str.8, ptr %common.ret.op.i)
   %call.4612.i = tail call ptr @str_cat(ptr %call.4609.i, ptr nonnull @.str.3)
-  %call.4617.i = tail call ptr @str_cat(ptr %call.4604.i, ptr nonnull @.str.274)
+  %call.4617.i = tail call ptr @str_cat(ptr %call.4604.i, ptr nonnull @.str.275)
   %call.4620.i = tail call ptr @str_cat(ptr %call.4617.i, ptr %call.4612.i)
   tail call void @stdout_writeln_str(ptr %call.4620.i)
   tail call void @heap_free(ptr %call.4604.i)
   tail call void @heap_free(ptr %call.4612.i)
   %call.2846 = tail call ptr @bin_dir()
-  %call.4599.i1 = tail call ptr @str_cat(ptr nonnull @.str.273, ptr nonnull @.str.7)
-  %call.4601.i2 = tail call ptr @str_cat(ptr %call.4599.i1, ptr nonnull @.str.198)
+  %call.4599.i1 = tail call ptr @str_cat(ptr nonnull @.str.274, ptr nonnull @.str.7)
+  %call.4601.i2 = tail call ptr @str_cat(ptr %call.4599.i1, ptr nonnull @.str.199)
   %call.4604.i3 = tail call ptr @str_cat(ptr %call.4601.i2, ptr nonnull @.str.3)
   %call.4609.i4 = tail call ptr @str_cat(ptr nonnull @.str.8, ptr %call.2846)
   %call.4612.i5 = tail call ptr @str_cat(ptr %call.4609.i4, ptr nonnull @.str.3)
-  %call.4617.i6 = tail call ptr @str_cat(ptr %call.4604.i3, ptr nonnull @.str.274)
+  %call.4617.i6 = tail call ptr @str_cat(ptr %call.4604.i3, ptr nonnull @.str.275)
   %call.4620.i7 = tail call ptr @str_cat(ptr %call.4617.i6, ptr %call.4612.i5)
   tail call void @stdout_writeln_str(ptr %call.4620.i7)
   tail call void @heap_free(ptr %call.4604.i3)
@@ -5836,13 +5836,13 @@ then.664.i:                                       ; preds = %nyra_home_dir.exit
   br label %config_path.exit
 
 config_path.exit:                                 ; preds = %nyra_home_dir.exit, %then.664.i
-  %common.ret.op.i9 = phi ptr [ %call.3698.i, %then.664.i ], [ @.str.229, %nyra_home_dir.exit ]
-  %call.4599.i10 = tail call ptr @str_cat(ptr nonnull @.str.273, ptr nonnull @.str.7)
+  %common.ret.op.i9 = phi ptr [ %call.3698.i, %then.664.i ], [ @.str.230, %nyra_home_dir.exit ]
+  %call.4599.i10 = tail call ptr @str_cat(ptr nonnull @.str.274, ptr nonnull @.str.7)
   %call.4601.i11 = tail call ptr @str_cat(ptr %call.4599.i10, ptr nonnull @.str.165)
   %call.4604.i12 = tail call ptr @str_cat(ptr %call.4601.i11, ptr nonnull @.str.3)
   %call.4609.i13 = tail call ptr @str_cat(ptr nonnull @.str.8, ptr %common.ret.op.i9)
   %call.4612.i14 = tail call ptr @str_cat(ptr %call.4609.i13, ptr nonnull @.str.3)
-  %call.4617.i15 = tail call ptr @str_cat(ptr %call.4604.i12, ptr nonnull @.str.274)
+  %call.4617.i15 = tail call ptr @str_cat(ptr %call.4604.i12, ptr nonnull @.str.275)
   %call.4620.i16 = tail call ptr @str_cat(ptr %call.4617.i15, ptr %call.4612.i14)
   tail call void @stdout_writeln_str(ptr %call.4620.i16)
   tail call void @heap_free(ptr %call.4604.i12)
@@ -5854,7 +5854,7 @@ config_path.exit:                                 ; preds = %nyra_home_dir.exit,
 
 common.ret.sink.split.i.i:                        ; preds = %endif.759.i.i, %endif.756.i.i
   %call.4057.sink.i.i = phi ptr [ %call.4057.i.i, %endif.759.i.i ], [ %call.4169.i, %endif.756.i.i ]
-  %call.4059.i.i = tail call ptr @str_cat(ptr %call.4057.sink.i.i, ptr nonnull @.str.195)
+  %call.4059.i.i = tail call ptr @str_cat(ptr %call.4057.sink.i.i, ptr nonnull @.str.196)
   br label %nyrapkg_installed_bin.exit
 
 endif.756.i.i:                                    ; preds = %config_path.exit
@@ -5865,28 +5865,28 @@ endif.756.i.i:                                    ; preds = %config_path.exit
   br i1 %bin.4051.i.i, label %common.ret.sink.split.i.i, label %endif.759.i.i
 
 endif.759.i.i:                                    ; preds = %endif.756.i.i
-  %call.4057.i.i = tail call ptr @str_cat(ptr %call.4169.i, ptr nonnull @.str.227)
+  %call.4057.i.i = tail call ptr @str_cat(ptr %call.4169.i, ptr nonnull @.str.228)
   br label %common.ret.sink.split.i.i
 
 nyrapkg_installed_bin.exit:                       ; preds = %config_path.exit, %common.ret.sink.split.i.i
-  %common.ret.op.i.i = phi ptr [ @.str.195, %config_path.exit ], [ %call.4059.i.i, %common.ret.sink.split.i.i ]
-  %call.4599.i17 = tail call ptr @str_cat(ptr nonnull @.str.273, ptr nonnull @.str.7)
-  %call.4601.i18 = tail call ptr @str_cat(ptr %call.4599.i17, ptr nonnull @.str.195)
+  %common.ret.op.i.i = phi ptr [ @.str.196, %config_path.exit ], [ %call.4059.i.i, %common.ret.sink.split.i.i ]
+  %call.4599.i17 = tail call ptr @str_cat(ptr nonnull @.str.274, ptr nonnull @.str.7)
+  %call.4601.i18 = tail call ptr @str_cat(ptr %call.4599.i17, ptr nonnull @.str.196)
   %call.4604.i19 = tail call ptr @str_cat(ptr %call.4601.i18, ptr nonnull @.str.3)
   %call.4609.i20 = tail call ptr @str_cat(ptr nonnull @.str.8, ptr %common.ret.op.i.i)
   %call.4612.i21 = tail call ptr @str_cat(ptr %call.4609.i20, ptr nonnull @.str.3)
-  %call.4617.i22 = tail call ptr @str_cat(ptr %call.4604.i19, ptr nonnull @.str.274)
+  %call.4617.i22 = tail call ptr @str_cat(ptr %call.4604.i19, ptr nonnull @.str.275)
   %call.4620.i23 = tail call ptr @str_cat(ptr %call.4617.i22, ptr %call.4612.i21)
   tail call void @stdout_writeln_str(ptr %call.4620.i23)
   tail call void @heap_free(ptr %call.4604.i19)
   tail call void @heap_free(ptr %call.4612.i21)
   %call.2852 = tail call ptr @nyra_bin_resolved()
-  %call.4599.i24 = tail call ptr @str_cat(ptr nonnull @.str.273, ptr nonnull @.str.7)
-  %call.4601.i25 = tail call ptr @str_cat(ptr %call.4599.i24, ptr nonnull @.str.196)
+  %call.4599.i24 = tail call ptr @str_cat(ptr nonnull @.str.274, ptr nonnull @.str.7)
+  %call.4601.i25 = tail call ptr @str_cat(ptr %call.4599.i24, ptr nonnull @.str.197)
   %call.4604.i26 = tail call ptr @str_cat(ptr %call.4601.i25, ptr nonnull @.str.3)
   %call.4609.i27 = tail call ptr @str_cat(ptr nonnull @.str.8, ptr %call.2852)
   %call.4612.i28 = tail call ptr @str_cat(ptr %call.4609.i27, ptr nonnull @.str.3)
-  %call.4617.i29 = tail call ptr @str_cat(ptr %call.4604.i26, ptr nonnull @.str.274)
+  %call.4617.i29 = tail call ptr @str_cat(ptr %call.4604.i26, ptr nonnull @.str.275)
   %call.4620.i30 = tail call ptr @str_cat(ptr %call.4617.i29, ptr %call.4612.i28)
   tail call void @stdout_writeln_str(ptr %call.4620.i30)
   tail call void @heap_free(ptr %call.4604.i26)
@@ -5902,12 +5902,12 @@ then.667.i:                                       ; preds = %nyrapkg_installed_b
 
 current_executable.exit:                          ; preds = %nyrapkg_installed_bin.exit, %then.667.i
   %common.ret.op.i31 = phi ptr [ %call.3370.i.i, %then.667.i ], [ @.str.11, %nyrapkg_installed_bin.exit ]
-  %call.4599.i32 = tail call ptr @str_cat(ptr nonnull @.str.273, ptr nonnull @.str.7)
-  %call.4601.i33 = tail call ptr @str_cat(ptr %call.4599.i32, ptr nonnull @.str.199)
+  %call.4599.i32 = tail call ptr @str_cat(ptr nonnull @.str.274, ptr nonnull @.str.7)
+  %call.4601.i33 = tail call ptr @str_cat(ptr %call.4599.i32, ptr nonnull @.str.200)
   %call.4604.i34 = tail call ptr @str_cat(ptr %call.4601.i33, ptr nonnull @.str.3)
   %call.4609.i35 = tail call ptr @str_cat(ptr nonnull @.str.8, ptr %common.ret.op.i31)
   %call.4612.i36 = tail call ptr @str_cat(ptr %call.4609.i35, ptr nonnull @.str.3)
-  %call.4617.i37 = tail call ptr @str_cat(ptr %call.4604.i34, ptr nonnull @.str.274)
+  %call.4617.i37 = tail call ptr @str_cat(ptr %call.4604.i34, ptr nonnull @.str.275)
   %call.4620.i38 = tail call ptr @str_cat(ptr %call.4617.i37, ptr %call.4612.i36)
   tail call void @stdout_writeln_str(ptr %call.4620.i38)
   tail call void @heap_free(ptr %call.4604.i34)
@@ -6003,7 +6003,7 @@ then.519:                                         ; preds = %then.516
   br label %common.ret
 
 endif.521:                                        ; preds = %then.516
-  %1 = tail call i32 @puts(ptr nonnull dereferenceable(1) @.str.200)
+  %1 = tail call i32 @puts(ptr nonnull dereferenceable(1) @.str.201)
   br label %common.ret
 
 endif.518:                                        ; preds = %endif.512
@@ -6033,7 +6033,7 @@ then.528:                                         ; preds = %then.525
   br label %common.ret
 
 endif.530:                                        ; preds = %then.525
-  %2 = tail call i32 @puts(ptr nonnull dereferenceable(1) @.str.201)
+  %2 = tail call i32 @puts(ptr nonnull dereferenceable(1) @.str.202)
   br label %common.ret
 
 endif.527:                                        ; preds = %endif.518
@@ -6058,7 +6058,7 @@ common.ret:                                       ; preds = %endif.548, %then.54
   ret i32 %common.ret.op
 
 then.537:                                         ; preds = %entry
-  %1 = tail call i32 @puts(ptr nonnull dereferenceable(1) @.str.202)
+  %1 = tail call i32 @puts(ptr nonnull dereferenceable(1) @.str.203)
   br label %common.ret
 
 endif.539:                                        ; preds = %entry
@@ -6070,7 +6070,7 @@ endif.539:                                        ; preds = %entry
   %load.3369.i3 = load ptr, ptr %0, align 8
   %call.3370.i4 = tail call ptr @vec_str_get(ptr %load.3369.i3, i32 2)
   %call.2943..str.11 = select i1 %bin.2942, ptr %call.3370.i4, ptr @.str.11
-  %call.2949 = tail call i32 @str_cmp(ptr %call.3370.i, ptr nonnull @.str.196)
+  %call.2949 = tail call i32 @str_cmp(ptr %call.3370.i, ptr nonnull @.str.197)
   %bin.2950 = icmp eq i32 %call.2949, 0
   %call.2953 = tail call i32 @str_cmp(ptr %call.3370.i, ptr nonnull @.str.53)
   %bin.2954 = icmp eq i32 %call.2953, 0
@@ -6084,7 +6084,7 @@ then.543:                                         ; preds = %endif.539
 endif.545:                                        ; preds = %endif.539
   %call.2959 = tail call i32 @str_cmp(ptr %call.3370.i, ptr nonnull @.str.52)
   %bin.2960 = icmp eq i32 %call.2959, 0
-  %call.2963 = tail call i32 @str_cmp(ptr %call.3370.i, ptr nonnull @.str.195)
+  %call.2963 = tail call i32 @str_cmp(ptr %call.3370.i, ptr nonnull @.str.196)
   %bin.2964 = icmp eq i32 %call.2963, 0
   %bin.2965 = or i1 %bin.2960, %bin.2964
   br i1 %bin.2965, label %then.546, label %endif.548
@@ -6094,13 +6094,13 @@ then.546:                                         ; preds = %endif.545
   br label %common.ret
 
 endif.548:                                        ; preds = %endif.545
-  %2 = tail call i32 @puts(ptr nonnull dereferenceable(1) @.str.202)
+  %2 = tail call i32 @puts(ptr nonnull dereferenceable(1) @.str.203)
   br label %common.ret
 }
 
 define ptr @Self_nyra_version_number(ptr %0) local_unnamed_addr {
 entry:
-  %call.2970 = tail call i32 @str_starts_with(ptr %0, ptr nonnull @.str.203)
+  %call.2970 = tail call i32 @str_starts_with(ptr %0, ptr nonnull @.str.204)
   %bin.2971 = icmp eq i32 %call.2970, 1
   br i1 %bin.2971, label %then.549, label %common.ret
 
@@ -6145,7 +6145,7 @@ endif.554:                                        ; preds = %entry
 then.962.i:                                       ; preds = %endif.554
   %bin.4576.i = add nsw i32 %call.4573.i, -2
   %call.4577.i = tail call ptr @substring(ptr %call.4569.i.i, i32 %bin.4576.i, i32 2)
-  %call.4580.i = tail call i32 @str_cmp(ptr %call.4577.i, ptr nonnull @.str.271)
+  %call.4580.i = tail call i32 @str_cmp(ptr %call.4577.i, ptr nonnull @.str.272)
   %bin.4581.i = icmp eq i32 %call.4580.i, 0
   br i1 %bin.4581.i, label %then.965.i, label %common.ret
 
@@ -6157,20 +6157,20 @@ then.965.i:                                       ; preds = %then.962.i
 
 define i32 @Self_run_install_script(ptr %0, ptr %1, ptr %2) local_unnamed_addr {
 entry:
-  %call.2996 = tail call ptr @str_cat(ptr nonnull @.str.204, ptr %0)
-  %call.2998 = tail call ptr @str_cat(ptr %call.2996, ptr nonnull @.str.205)
-  %call.3003 = tail call ptr @str_cat(ptr nonnull @.str.206, ptr %call.2998)
-  %call.3005 = tail call ptr @str_cat(ptr %call.3003, ptr nonnull @.str.207)
+  %call.2996 = tail call ptr @str_cat(ptr nonnull @.str.205, ptr %0)
+  %call.2998 = tail call ptr @str_cat(ptr %call.2996, ptr nonnull @.str.206)
+  %call.3003 = tail call ptr @str_cat(ptr nonnull @.str.207, ptr %call.2998)
+  %call.3005 = tail call ptr @str_cat(ptr %call.3003, ptr nonnull @.str.208)
   %call.3010 = tail call ptr @str_cat(ptr %call.3005, ptr %1)
   tail call void @heap_free(ptr %call.3005)
-  %call.3015 = tail call ptr @str_cat(ptr %call.3010, ptr nonnull @.str.185)
+  %call.3015 = tail call ptr @str_cat(ptr %call.3010, ptr nonnull @.str.186)
   tail call void @heap_free(ptr %call.3010)
   %call.3018 = tail call i32 @str_len(ptr %2)
   %bin.3019 = icmp sgt i32 %call.3018, 0
   br i1 %bin.3019, label %then.555, label %endif.557
 
 then.555:                                         ; preds = %entry
-  %call.3023 = tail call ptr @str_cat(ptr %call.3015, ptr nonnull @.str.208)
+  %call.3023 = tail call ptr @str_cat(ptr %call.3015, ptr nonnull @.str.209)
   %call.3025 = tail call ptr @str_cat(ptr %call.3023, ptr %2)
   %call.3027 = tail call ptr @str_cat(ptr %call.3025, ptr nonnull @.str.11)
   tail call void @heap_free(ptr %call.3015)
@@ -6179,11 +6179,11 @@ then.555:                                         ; preds = %entry
 endif.557:                                        ; preds = %entry, %then.555
   %alloca.3006.0 = phi ptr [ %call.3027, %then.555 ], [ %call.3015, %entry ]
   %call.3379.i = tail call ptr @vec_str_new()
-  tail call void @vec_str_push(ptr %call.3379.i, ptr nonnull @.str.186)
+  tail call void @vec_str_push(ptr %call.3379.i, ptr nonnull @.str.187)
   tail call void @vec_str_push(ptr %call.3379.i, ptr %alloca.3006.0)
   %arg.tmp.3037 = alloca %StrVec, align 8
   store ptr %call.3379.i, ptr %arg.tmp.3037, align 8
-  %call.3038 = call %ExecResult @exec(ptr nonnull @.str.187, ptr nonnull %arg.tmp.3037)
+  %call.3038 = call %ExecResult @exec(ptr nonnull @.str.188, ptr nonnull %arg.tmp.3037)
   %alloca.3040 = alloca %ExecResult, align 8
   store %ExecResult %call.3038, ptr %alloca.3040, align 8
   %load.3041 = load i32, ptr %alloca.3040, align 8
@@ -6225,11 +6225,11 @@ then.564:                                         ; preds = %endif.563
   br label %endif.566
 
 common.ret:                                       ; preds = %endif.557, %endif.566
-  %call.2998.sink = phi ptr [ %alloca.3006.0, %endif.566 ], [ %call.2998, %endif.557 ]
   %alloca.3006.0.sink = phi ptr [ %call.2998, %endif.566 ], [ %alloca.3006.0, %endif.557 ]
+  %call.2998.sink = phi ptr [ %alloca.3006.0, %endif.566 ], [ %call.2998, %endif.557 ]
   %common.ret.op = phi i32 [ %load.3063, %endif.566 ], [ 0, %endif.557 ]
-  tail call void @heap_free(ptr %call.2998.sink)
   tail call void @heap_free(ptr %alloca.3006.0.sink)
+  tail call void @heap_free(ptr %call.2998.sink)
   ret i32 %common.ret.op
 
 endif.566:                                        ; preds = %endif.563, %then.564
@@ -6297,9 +6297,9 @@ entry:
   %call.3112 = tail call ptr @str_cat(ptr nonnull @.str.16, ptr %call.3111)
   %call.3118 = tail call ptr @str_cat(ptr %call.3100, ptr %call.3106)
   %call.3121 = tail call ptr @str_cat(ptr %call.3118, ptr %call.3112)
-  tail call void @heap_free(ptr %call.3106)
   tail call void @heap_free(ptr %call.3112)
   tail call void @heap_free(ptr %call.3100)
+  tail call void @heap_free(ptr %call.3106)
   ret ptr %call.3121
 }
 
@@ -6317,10 +6317,10 @@ entry:
   %call.3112.i = tail call ptr @str_cat(ptr nonnull @.str.16, ptr %call.3111.i)
   %call.3118.i = tail call ptr @str_cat(ptr %call.3100.i, ptr %call.3106.i)
   %call.3121.i = tail call ptr @str_cat(ptr %call.3118.i, ptr %call.3112.i)
-  tail call void @heap_free(ptr %call.3106.i)
   tail call void @heap_free(ptr %call.3112.i)
   tail call void @heap_free(ptr %call.3100.i)
-  %call.3127 = tail call ptr @str_cat(ptr nonnull @.str.209, ptr %call.3121.i)
+  tail call void @heap_free(ptr %call.3106.i)
+  %call.3127 = tail call ptr @str_cat(ptr nonnull @.str.210, ptr %call.3121.i)
   ret ptr %call.3127
 }
 
@@ -6338,9 +6338,9 @@ entry:
   %call.3112.i = tail call ptr @str_cat(ptr nonnull @.str.16, ptr %call.3111.i)
   %call.3118.i = tail call ptr @str_cat(ptr %call.3100.i, ptr %call.3106.i)
   %call.3121.i = tail call ptr @str_cat(ptr %call.3118.i, ptr %call.3112.i)
-  tail call void @heap_free(ptr %call.3106.i)
   tail call void @heap_free(ptr %call.3112.i)
   tail call void @heap_free(ptr %call.3100.i)
+  tail call void @heap_free(ptr %call.3106.i)
   ret ptr %call.3121.i
 }
 
@@ -6358,10 +6358,10 @@ entry:
   %call.3112.i = tail call ptr @str_cat(ptr nonnull @.str.16, ptr %call.3111.i)
   %call.3118.i = tail call ptr @str_cat(ptr %call.3100.i, ptr %call.3106.i)
   %call.3121.i = tail call ptr @str_cat(ptr %call.3118.i, ptr %call.3112.i)
-  tail call void @heap_free(ptr %call.3106.i)
   tail call void @heap_free(ptr %call.3112.i)
   tail call void @heap_free(ptr %call.3100.i)
-  %call.3131 = tail call ptr @str_cat(ptr nonnull @.str.210, ptr %call.3121.i)
+  tail call void @heap_free(ptr %call.3106.i)
+  %call.3131 = tail call ptr @str_cat(ptr nonnull @.str.211, ptr %call.3121.i)
   ret ptr %call.3131
 }
 
@@ -6389,9 +6389,9 @@ match.body.587:                                   ; preds = %entry
   %call.3112.i.i = tail call ptr @str_cat(ptr nonnull @.str.16, ptr %call.3111.i.i)
   %call.3118.i.i = tail call ptr @str_cat(ptr %call.3100.i.i, ptr %call.3106.i.i)
   %call.3121.i.i = tail call ptr @str_cat(ptr %call.3118.i.i, ptr %call.3112.i.i)
-  tail call void @heap_free(ptr %call.3106.i.i)
   tail call void @heap_free(ptr %call.3112.i.i)
   tail call void @heap_free(ptr %call.3100.i.i)
+  tail call void @heap_free(ptr %call.3106.i.i)
   br label %match.end.585
 
 match.body.590:                                   ; preds = %entry
@@ -6449,17 +6449,17 @@ entry:
   %call.3112.i = tail call ptr @str_cat(ptr nonnull @.str.16, ptr %call.3111.i)
   %call.3118.i = tail call ptr @str_cat(ptr %call.3100.i, ptr %call.3106.i)
   %call.3121.i = tail call ptr @str_cat(ptr %call.3118.i, ptr %call.3112.i)
-  tail call void @heap_free(ptr %call.3106.i)
   tail call void @heap_free(ptr %call.3112.i)
   tail call void @heap_free(ptr %call.3100.i)
-  %call.3164 = tail call ptr @str_cat(ptr nonnull @.str.211, ptr %call.3121.i)
+  tail call void @heap_free(ptr %call.3106.i)
+  %call.3164 = tail call ptr @str_cat(ptr nonnull @.str.212, ptr %call.3121.i)
   ret ptr %call.3164
 }
 
 define %VersionReq @Semver_parse_req(ptr %0) local_unnamed_addr {
 entry:
   %call.4569.i = tail call ptr @str_trim(ptr %0)
-  %call.3169 = tail call i32 @str_starts_with(ptr %call.4569.i, ptr nonnull @.str.209)
+  %call.3169 = tail call i32 @str_starts_with(ptr %call.4569.i, ptr nonnull @.str.210)
   %bin.3170 = icmp eq i32 %call.3169, 1
   br i1 %bin.3170, label %common.ret.sink.split, label %endif.601
 
@@ -6481,12 +6481,12 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   ret %VersionReq %common.ret.op
 
 endif.601:                                        ; preds = %entry
-  %call.3183 = tail call i32 @str_starts_with(ptr %call.4569.i, ptr nonnull @.str.211)
+  %call.3183 = tail call i32 @str_starts_with(ptr %call.4569.i, ptr nonnull @.str.212)
   %bin.3184 = icmp eq i32 %call.3183, 1
   br i1 %bin.3184, label %common.ret.sink.split, label %endif.604
 
 endif.604:                                        ; preds = %endif.601
-  %call.3197 = tail call i32 @str_starts_with(ptr %call.4569.i, ptr nonnull @.str.210)
+  %call.3197 = tail call i32 @str_starts_with(ptr %call.4569.i, ptr nonnull @.str.211)
   %bin.3198 = icmp eq i32 %call.3197, 1
   br i1 %bin.3198, label %common.ret.sink.split, label %common.ret
 }
@@ -6791,10 +6791,10 @@ entry:
   %call.3755.i = tail call ptr @json_get_string(ptr %0, ptr nonnull @.str.120)
   %str_clone.3323 = tail call ptr @str_clone(ptr %call.3755.i)
   %call.3751.i = tail call i32 @json_get_i32(ptr %0, ptr nonnull @.str.121)
-  %call.3707.i = tail call ptr @json_get_array(ptr %0, ptr nonnull @.str.212)
+  %call.3707.i = tail call ptr @json_get_array(ptr %0, ptr nonnull @.str.213)
   %call.3330 = tail call ptr @json_decode_i32_array(ptr %call.3707.i)
-  %call.3751.i1 = tail call i32 @json_get_i32(ptr %0, ptr nonnull @.str.213)
-  %call.3751.i2 = tail call i32 @json_get_i32(ptr %0, ptr nonnull @.str.214)
+  %call.3751.i1 = tail call i32 @json_get_i32(ptr %0, ptr nonnull @.str.214)
+  %call.3751.i2 = tail call i32 @json_get_i32(ptr %0, ptr nonnull @.str.215)
   %load.3337.fca.0.insert = insertvalue %Server poison, ptr %str_clone.3323, 0
   %load.3337.fca.1.insert = insertvalue %Server %load.3337.fca.0.insert, i32 %call.3751.i, 1
   %load.3337.fca.2.insert = insertvalue %Server %load.3337.fca.1.insert, ptr %call.3330, 2
@@ -6815,17 +6815,17 @@ entry:
   %load.3345 = load i32, ptr %gep.3344, align 8
   %call.3346 = tail call ptr @i32_to_string(i32 %load.3345)
   tail call void @vec_str_push(ptr %call.3339, ptr %call.3346)
-  tail call void @vec_str_push(ptr %call.3338, ptr nonnull @.str.212)
+  tail call void @vec_str_push(ptr %call.3338, ptr nonnull @.str.213)
   %gep.3348 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %load.3349 = load ptr, ptr %gep.3348, align 8
   %call.3350 = tail call ptr @json_encode_i32_array(ptr %load.3349)
   tail call void @vec_str_push(ptr %call.3339, ptr %call.3350)
-  tail call void @vec_str_push(ptr %call.3338, ptr nonnull @.str.213)
+  tail call void @vec_str_push(ptr %call.3338, ptr nonnull @.str.214)
   %gep.3352 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %load.3353 = load i32, ptr %gep.3352, align 8
   %call.3354 = tail call ptr @i32_to_string(i32 %load.3353)
   tail call void @vec_str_push(ptr %call.3339, ptr %call.3354)
-  tail call void @vec_str_push(ptr %call.3338, ptr nonnull @.str.214)
+  tail call void @vec_str_push(ptr %call.3338, ptr nonnull @.str.215)
   %gep.3356 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %load.3357 = load i32, ptr %gep.3356, align 4
   %call.3358 = tail call ptr @i32_to_string(i32 %load.3357)
@@ -6983,7 +6983,7 @@ entry:
 
 define %TcpListener @TcpListener_json_decode(ptr %0) local_unnamed_addr {
 entry:
-  %call.3751.i = tail call i32 @json_get_i32(ptr %0, ptr nonnull @.str.215)
+  %call.3751.i = tail call i32 @json_get_i32(ptr %0, ptr nonnull @.str.216)
   %load.3418.fca.0.insert = insertvalue %TcpListener poison, i32 %call.3751.i, 0
   ret %TcpListener %load.3418.fca.0.insert
 }
@@ -6992,7 +6992,7 @@ define ptr @TcpListener_json_encode(ptr readonly %0) local_unnamed_addr {
 entry:
   %call.3419 = tail call ptr @vec_str_new()
   %call.3420 = tail call ptr @vec_str_new()
-  tail call void @vec_str_push(ptr %call.3419, ptr nonnull @.str.215)
+  tail call void @vec_str_push(ptr %call.3419, ptr nonnull @.str.216)
   %load.3423 = load i32, ptr %0, align 4
   %call.3424 = tail call ptr @i32_to_string(i32 %load.3423)
   tail call void @vec_str_push(ptr %call.3420, ptr %call.3424)
@@ -7021,7 +7021,7 @@ entry:
 
 define %TcpStream @TcpStream_json_decode(ptr %0) local_unnamed_addr {
 entry:
-  %call.3751.i = tail call i32 @json_get_i32(ptr %0, ptr nonnull @.str.215)
+  %call.3751.i = tail call i32 @json_get_i32(ptr %0, ptr nonnull @.str.216)
   %load.3440.fca.0.insert = insertvalue %TcpStream poison, i32 %call.3751.i, 0
   ret %TcpStream %load.3440.fca.0.insert
 }
@@ -7030,7 +7030,7 @@ define ptr @TcpStream_json_encode(ptr readonly %0) local_unnamed_addr {
 entry:
   %call.3441 = tail call ptr @vec_str_new()
   %call.3442 = tail call ptr @vec_str_new()
-  tail call void @vec_str_push(ptr %call.3441, ptr nonnull @.str.215)
+  tail call void @vec_str_push(ptr %call.3441, ptr nonnull @.str.216)
   %load.3445 = load i32, ptr %0, align 4
   %call.3446 = tail call ptr @i32_to_string(i32 %load.3445)
   tail call void @vec_str_push(ptr %call.3442, ptr %call.3446)
@@ -7309,9 +7309,9 @@ entry:
 
 define %Version @Version_json_decode(ptr %0) local_unnamed_addr {
 entry:
-  %call.3751.i = tail call i32 @json_get_i32(ptr %0, ptr nonnull @.str.216)
-  %call.3751.i1 = tail call i32 @json_get_i32(ptr %0, ptr nonnull @.str.217)
-  %call.3751.i2 = tail call i32 @json_get_i32(ptr %0, ptr nonnull @.str.218)
+  %call.3751.i = tail call i32 @json_get_i32(ptr %0, ptr nonnull @.str.217)
+  %call.3751.i1 = tail call i32 @json_get_i32(ptr %0, ptr nonnull @.str.218)
+  %call.3751.i2 = tail call i32 @json_get_i32(ptr %0, ptr nonnull @.str.219)
   %load.3580.fca.0.insert = insertvalue %Version poison, i32 %call.3751.i, 0
   %load.3580.fca.1.insert = insertvalue %Version %load.3580.fca.0.insert, i32 %call.3751.i1, 1
   %load.3580.fca.2.insert = insertvalue %Version %load.3580.fca.1.insert, i32 %call.3751.i2, 2
@@ -7322,16 +7322,16 @@ define ptr @Version_json_encode(ptr readonly %0) local_unnamed_addr {
 entry:
   %call.3581 = tail call ptr @vec_str_new()
   %call.3582 = tail call ptr @vec_str_new()
-  tail call void @vec_str_push(ptr %call.3581, ptr nonnull @.str.216)
+  tail call void @vec_str_push(ptr %call.3581, ptr nonnull @.str.217)
   %load.3585 = load i32, ptr %0, align 4
   %call.3586 = tail call ptr @i32_to_string(i32 %load.3585)
   tail call void @vec_str_push(ptr %call.3582, ptr %call.3586)
-  tail call void @vec_str_push(ptr %call.3581, ptr nonnull @.str.217)
+  tail call void @vec_str_push(ptr %call.3581, ptr nonnull @.str.218)
   %gep.3588 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %load.3589 = load i32, ptr %gep.3588, align 4
   %call.3590 = tail call ptr @i32_to_string(i32 %load.3589)
   tail call void @vec_str_push(ptr %call.3582, ptr %call.3590)
-  tail call void @vec_str_push(ptr %call.3581, ptr nonnull @.str.218)
+  tail call void @vec_str_push(ptr %call.3581, ptr nonnull @.str.219)
   %gep.3592 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %load.3593 = load i32, ptr %gep.3592, align 4
   %call.3594 = tail call ptr @i32_to_string(i32 %load.3593)
@@ -7369,18 +7369,18 @@ endif.831.i:                                      ; preds = %entry
   br i1 %bin.4161.i, label %then.832.i, label %nyra_home_dir.exit
 
 then.832.i:                                       ; preds = %endif.831.i
-  %call.4164.i = tail call ptr @str_cat(ptr %call.4172.i.i1.i, ptr nonnull @.str.244)
+  %call.4164.i = tail call ptr @str_cat(ptr %call.4172.i.i1.i, ptr nonnull @.str.245)
   br label %nyra_home_dir.exit
 
 nyra_home_dir.exit:                               ; preds = %entry, %endif.831.i, %then.832.i
-  %common.ret.op.i = phi ptr [ %call.4172.i.i.i, %entry ], [ %call.4164.i, %then.832.i ], [ @.str.245, %endif.831.i ]
+  %common.ret.op.i = phi ptr [ %call.4172.i.i.i, %entry ], [ %call.4164.i, %then.832.i ], [ @.str.246, %endif.831.i ]
   %call.4044.i = tail call i32 @str_len(ptr %common.ret.op.i)
   %bin.4045.i = icmp eq i32 %call.4044.i, 0
   br i1 %bin.4045.i, label %join_path.exit, label %endif.756.i
 
 common.ret.sink.split.i:                          ; preds = %endif.759.i, %endif.756.i
   %call.4057.sink.i = phi ptr [ %call.4057.i, %endif.759.i ], [ %common.ret.op.i, %endif.756.i ]
-  %call.4059.i = tail call ptr @str_cat(ptr %call.4057.sink.i, ptr nonnull @.str.198)
+  %call.4059.i = tail call ptr @str_cat(ptr %call.4057.sink.i, ptr nonnull @.str.199)
   br label %join_path.exit
 
 endif.756.i:                                      ; preds = %nyra_home_dir.exit
@@ -7391,17 +7391,17 @@ endif.756.i:                                      ; preds = %nyra_home_dir.exit
   br i1 %bin.4051.i, label %common.ret.sink.split.i, label %endif.759.i
 
 endif.759.i:                                      ; preds = %endif.756.i
-  %call.4057.i = tail call ptr @str_cat(ptr %common.ret.op.i, ptr nonnull @.str.227)
+  %call.4057.i = tail call ptr @str_cat(ptr %common.ret.op.i, ptr nonnull @.str.228)
   br label %common.ret.sink.split.i
 
 join_path.exit:                                   ; preds = %nyra_home_dir.exit, %common.ret.sink.split.i
-  %common.ret.op.i1 = phi ptr [ @.str.198, %nyra_home_dir.exit ], [ %call.4059.i, %common.ret.sink.split.i ]
+  %common.ret.op.i1 = phi ptr [ @.str.199, %nyra_home_dir.exit ], [ %call.4059.i, %common.ret.sink.split.i ]
   ret ptr %common.ret.op.i1
 }
 
 define ptr @body_from_raw(ptr %0) local_unnamed_addr {
 entry:
-  %call.3602 = tail call i32 @strstr_pos(ptr %0, ptr nonnull @.str.219)
+  %call.3602 = tail call i32 @strstr_pos(ptr %0, ptr nonnull @.str.220)
   %bin.3603 = icmp slt i32 %call.3602, 0
   br i1 %bin.3603, label %common.ret, label %endif.657
 
@@ -7414,8 +7414,8 @@ endif.657:                                        ; preds = %entry
   %call.3608 = tail call i32 @str_len(ptr %0)
   %bin.3610 = sub i32 %call.3608, %bin.3606
   %call.3611 = tail call ptr @substring(ptr %0, i32 %bin.3606, i32 %bin.3610)
-  %call.4037.i = tail call ptr @header_value(ptr %0, ptr nonnull @.str.235)
-  %call.4040.i = tail call i32 @strstr_pos(ptr %call.4037.i, ptr nonnull @.str.236)
+  %call.4037.i = tail call ptr @header_value(ptr %0, ptr nonnull @.str.236)
+  %call.4040.i = tail call i32 @strstr_pos(ptr %call.4037.i, ptr nonnull @.str.237)
   %bin.4041.i = icmp slt i32 %call.4040.i, 0
   br i1 %bin.4041.i, label %common.ret, label %then.658
 
@@ -7427,7 +7427,7 @@ then.658:                                         ; preds = %endif.657
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none)
 define noundef nonnull ptr @build_options_preflight() local_unnamed_addr #1 {
 entry:
-  ret ptr @.str.220
+  ret ptr @.str.221
 }
 
 define ptr @build_response(ptr readonly %0, i32 %1) local_unnamed_addr {
@@ -7475,58 +7475,58 @@ endif.924.i:                                      ; preds = %entry
   br label %status_text.exit
 
 status_text.exit:                                 ; preds = %entry, %then.901.i, %then.904.i, %then.907.i, %then.910.i, %then.913.i, %then.916.i, %then.919.i, %then.922.i, %endif.924.i
-  %common.ret.op.i = phi ptr [ @.str.258, %endif.924.i ], [ @.str.267, %then.922.i ], [ @.str.260, %then.901.i ], [ @.str.261, %then.904.i ], [ @.str.262, %then.907.i ], [ @.str.263, %then.910.i ], [ @.str.264, %then.913.i ], [ @.str.265, %then.916.i ], [ @.str.266, %then.919.i ], [ @.str.259, %entry ]
-  %call.3626 = tail call ptr @str_cat(ptr nonnull @.str.221, ptr %call.3618)
+  %common.ret.op.i = phi ptr [ @.str.259, %endif.924.i ], [ @.str.268, %then.922.i ], [ @.str.261, %then.901.i ], [ @.str.262, %then.904.i ], [ @.str.263, %then.907.i ], [ @.str.264, %then.910.i ], [ @.str.265, %then.913.i ], [ @.str.266, %then.916.i ], [ @.str.267, %then.919.i ], [ @.str.260, %entry ]
+  %call.3626 = tail call ptr @str_cat(ptr nonnull @.str.222, ptr %call.3618)
   %call.3628 = tail call ptr @str_cat(ptr %call.3626, ptr nonnull @.str.30)
-  %call.3631 = tail call ptr @str_cat(ptr nonnull %common.ret.op.i, ptr nonnull @.str.222)
+  %call.3631 = tail call ptr @str_cat(ptr nonnull %common.ret.op.i, ptr nonnull @.str.223)
   %call.3632 = tail call ptr @str_cat(ptr %call.3628, ptr %call.3631)
   %gep.3635 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %load.3636 = load ptr, ptr %gep.3635, align 8
-  %call.3637 = tail call ptr @str_cat(ptr nonnull @.str.223, ptr %load.3636)
+  %call.3637 = tail call ptr @str_cat(ptr nonnull @.str.224, ptr %load.3636)
   %gep.3639 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %load.3640 = load ptr, ptr %gep.3639, align 8
   %call.3641 = tail call i32 @str_len(ptr %load.3640)
   %call.3643 = tail call ptr @i32_to_string(i32 %call.3641)
-  %call.3644 = tail call ptr @str_cat(ptr nonnull @.str.224, ptr %call.3643)
+  %call.3644 = tail call ptr @str_cat(ptr nonnull @.str.225, ptr %call.3643)
   %bin.3646 = icmp eq i32 %1, 1
-  %.str.225..str.226 = select i1 %bin.3646, ptr @.str.225, ptr @.str.226
-  %call.3654 = tail call ptr @str_cat(ptr %call.3637, ptr nonnull @.str.222)
-  %call.3658 = tail call ptr @str_cat(ptr %call.3644, ptr nonnull @.str.222)
+  %.str.226..str.227 = select i1 %bin.3646, ptr @.str.226, ptr @.str.227
+  %call.3654 = tail call ptr @str_cat(ptr %call.3637, ptr nonnull @.str.223)
+  %call.3658 = tail call ptr @str_cat(ptr %call.3644, ptr nonnull @.str.223)
   %call.3659 = tail call ptr @str_cat(ptr %call.3654, ptr %call.3658)
-  %call.3661 = tail call ptr @str_cat(ptr %call.3659, ptr nonnull %.str.225..str.226)
-  %call.3663 = tail call ptr @str_cat(ptr %call.3661, ptr nonnull @.str.222)
+  %call.3661 = tail call ptr @str_cat(ptr %call.3659, ptr nonnull %.str.226..str.227)
+  %call.3663 = tail call ptr @str_cat(ptr %call.3661, ptr nonnull @.str.223)
   %call.3669 = tail call ptr @str_cat(ptr %call.3632, ptr %call.3663)
   %load.3671 = load ptr, ptr %gep.3639, align 8
   %call.3672 = tail call ptr @str_cat(ptr %call.3669, ptr %load.3671)
-  tail call void @heap_free(ptr %call.3618)
-  tail call void @heap_free(ptr %call.3637)
-  tail call void @heap_free(ptr %call.3644)
-  tail call void @heap_free(ptr %call.3632)
   tail call void @heap_free(ptr %call.3663)
+  tail call void @heap_free(ptr %call.3637)
+  tail call void @heap_free(ptr %call.3632)
+  tail call void @heap_free(ptr %call.3618)
+  tail call void @heap_free(ptr %call.3644)
   ret ptr %call.3672
 }
 
 define ptr @cache_module_path(ptr %0) local_unnamed_addr {
 entry:
-  %call.3392.i = tail call ptr @str_replace(ptr %0, ptr nonnull @.str.16, ptr nonnull @.str.227)
-  %call.4044.i = tail call i32 @str_len(ptr nonnull @.str.228)
+  %call.3392.i = tail call ptr @str_replace(ptr %0, ptr nonnull @.str.16, ptr nonnull @.str.228)
+  %call.4044.i = tail call i32 @str_len(ptr nonnull @.str.229)
   %bin.4045.i = icmp eq i32 %call.4044.i, 0
   br i1 %bin.4045.i, label %join_path.exit, label %endif.756.i
 
 common.ret.sink.split.i:                          ; preds = %endif.759.i, %endif.756.i
-  %call.4057.sink.i = phi ptr [ %call.4057.i, %endif.759.i ], [ @.str.228, %endif.756.i ]
+  %call.4057.sink.i = phi ptr [ %call.4057.i, %endif.759.i ], [ @.str.229, %endif.756.i ]
   %call.4059.i = tail call ptr @str_cat(ptr %call.4057.sink.i, ptr %call.3392.i)
   br label %join_path.exit
 
 endif.756.i:                                      ; preds = %entry
-  %call.4048.i = tail call i32 @str_len(ptr nonnull @.str.228)
+  %call.4048.i = tail call i32 @str_len(ptr nonnull @.str.229)
   %bin.4049.i = add i32 %call.4048.i, -1
-  %call.4050.i = tail call i32 @char_at(ptr nonnull @.str.228, i32 %bin.4049.i)
+  %call.4050.i = tail call i32 @char_at(ptr nonnull @.str.229, i32 %bin.4049.i)
   %bin.4051.i = icmp eq i32 %call.4050.i, 47
   br i1 %bin.4051.i, label %common.ret.sink.split.i, label %endif.759.i
 
 endif.759.i:                                      ; preds = %endif.756.i
-  %call.4057.i = tail call ptr @str_cat(ptr nonnull @.str.228, ptr nonnull @.str.227)
+  %call.4057.i = tail call ptr @str_cat(ptr nonnull @.str.229, ptr nonnull @.str.228)
   br label %common.ret.sink.split.i
 
 join_path.exit:                                   ; preds = %entry, %common.ret.sink.split.i
@@ -7537,7 +7537,7 @@ join_path.exit:                                   ; preds = %entry, %common.ret.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none)
 define noundef nonnull ptr @cache_root() local_unnamed_addr #1 {
 entry:
-  ret ptr @.str.228
+  ret ptr @.str.229
 }
 
 define ptr @char_from_code(i32 %0) local_unnamed_addr {
@@ -7561,7 +7561,7 @@ entry:
   br i1 %bin.3693, label %then.664, label %common.ret
 
 common.ret:                                       ; preds = %entry, %then.664
-  %common.ret.op = phi ptr [ %call.3698, %then.664 ], [ @.str.229, %entry ]
+  %common.ret.op = phi ptr [ %call.3698, %then.664 ], [ @.str.230, %entry ]
   ret ptr %common.ret.op
 
 then.664:                                         ; preds = %entry
@@ -7607,7 +7607,7 @@ entry:
 while.body.671:                                   ; preds = %entry, %endif.683
   %alloca.3711.06 = phi ptr [ %call.3749, %endif.683 ], [ %0, %entry ]
   %alloca.3710.05 = phi ptr [ %call.3738, %endif.683 ], [ @.str.11, %entry ]
-  %call.3719 = tail call i32 @strstr_pos(ptr %alloca.3711.06, ptr nonnull @.str.222)
+  %call.3719 = tail call i32 @strstr_pos(ptr %alloca.3711.06, ptr nonnull @.str.223)
   %bin.3720 = icmp slt i32 %call.3719, 0
   br i1 %bin.3720, label %while.end.672, label %endif.675
 
@@ -7815,8 +7815,8 @@ entry:
   %bin.3807.i = icmp sgt i32 %call.3806.i, 0
   %storemerge.i = select i1 %bin.3807.i, ptr %call.3787.i, ptr @.str.11
   %str_clone.3812.i = tail call ptr @str_clone(ptr %storemerge.i)
-  tail call void @heap_free(ptr %call.3787.i)
   tail call void @heap_free(ptr %call.3784.i)
+  tail call void @heap_free(ptr %call.3787.i)
   %load.3815.fca.0.insert.i = insertvalue %ExecResult poison, i32 %call.3792.i, 0
   %load.3815.fca.1.insert.i = insertvalue %ExecResult %load.3815.fca.0.insert.i, ptr %str_clone.3802.i, 1
   %load.3815.fca.2.insert.i = insertvalue %ExecResult %load.3815.fca.1.insert.i, ptr %str_clone.3812.i, 2
@@ -7837,8 +7837,8 @@ entry:
   %bin.3807 = icmp sgt i32 %call.3806, 0
   %storemerge = select i1 %bin.3807, ptr %call.3787, ptr @.str.11
   %str_clone.3812 = tail call ptr @str_clone(ptr %storemerge)
-  tail call void @heap_free(ptr %call.3787)
   tail call void @heap_free(ptr %call.3784)
+  tail call void @heap_free(ptr %call.3787)
   %load.3815.fca.0.insert = insertvalue %ExecResult poison, i32 %call.3792, 0
   %load.3815.fca.1.insert = insertvalue %ExecResult %load.3815.fca.0.insert, ptr %str_clone.3802, 1
   %load.3815.fca.2.insert = insertvalue %ExecResult %load.3815.fca.1.insert, ptr %str_clone.3812, 2
@@ -7904,7 +7904,7 @@ endif.705:                                        ; preds = %while.body.701
 
 define ptr @first_line(ptr %0) local_unnamed_addr {
 entry:
-  %call.3842 = tail call i32 @strstr_pos(ptr %0, ptr nonnull @.str.222)
+  %call.3842 = tail call i32 @strstr_pos(ptr %0, ptr nonnull @.str.223)
   %bin.3843 = icmp slt i32 %call.3842, 0
   br i1 %bin.3843, label %common.ret, label %endif.708
 
@@ -7944,7 +7944,7 @@ entry:
 
 define ptr @header_value(ptr %0, ptr %1) local_unnamed_addr {
 entry:
-  %call.3859 = tail call ptr @str_cat(ptr %1, ptr nonnull @.str.230)
+  %call.3859 = tail call ptr @str_cat(ptr %1, ptr nonnull @.str.231)
   %call.3861 = tail call ptr @str_cat(ptr %call.3859, ptr nonnull @.str.11)
   %call.3866 = tail call i32 @strstr_pos(ptr %0, ptr %call.3861)
   %bin.3867 = icmp slt i32 %call.3866, 0
@@ -7961,7 +7961,7 @@ endif.711:                                        ; preds = %entry
   %call.3876 = tail call i32 @str_len(ptr %0)
   %bin.3877 = sub i32 %call.3876, %bin.3873
   %call.3878 = tail call ptr @substring(ptr %0, i32 %bin.3873, i32 %bin.3877)
-  %call.3883 = tail call i32 @strstr_pos(ptr %call.3878, ptr nonnull @.str.222)
+  %call.3883 = tail call i32 @strstr_pos(ptr %call.3878, ptr nonnull @.str.223)
   %bin.3884 = icmp slt i32 %call.3883, 0
   br i1 %bin.3884, label %common.ret, label %endif.714
 
@@ -8000,7 +8000,7 @@ endif.720:                                        ; preds = %endif.717
 
 define ptr @http_body_from_response(ptr %0) local_unnamed_addr {
 entry:
-  %call.3907 = tail call i32 @strstr_pos(ptr %0, ptr nonnull @.str.219)
+  %call.3907 = tail call i32 @strstr_pos(ptr %0, ptr nonnull @.str.220)
   %bin.3908 = icmp slt i32 %call.3907, 0
   br i1 %bin.3908, label %common.ret, label %endif.726
 
@@ -8030,14 +8030,14 @@ switch.lookup:                                    ; preds = %entry
   br label %method_name.exit
 
 method_name.exit:                                 ; preds = %entry, %switch.lookup
-  %common.ret.op.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.237, %entry ]
+  %common.ret.op.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.238, %entry ]
   %call.3920 = tail call ptr @str_cat(ptr nonnull %common.ret.op.i, ptr nonnull @.str.30)
   %call.3916.fca.2.extract3 = extractvalue %HttpUrl %call.3916, 2
   %call.3924 = tail call ptr @str_cat(ptr %call.3920, ptr %call.3916.fca.2.extract3)
-  %call.3929 = tail call ptr @str_cat(ptr %call.3924, ptr nonnull @.str.231)
+  %call.3929 = tail call ptr @str_cat(ptr %call.3924, ptr nonnull @.str.232)
   %call.3916.fca.0.extract = extractvalue %HttpUrl %call.3916, 0
   %call.3933 = tail call ptr @str_cat(ptr %call.3929, ptr %call.3916.fca.0.extract)
-  %call.3935 = tail call ptr @str_cat(ptr %call.3933, ptr nonnull @.str.232)
+  %call.3935 = tail call ptr @str_cat(ptr %call.3933, ptr nonnull @.str.233)
   %call.3938 = tail call i32 @str_len(ptr %2)
   %bin.3939 = icmp sgt i32 %call.3938, 0
   br i1 %bin.3939, label %then.727, label %endif.729
@@ -8045,18 +8045,18 @@ method_name.exit:                                 ; preds = %entry, %switch.look
 then.727:                                         ; preds = %method_name.exit
   %call.3942 = tail call i32 @str_len(ptr %2)
   %call.3943 = tail call ptr @i32_to_string(i32 %call.3942)
-  %call.3944 = tail call ptr @str_cat(ptr nonnull @.str.224, ptr %call.3943)
-  %call.3949 = tail call ptr @str_cat(ptr nonnull @.str.223, ptr %3)
+  %call.3944 = tail call ptr @str_cat(ptr nonnull @.str.225, ptr %call.3943)
+  %call.3949 = tail call ptr @str_cat(ptr nonnull @.str.224, ptr %3)
   %call.3950 = tail call ptr @str_cat(ptr %call.3935, ptr %call.3949)
-  %call.3952 = tail call ptr @str_cat(ptr %call.3950, ptr nonnull @.str.222)
-  %call.3955 = tail call ptr @str_cat(ptr %call.3944, ptr nonnull @.str.222)
+  %call.3952 = tail call ptr @str_cat(ptr %call.3950, ptr nonnull @.str.223)
+  %call.3955 = tail call ptr @str_cat(ptr %call.3944, ptr nonnull @.str.223)
   %call.3956 = tail call ptr @str_cat(ptr %call.3952, ptr %call.3955)
   tail call void @heap_free(ptr %call.3935)
   br label %endif.729
 
 endif.729:                                        ; preds = %method_name.exit, %then.727
   %alloca.3936.0 = phi ptr [ %call.3956, %then.727 ], [ %call.3935, %method_name.exit ]
-  %call.3961 = tail call ptr @str_cat(ptr %alloca.3936.0, ptr nonnull @.str.233)
+  %call.3961 = tail call ptr @str_cat(ptr %alloca.3936.0, ptr nonnull @.str.234)
   %call.3963 = tail call ptr @str_cat(ptr %call.3961, ptr %2)
   %arg.tmp.3965 = alloca %HttpUrl, align 8
   store %HttpUrl %call.3916, ptr %arg.tmp.3965, align 8
@@ -8070,18 +8070,18 @@ common.ret:                                       ; preds = %endif.735, %then.73
   ret %HttpResponse %common.ret.op
 
 then.730:                                         ; preds = %endif.729
-  %str_clone.4367.i.i = tail call ptr @str_clone(ptr nonnull @.str.251)
-  %str_clone.4370.i.i = tail call ptr @str_clone(ptr nonnull @.str.252)
+  %str_clone.4367.i.i = tail call ptr @str_clone(ptr nonnull @.str.252)
+  %str_clone.4370.i.i = tail call ptr @str_clone(ptr nonnull @.str.253)
   %load.4371.fca.1.insert.i.i = insertvalue %HttpResponse { i32 500, ptr poison, ptr poison }, ptr %str_clone.4367.i.i, 1
   %load.4371.fca.2.insert.i.i = insertvalue %HttpResponse %load.4371.fca.1.insert.i.i, ptr %str_clone.4370.i.i, 2
+  tail call void @heap_free(ptr %call.3924)
   tail call void @heap_free(ptr %alloca.3936.0)
   tail call void @heap_free(ptr %call.3963)
-  tail call void @heap_free(ptr %call.3924)
   br label %common.ret
 
 endif.732:                                        ; preds = %endif.729
   %call.3975 = tail call i32 @http_status_from_header(ptr %call.3967)
-  %call.3907.i = tail call i32 @strstr_pos(ptr %call.3967, ptr nonnull @.str.219)
+  %call.3907.i = tail call i32 @strstr_pos(ptr %call.3967, ptr nonnull @.str.220)
   %bin.3908.i = icmp slt i32 %call.3907.i, 0
   br i1 %bin.3908.i, label %http_body_from_response.exit, label %endif.726.i
 
@@ -8106,9 +8106,9 @@ then.733:                                         ; preds = %http_body_from_resp
   store ptr %str_clone.3982, ptr %gep.3980, align 8
   %str_clone.3985 = tail call ptr @str_clone(ptr nonnull @.str.12)
   store ptr %str_clone.3985, ptr %gep.3983, align 8
-  tail call void @heap_free(ptr %call.3924)
   tail call void @heap_free(ptr %call.3963)
   tail call void @heap_free(ptr %alloca.3936.0)
+  tail call void @heap_free(ptr %call.3924)
   %load.3989 = load %HttpResponse, ptr %alloca.3978, align 8
   br label %common.ret
 
@@ -8117,8 +8117,8 @@ endif.735:                                        ; preds = %http_body_from_resp
   store ptr %str_clone.3993, ptr %gep.3980, align 8
   %str_clone.3996 = tail call ptr @str_clone(ptr nonnull @.str.13)
   store ptr %str_clone.3996, ptr %gep.3983, align 8
-  tail call void @heap_free(ptr %call.3924)
   tail call void @heap_free(ptr %call.3963)
+  tail call void @heap_free(ptr %call.3924)
   tail call void @heap_free(ptr %alloca.3936.0)
   %load.4000 = load %HttpResponse, ptr %alloca.3978, align 8
   br label %common.ret
@@ -8142,7 +8142,7 @@ common.ret:                                       ; preds = %while.body.746, %th
 
 endif.738:                                        ; preds = %entry
   %call.4006 = tail call ptr @substring(ptr %0, i32 0, i32 5)
-  %call.4008 = tail call i32 @str_cmp(ptr %call.4006, ptr nonnull @.str.234)
+  %call.4008 = tail call i32 @str_cmp(ptr %call.4006, ptr nonnull @.str.235)
   %bin.4009.not = icmp eq i32 %call.4008, 0
   br i1 %bin.4009.not, label %endif.741, label %common.ret
 
@@ -8175,8 +8175,8 @@ then.748:                                         ; preds = %while.body.746
 
 define range(i32 0, 2) i32 @is_chunked_transfer(ptr %0) local_unnamed_addr {
 entry:
-  %call.4037 = tail call ptr @header_value(ptr %0, ptr nonnull @.str.235)
-  %call.4040 = tail call i32 @strstr_pos(ptr %call.4037, ptr nonnull @.str.236)
+  %call.4037 = tail call ptr @header_value(ptr %0, ptr nonnull @.str.236)
+  %call.4040 = tail call i32 @strstr_pos(ptr %call.4037, ptr nonnull @.str.237)
   %bin.4041 = icmp sgt i32 %call.4040, -1
   %spec.select = zext i1 %bin.4041 to i32
   ret i32 %spec.select
@@ -8211,7 +8211,7 @@ endif.756:                                        ; preds = %entry
   br i1 %bin.4051, label %common.ret.sink.split, label %endif.759
 
 endif.759:                                        ; preds = %endif.756
-  %call.4057 = tail call ptr @str_cat(ptr %0, ptr nonnull @.str.227)
+  %call.4057 = tail call ptr @str_cat(ptr %0, ptr nonnull @.str.228)
   br label %common.ret.sink.split
 }
 
@@ -8274,7 +8274,7 @@ common.ret:                                       ; preds = %then.793, %then.787
 
 endif.762:                                        ; preds = %entry
   %call.4072 = tail call ptr @substring(ptr %0, i32 0, i32 3)
-  %call.4074 = tail call i32 @str_cmp(ptr %call.4072, ptr nonnull @.str.237)
+  %call.4074 = tail call i32 @str_cmp(ptr %call.4072, ptr nonnull @.str.238)
   %bin.4075 = icmp eq i32 %call.4074, 0
   br i1 %bin.4075, label %common.ret, label %endif.765
 
@@ -8285,13 +8285,13 @@ endif.765:                                        ; preds = %endif.762
 
 then.766:                                         ; preds = %endif.765
   %call.4080 = tail call ptr @substring(ptr %0, i32 0, i32 4)
-  %call.4082 = tail call i32 @str_cmp(ptr %call.4080, ptr nonnull @.str.238)
+  %call.4082 = tail call i32 @str_cmp(ptr %call.4080, ptr nonnull @.str.239)
   %bin.4083 = icmp eq i32 %call.4082, 0
   br i1 %bin.4083, label %common.ret, label %endif.771
 
 endif.771:                                        ; preds = %then.766
   %call.4085 = tail call ptr @substring(ptr %0, i32 0, i32 4)
-  %call.4087 = tail call i32 @str_cmp(ptr %call.4085, ptr nonnull @.str.239)
+  %call.4087 = tail call i32 @str_cmp(ptr %call.4085, ptr nonnull @.str.240)
   %bin.4088 = icmp eq i32 %call.4087, 0
   br i1 %bin.4088, label %common.ret, label %endif.768
 
@@ -8302,7 +8302,7 @@ endif.768:                                        ; preds = %endif.765, %endif.7
 
 then.775:                                         ; preds = %endif.768
   %call.4093 = tail call ptr @substring(ptr %0, i32 0, i32 3)
-  %call.4095 = tail call i32 @str_cmp(ptr %call.4093, ptr nonnull @.str.240)
+  %call.4095 = tail call i32 @str_cmp(ptr %call.4093, ptr nonnull @.str.241)
   %bin.4096 = icmp eq i32 %call.4095, 0
   br i1 %bin.4096, label %common.ret, label %endif.777
 
@@ -8313,7 +8313,7 @@ endif.777:                                        ; preds = %endif.768, %then.77
 
 then.781:                                         ; preds = %endif.777
   %call.4101 = tail call ptr @substring(ptr %0, i32 0, i32 6)
-  %call.4103 = tail call i32 @str_cmp(ptr %call.4101, ptr nonnull @.str.241)
+  %call.4103 = tail call i32 @str_cmp(ptr %call.4101, ptr nonnull @.str.242)
   %bin.4104 = icmp eq i32 %call.4103, 0
   br i1 %bin.4104, label %common.ret, label %endif.783
 
@@ -8324,7 +8324,7 @@ endif.783:                                        ; preds = %endif.777, %then.78
 
 then.787:                                         ; preds = %endif.783
   %call.4109 = tail call ptr @substring(ptr %0, i32 0, i32 7)
-  %call.4111 = tail call i32 @str_cmp(ptr %call.4109, ptr nonnull @.str.242)
+  %call.4111 = tail call i32 @str_cmp(ptr %call.4109, ptr nonnull @.str.243)
   %bin.4112 = icmp eq i32 %call.4111, 0
   br i1 %bin.4112, label %common.ret, label %endif.789
 
@@ -8335,7 +8335,7 @@ endif.789:                                        ; preds = %endif.783, %then.78
 
 then.793:                                         ; preds = %endif.789
   %call.4117 = tail call ptr @substring(ptr %0, i32 0, i32 5)
-  %call.4119 = tail call i32 @str_cmp(ptr %call.4117, ptr nonnull @.str.243)
+  %call.4119 = tail call i32 @str_cmp(ptr %call.4117, ptr nonnull @.str.244)
   %bin.4120 = icmp eq i32 %call.4119, 0
   br i1 %bin.4120, label %common.ret, label %endif.795
 
@@ -8357,7 +8357,7 @@ switch.lookup:                                    ; preds = %entry
   br label %common.ret
 
 common.ret:                                       ; preds = %entry, %switch.lookup
-  %common.ret.op = phi ptr [ %switch.load, %switch.lookup ], [ @.str.237, %entry ]
+  %common.ret.op = phi ptr [ %switch.load, %switch.lookup ], [ @.str.238, %entry ]
   ret ptr %common.ret.op
 }
 
@@ -8376,7 +8376,7 @@ entry:
 
 common.ret.sink.split.i.i:                        ; preds = %endif.759.i.i, %endif.756.i.i
   %call.4057.sink.i.i = phi ptr [ %call.4057.i.i, %endif.759.i.i ], [ %call.4166.i, %endif.756.i.i ]
-  %call.4059.i.i = tail call ptr @str_cat(ptr %call.4057.sink.i.i, ptr nonnull @.str.196)
+  %call.4059.i.i = tail call ptr @str_cat(ptr %call.4057.sink.i.i, ptr nonnull @.str.197)
   br label %nyra_installed_bin.exit
 
 endif.756.i.i:                                    ; preds = %entry
@@ -8387,17 +8387,17 @@ endif.756.i.i:                                    ; preds = %entry
   br i1 %bin.4051.i.i, label %common.ret.sink.split.i.i, label %endif.759.i.i
 
 endif.759.i.i:                                    ; preds = %endif.756.i.i
-  %call.4057.i.i = tail call ptr @str_cat(ptr %call.4166.i, ptr nonnull @.str.227)
+  %call.4057.i.i = tail call ptr @str_cat(ptr %call.4166.i, ptr nonnull @.str.228)
   br label %common.ret.sink.split.i.i
 
 nyra_installed_bin.exit:                          ; preds = %entry, %common.ret.sink.split.i.i
-  %common.ret.op.i.i = phi ptr [ @.str.196, %entry ], [ %call.4059.i.i, %common.ret.sink.split.i.i ]
+  %common.ret.op.i.i = phi ptr [ @.str.197, %entry ], [ %call.4059.i.i, %common.ret.sink.split.i.i ]
   %call.4138 = tail call i32 @file_exists(ptr %common.ret.op.i.i)
   %bin.4139 = icmp eq i32 %call.4138, 1
   br i1 %bin.4139, label %common.ret, label %endif.822
 
 common.ret:                                       ; preds = %join_path.exit14, %nyra_installed_bin.exit, %endif.825
-  %common.ret.op = phi ptr [ @.str.196, %endif.825 ], [ %common.ret.op.i.i, %nyra_installed_bin.exit ], [ %common.ret.op.i13, %join_path.exit14 ]
+  %common.ret.op = phi ptr [ @.str.197, %endif.825 ], [ %common.ret.op.i.i, %nyra_installed_bin.exit ], [ %common.ret.op.i13, %join_path.exit14 ]
   ret ptr %common.ret.op
 
 endif.822:                                        ; preds = %nyra_installed_bin.exit
@@ -8413,7 +8413,7 @@ then.823:                                         ; preds = %endif.822
 
 common.ret.sink.split.i:                          ; preds = %endif.759.i, %endif.756.i
   %call.4057.sink.i = phi ptr [ %call.4057.i, %endif.759.i ], [ %call.4172.i.i, %endif.756.i ]
-  %call.4059.i = tail call ptr @str_cat(ptr %call.4057.sink.i, ptr nonnull @.str.198)
+  %call.4059.i = tail call ptr @str_cat(ptr %call.4057.sink.i, ptr nonnull @.str.199)
   br label %join_path.exit
 
 endif.756.i:                                      ; preds = %then.823
@@ -8424,18 +8424,18 @@ endif.756.i:                                      ; preds = %then.823
   br i1 %bin.4051.i, label %common.ret.sink.split.i, label %endif.759.i
 
 endif.759.i:                                      ; preds = %endif.756.i
-  %call.4057.i = tail call ptr @str_cat(ptr %call.4172.i.i, ptr nonnull @.str.227)
+  %call.4057.i = tail call ptr @str_cat(ptr %call.4172.i.i, ptr nonnull @.str.228)
   br label %common.ret.sink.split.i
 
 join_path.exit:                                   ; preds = %then.823, %common.ret.sink.split.i
-  %common.ret.op.i = phi ptr [ @.str.198, %then.823 ], [ %call.4059.i, %common.ret.sink.split.i ]
+  %common.ret.op.i = phi ptr [ @.str.199, %then.823 ], [ %call.4059.i, %common.ret.sink.split.i ]
   %call.4044.i1 = tail call i32 @str_len(ptr %common.ret.op.i)
   %bin.4045.i2 = icmp eq i32 %call.4044.i1, 0
   br i1 %bin.4045.i2, label %join_path.exit14, label %endif.756.i3
 
 common.ret.sink.split.i10:                        ; preds = %endif.759.i8, %endif.756.i3
   %call.4057.sink.i11 = phi ptr [ %call.4057.i9, %endif.759.i8 ], [ %common.ret.op.i, %endif.756.i3 ]
-  %call.4059.i12 = tail call ptr @str_cat(ptr %call.4057.sink.i11, ptr nonnull @.str.196)
+  %call.4059.i12 = tail call ptr @str_cat(ptr %call.4057.sink.i11, ptr nonnull @.str.197)
   br label %join_path.exit14
 
 endif.756.i3:                                     ; preds = %join_path.exit
@@ -8446,11 +8446,11 @@ endif.756.i3:                                     ; preds = %join_path.exit
   br i1 %bin.4051.i7, label %common.ret.sink.split.i10, label %endif.759.i8
 
 endif.759.i8:                                     ; preds = %endif.756.i3
-  %call.4057.i9 = tail call ptr @str_cat(ptr %common.ret.op.i, ptr nonnull @.str.227)
+  %call.4057.i9 = tail call ptr @str_cat(ptr %common.ret.op.i, ptr nonnull @.str.228)
   br label %common.ret.sink.split.i10
 
 join_path.exit14:                                 ; preds = %join_path.exit, %common.ret.sink.split.i10
-  %common.ret.op.i13 = phi ptr [ @.str.196, %join_path.exit ], [ %call.4059.i12, %common.ret.sink.split.i10 ]
+  %common.ret.op.i13 = phi ptr [ @.str.197, %join_path.exit ], [ %call.4059.i12, %common.ret.sink.split.i10 ]
   %call.4149 = tail call i32 @file_exists(ptr %common.ret.op.i13)
   %bin.4150 = icmp eq i32 %call.4149, 1
   br i1 %bin.4150, label %common.ret, label %endif.825
@@ -8467,7 +8467,7 @@ entry:
   br i1 %bin.4156, label %common.ret, label %endif.831
 
 common.ret:                                       ; preds = %endif.831, %entry, %then.832
-  %common.ret.op = phi ptr [ %call.4172.i.i, %entry ], [ %call.4164, %then.832 ], [ @.str.245, %endif.831 ]
+  %common.ret.op = phi ptr [ %call.4172.i.i, %entry ], [ %call.4164, %then.832 ], [ @.str.246, %endif.831 ]
   ret ptr %common.ret.op
 
 endif.831:                                        ; preds = %entry
@@ -8477,7 +8477,7 @@ endif.831:                                        ; preds = %entry
   br i1 %bin.4161, label %then.832, label %common.ret
 
 then.832:                                         ; preds = %endif.831
-  %call.4164 = tail call ptr @str_cat(ptr %call.4172.i.i1, ptr nonnull @.str.244)
+  %call.4164 = tail call ptr @str_cat(ptr %call.4172.i.i1, ptr nonnull @.str.245)
   br label %common.ret
 }
 
@@ -8490,7 +8490,7 @@ entry:
 
 common.ret.sink.split.i:                          ; preds = %endif.759.i, %endif.756.i
   %call.4057.sink.i = phi ptr [ %call.4057.i, %endif.759.i ], [ %call.4166, %endif.756.i ]
-  %call.4059.i = tail call ptr @str_cat(ptr %call.4057.sink.i, ptr nonnull @.str.196)
+  %call.4059.i = tail call ptr @str_cat(ptr %call.4057.sink.i, ptr nonnull @.str.197)
   br label %join_path.exit
 
 endif.756.i:                                      ; preds = %entry
@@ -8501,11 +8501,11 @@ endif.756.i:                                      ; preds = %entry
   br i1 %bin.4051.i, label %common.ret.sink.split.i, label %endif.759.i
 
 endif.759.i:                                      ; preds = %endif.756.i
-  %call.4057.i = tail call ptr @str_cat(ptr %call.4166, ptr nonnull @.str.227)
+  %call.4057.i = tail call ptr @str_cat(ptr %call.4166, ptr nonnull @.str.228)
   br label %common.ret.sink.split.i
 
 join_path.exit:                                   ; preds = %entry, %common.ret.sink.split.i
-  %common.ret.op.i = phi ptr [ @.str.196, %entry ], [ %call.4059.i, %common.ret.sink.split.i ]
+  %common.ret.op.i = phi ptr [ @.str.197, %entry ], [ %call.4059.i, %common.ret.sink.split.i ]
   ret ptr %common.ret.op.i
 }
 
@@ -8518,7 +8518,7 @@ entry:
 
 common.ret.sink.split.i:                          ; preds = %endif.759.i, %endif.756.i
   %call.4057.sink.i = phi ptr [ %call.4057.i, %endif.759.i ], [ %call.4169, %endif.756.i ]
-  %call.4059.i = tail call ptr @str_cat(ptr %call.4057.sink.i, ptr nonnull @.str.195)
+  %call.4059.i = tail call ptr @str_cat(ptr %call.4057.sink.i, ptr nonnull @.str.196)
   br label %join_path.exit
 
 endif.756.i:                                      ; preds = %entry
@@ -8529,11 +8529,11 @@ endif.756.i:                                      ; preds = %entry
   br i1 %bin.4051.i, label %common.ret.sink.split.i, label %endif.759.i
 
 endif.759.i:                                      ; preds = %endif.756.i
-  %call.4057.i = tail call ptr @str_cat(ptr %call.4169, ptr nonnull @.str.227)
+  %call.4057.i = tail call ptr @str_cat(ptr %call.4169, ptr nonnull @.str.228)
   br label %common.ret.sink.split.i
 
 join_path.exit:                                   ; preds = %entry, %common.ret.sink.split.i
-  %common.ret.op.i = phi ptr [ @.str.195, %entry ], [ %call.4059.i, %common.ret.sink.split.i ]
+  %common.ret.op.i = phi ptr [ @.str.196, %entry ], [ %call.4059.i, %common.ret.sink.split.i ]
   ret ptr %common.ret.op.i
 }
 
@@ -8566,7 +8566,7 @@ endif.837:                                        ; preds = %entry, %then.835
 
 then.841:                                         ; preds = %endif.837
   %call.4190 = tail call ptr @substring(ptr %str_clone.4173, i32 0, i32 7)
-  %call.4192 = tail call i32 @str_cmp(ptr %call.4190, ptr nonnull @.str.246)
+  %call.4192 = tail call i32 @str_cmp(ptr %call.4190, ptr nonnull @.str.247)
   %bin.4193 = icmp eq i32 %call.4192, 0
   %.if.phi.4184 = select i1 %bin.4193, i32 7, i32 %if.phi.4184
   br label %endif.843
@@ -8603,7 +8603,7 @@ then.850:                                         ; preds = %find_host_end.exit
   br label %endif.852
 
 endif.852:                                        ; preds = %endif.843, %find_host_end.exit, %then.850
-  %ld.4235 = phi ptr [ %call.4206, %then.850 ], [ @.str.247, %find_host_end.exit ], [ @.str.247, %endif.843 ]
+  %ld.4235 = phi ptr [ %call.4206, %then.850 ], [ @.str.248, %find_host_end.exit ], [ @.str.248, %endif.843 ]
   %loop.phi.3819.lcssa.i8 = phi i32 [ %loop.phi.3819.lcssa.i, %then.850 ], [ %loop.phi.3819.lcssa.i, %find_host_end.exit ], [ %if.phi.4195, %endif.843 ]
   %bin.4208 = icmp slt i32 %loop.phi.3819.lcssa.i8, %call.4175
   %str_clone.4209 = tail call ptr @str_clone(ptr %str_clone.4173)
@@ -8676,7 +8676,7 @@ then.862:                                         ; preds = %endif.855
   br label %endif.864
 
 endif.864:                                        ; preds = %endif.855, %then.862
-  %ld.4239 = phi ptr [ @.str.227, %endif.855 ], [ %call.4232, %then.862 ]
+  %ld.4239 = phi ptr [ @.str.228, %endif.855 ], [ %call.4232, %then.862 ]
   %alloca.4233 = alloca %HttpUrl, align 8
   %str_clone.4236 = tail call ptr @str_clone(ptr %ld.4235)
   store ptr %str_clone.4236, ptr %alloca.4233, align 8
@@ -8727,7 +8727,7 @@ common.ret:                                       ; preds = %endif.873, %entry
 
 endif.873:                                        ; preds = %entry
   %call.4268 = tail call ptr @substring(ptr %0, i32 0, i32 3)
-  %call.4270 = tail call i32 @str_cmp(ptr %call.4268, ptr nonnull @.str.237)
+  %call.4270 = tail call i32 @str_cmp(ptr %call.4268, ptr nonnull @.str.238)
   %bin.4271 = icmp eq i32 %call.4270, 0
   %spec.select = zext i1 %bin.4271 to i32
   br label %common.ret
@@ -8746,7 +8746,7 @@ entry:
   br i1 %bin.4277, label %common.ret, label %endif.879
 
 common.ret:                                       ; preds = %endif.882, %endif.879, %entry, %endif.885
-  %common.ret.op = phi ptr [ %call.4304, %endif.885 ], [ @.str.227, %entry ], [ %call.4284, %endif.879 ], [ %call.4294, %endif.882 ]
+  %common.ret.op = phi ptr [ %call.4304, %endif.885 ], [ @.str.228, %entry ], [ %call.4284, %endif.879 ], [ %call.4294, %endif.882 ]
   ret ptr %common.ret.op
 
 endif.879:                                        ; preds = %entry
@@ -8760,7 +8760,7 @@ endif.879:                                        ; preds = %entry
 
 endif.882:                                        ; preds = %endif.879
   %call.4294 = tail call ptr @substring(ptr %call.4284, i32 0, i32 %call.4289)
-  %call.4299 = tail call i32 @strstr_pos(ptr %call.4294, ptr nonnull @.str.248)
+  %call.4299 = tail call i32 @strstr_pos(ptr %call.4294, ptr nonnull @.str.249)
   %bin.4300 = icmp slt i32 %call.4299, 0
   br i1 %bin.4300, label %common.ret, label %endif.885
 
@@ -8788,16 +8788,13 @@ entry:
   br i1 %bin.4312, label %common.ret, label %endif.888
 
 common.ret.sink.split.sink.split:                 ; preds = %endif.891, %endif.894
-  %call.4330.sink1 = phi ptr [ %call.4319, %endif.894 ], [ %call.4330, %endif.891 ]
-  %call.4330.sink.ph = phi ptr [ %call.4330, %endif.894 ], [ %call.4319, %endif.891 ]
   %common.ret.op.ph.ph = phi ptr [ %call.4348, %endif.894 ], [ @.str.11, %endif.891 ]
-  tail call void @heap_free(ptr %call.4330.sink1)
+  tail call void @heap_free(ptr %call.4330)
   br label %common.ret.sink.split
 
 common.ret.sink.split:                            ; preds = %common.ret.sink.split.sink.split, %endif.888
-  %call.4330.sink = phi ptr [ %call.4319, %endif.888 ], [ %call.4330.sink.ph, %common.ret.sink.split.sink.split ]
   %common.ret.op.ph = phi ptr [ @.str.11, %endif.888 ], [ %common.ret.op.ph.ph, %common.ret.sink.split.sink.split ]
-  tail call void @heap_free(ptr %call.4330.sink)
+  tail call void @heap_free(ptr %call.4319)
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %entry
@@ -8815,7 +8812,7 @@ endif.888:                                        ; preds = %entry
 
 endif.891:                                        ; preds = %endif.888
   %call.4330 = tail call ptr @substring(ptr %call.4319, i32 0, i32 %call.4324)
-  %call.4335 = tail call i32 @strstr_pos(ptr %call.4330, ptr nonnull @.str.248)
+  %call.4335 = tail call i32 @strstr_pos(ptr %call.4330, ptr nonnull @.str.249)
   %bin.4336 = icmp slt i32 %call.4335, 0
   br i1 %bin.4336, label %common.ret.sink.split.sink.split, label %endif.894
 
@@ -8829,8 +8826,8 @@ endif.894:                                        ; preds = %endif.891
 
 define %HttpResponse @response_bad_request() local_unnamed_addr {
 entry:
-  %str_clone.4367.i = tail call ptr @str_clone(ptr nonnull @.str.249)
-  %str_clone.4370.i = tail call ptr @str_clone(ptr nonnull @.str.252)
+  %str_clone.4367.i = tail call ptr @str_clone(ptr nonnull @.str.250)
+  %str_clone.4370.i = tail call ptr @str_clone(ptr nonnull @.str.253)
   %load.4371.fca.1.insert.i = insertvalue %HttpResponse { i32 400, ptr poison, ptr poison }, ptr %str_clone.4367.i, 1
   %load.4371.fca.2.insert.i = insertvalue %HttpResponse %load.4371.fca.1.insert.i, ptr %str_clone.4370.i, 2
   ret %HttpResponse %load.4371.fca.2.insert.i
@@ -8839,7 +8836,7 @@ entry:
 define %HttpResponse @response_created_json(ptr %0) local_unnamed_addr {
 entry:
   %str_clone.4367.i = tail call ptr @str_clone(ptr %0)
-  %str_clone.4370.i = tail call ptr @str_clone(ptr nonnull @.str.252)
+  %str_clone.4370.i = tail call ptr @str_clone(ptr nonnull @.str.253)
   %load.4371.fca.1.insert.i = insertvalue %HttpResponse { i32 201, ptr poison, ptr poison }, ptr %str_clone.4367.i, 1
   %load.4371.fca.2.insert.i = insertvalue %HttpResponse %load.4371.fca.1.insert.i, ptr %str_clone.4370.i, 2
   ret %HttpResponse %load.4371.fca.2.insert.i
@@ -8848,7 +8845,7 @@ entry:
 define %HttpResponse @response_html(i32 %0, ptr %1) local_unnamed_addr {
 entry:
   %str_clone.4357 = tail call ptr @str_clone(ptr %1)
-  %str_clone.4360 = tail call ptr @str_clone(ptr nonnull @.str.250)
+  %str_clone.4360 = tail call ptr @str_clone(ptr nonnull @.str.251)
   %load.4361.fca.0.insert = insertvalue %HttpResponse poison, i32 %0, 0
   %load.4361.fca.1.insert = insertvalue %HttpResponse %load.4361.fca.0.insert, ptr %str_clone.4357, 1
   %load.4361.fca.2.insert = insertvalue %HttpResponse %load.4361.fca.1.insert, ptr %str_clone.4360, 2
@@ -8857,8 +8854,8 @@ entry:
 
 define %HttpResponse @response_internal_error() local_unnamed_addr {
 entry:
-  %str_clone.4367.i = tail call ptr @str_clone(ptr nonnull @.str.251)
-  %str_clone.4370.i = tail call ptr @str_clone(ptr nonnull @.str.252)
+  %str_clone.4367.i = tail call ptr @str_clone(ptr nonnull @.str.252)
+  %str_clone.4370.i = tail call ptr @str_clone(ptr nonnull @.str.253)
   %load.4371.fca.1.insert.i = insertvalue %HttpResponse { i32 500, ptr poison, ptr poison }, ptr %str_clone.4367.i, 1
   %load.4371.fca.2.insert.i = insertvalue %HttpResponse %load.4371.fca.1.insert.i, ptr %str_clone.4370.i, 2
   ret %HttpResponse %load.4371.fca.2.insert.i
@@ -8867,7 +8864,7 @@ entry:
 define %HttpResponse @response_json(i32 %0, ptr %1) local_unnamed_addr {
 entry:
   %str_clone.4367 = tail call ptr @str_clone(ptr %1)
-  %str_clone.4370 = tail call ptr @str_clone(ptr nonnull @.str.252)
+  %str_clone.4370 = tail call ptr @str_clone(ptr nonnull @.str.253)
   %load.4371.fca.0.insert = insertvalue %HttpResponse poison, i32 %0, 0
   %load.4371.fca.1.insert = insertvalue %HttpResponse %load.4371.fca.0.insert, ptr %str_clone.4367, 1
   %load.4371.fca.2.insert = insertvalue %HttpResponse %load.4371.fca.1.insert, ptr %str_clone.4370, 2
@@ -8876,8 +8873,8 @@ entry:
 
 define %HttpResponse @response_method_not_allowed() local_unnamed_addr {
 entry:
-  %str_clone.4367.i = tail call ptr @str_clone(ptr nonnull @.str.253)
-  %str_clone.4370.i = tail call ptr @str_clone(ptr nonnull @.str.252)
+  %str_clone.4367.i = tail call ptr @str_clone(ptr nonnull @.str.254)
+  %str_clone.4370.i = tail call ptr @str_clone(ptr nonnull @.str.253)
   %load.4371.fca.1.insert.i = insertvalue %HttpResponse { i32 405, ptr poison, ptr poison }, ptr %str_clone.4367.i, 1
   %load.4371.fca.2.insert.i = insertvalue %HttpResponse %load.4371.fca.1.insert.i, ptr %str_clone.4370.i, 2
   ret %HttpResponse %load.4371.fca.2.insert.i
@@ -8894,8 +8891,8 @@ entry:
 
 define %HttpResponse @response_not_found() local_unnamed_addr {
 entry:
-  %str_clone.4367.i = tail call ptr @str_clone(ptr nonnull @.str.254)
-  %str_clone.4370.i = tail call ptr @str_clone(ptr nonnull @.str.252)
+  %str_clone.4367.i = tail call ptr @str_clone(ptr nonnull @.str.255)
+  %str_clone.4370.i = tail call ptr @str_clone(ptr nonnull @.str.253)
   %load.4371.fca.1.insert.i = insertvalue %HttpResponse { i32 404, ptr poison, ptr poison }, ptr %str_clone.4367.i, 1
   %load.4371.fca.2.insert.i = insertvalue %HttpResponse %load.4371.fca.1.insert.i, ptr %str_clone.4370.i, 2
   ret %HttpResponse %load.4371.fca.2.insert.i
@@ -8904,7 +8901,7 @@ entry:
 define %HttpResponse @response_ok_json(ptr %0) local_unnamed_addr {
 entry:
   %str_clone.4367.i = tail call ptr @str_clone(ptr %0)
-  %str_clone.4370.i = tail call ptr @str_clone(ptr nonnull @.str.252)
+  %str_clone.4370.i = tail call ptr @str_clone(ptr nonnull @.str.253)
   %load.4371.fca.1.insert.i = insertvalue %HttpResponse { i32 200, ptr poison, ptr poison }, ptr %str_clone.4367.i, 1
   %load.4371.fca.2.insert.i = insertvalue %HttpResponse %load.4371.fca.1.insert.i, ptr %str_clone.4370.i, 2
   ret %HttpResponse %load.4371.fca.2.insert.i
@@ -8913,7 +8910,7 @@ entry:
 define %HttpResponse @response_text(i32 %0, ptr %1) local_unnamed_addr {
 entry:
   %str_clone.4389 = tail call ptr @str_clone(ptr %1)
-  %str_clone.4392 = tail call ptr @str_clone(ptr nonnull @.str.255)
+  %str_clone.4392 = tail call ptr @str_clone(ptr nonnull @.str.256)
   %load.4393.fca.0.insert = insertvalue %HttpResponse poison, i32 %0, 0
   %load.4393.fca.1.insert = insertvalue %HttpResponse %load.4393.fca.0.insert, ptr %str_clone.4389, 1
   %load.4393.fca.2.insert = insertvalue %HttpResponse %load.4393.fca.1.insert, ptr %str_clone.4392, 2
@@ -8922,8 +8919,8 @@ entry:
 
 define %HttpResponse @response_unauthorized() local_unnamed_addr {
 entry:
-  %str_clone.4367.i = tail call ptr @str_clone(ptr nonnull @.str.256)
-  %str_clone.4370.i = tail call ptr @str_clone(ptr nonnull @.str.252)
+  %str_clone.4367.i = tail call ptr @str_clone(ptr nonnull @.str.257)
+  %str_clone.4370.i = tail call ptr @str_clone(ptr nonnull @.str.253)
   %load.4371.fca.1.insert.i = insertvalue %HttpResponse { i32 401, ptr poison, ptr poison }, ptr %str_clone.4367.i, 1
   %load.4371.fca.2.insert.i = insertvalue %HttpResponse %load.4371.fca.1.insert.i, ptr %str_clone.4370.i, 2
   ret %HttpResponse %load.4371.fca.2.insert.i
@@ -8942,8 +8939,8 @@ switch.lookup:                                    ; preds = %entry
   br label %method_name.exit
 
 method_name.exit:                                 ; preds = %entry, %switch.lookup
-  %common.ret.op.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.237, %entry ]
-  %call.4399 = tail call ptr @str_cat(ptr nonnull %common.ret.op.i, ptr nonnull @.str.257)
+  %common.ret.op.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.238, %entry ]
+  %call.4399 = tail call ptr @str_cat(ptr nonnull %common.ret.op.i, ptr nonnull @.str.258)
   %call.4404 = tail call ptr @str_cat(ptr %call.4399, ptr %1)
   tail call void @heap_free(ptr %call.4399)
   ret ptr %call.4404
@@ -8985,7 +8982,7 @@ entry:
   ]
 
 common.ret:                                       ; preds = %entry, %endif.924, %then.922, %then.919, %then.916, %then.913, %then.910, %then.907, %then.904, %then.901
-  %common.ret.op = phi ptr [ @.str.258, %endif.924 ], [ @.str.267, %then.922 ], [ @.str.260, %then.901 ], [ @.str.261, %then.904 ], [ @.str.262, %then.907 ], [ @.str.263, %then.910 ], [ @.str.264, %then.913 ], [ @.str.265, %then.916 ], [ @.str.266, %then.919 ], [ @.str.259, %entry ]
+  %common.ret.op = phi ptr [ @.str.259, %endif.924 ], [ @.str.268, %then.922 ], [ @.str.261, %then.901 ], [ @.str.262, %then.904 ], [ @.str.263, %then.907 ], [ @.str.264, %then.910 ], [ @.str.265, %then.913 ], [ @.str.266, %then.916 ], [ @.str.267, %then.919 ], [ @.str.260, %entry ]
   ret ptr %common.ret.op
 
 then.901:                                         ; preds = %entry
@@ -9257,8 +9254,8 @@ common.ret:                                       ; preds = %entry, %endif.943
   ret i1 %bin.4520.i
 
 endif.943:                                        ; preds = %entry
-  %call.4524 = tail call ptr @str_cat(ptr %0, ptr nonnull @.str.268)
-  %call.4526 = tail call ptr @str_cat(ptr %call.4524, ptr nonnull @.str.269)
+  %call.4524 = tail call ptr @str_cat(ptr %0, ptr nonnull @.str.269)
+  %call.4526 = tail call ptr @str_cat(ptr %call.4524, ptr nonnull @.str.270)
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) %call.4526)
   br label %common.ret
 }
@@ -9309,7 +9306,7 @@ common.ret:                                       ; preds = %endif.946, %endif.9
   ret ptr %common.ret.op
 
 then.947:                                         ; preds = %then.944
-  %2 = tail call i32 @puts(ptr nonnull dereferenceable(1) @.str.270)
+  %2 = tail call i32 @puts(ptr nonnull dereferenceable(1) @.str.271)
   br label %common.ret
 
 endif.949:                                        ; preds = %then.944
@@ -9373,7 +9370,7 @@ entry:
 then.962:                                         ; preds = %entry
   %bin.4576 = add nsw i32 %call.4573, -2
   %call.4577 = tail call ptr @substring(ptr %call.4569.i, i32 %bin.4576, i32 2)
-  %call.4580 = tail call i32 @str_cmp(ptr %call.4577, ptr nonnull @.str.271)
+  %call.4580 = tail call i32 @str_cmp(ptr %call.4577, ptr nonnull @.str.272)
   %bin.4581 = icmp eq i32 %call.4580, 0
   br i1 %bin.4581, label %then.965, label %common.ret
 
@@ -9397,7 +9394,7 @@ entry:
 
 define void @ui_err(ptr %0) local_unnamed_addr {
 entry:
-  %call.4595 = tail call ptr @str_cat(ptr nonnull @.str.272, ptr %0)
+  %call.4595 = tail call ptr @str_cat(ptr nonnull @.str.273, ptr %0)
   %call.4588.i = tail call ptr @str_cat(ptr nonnull @.str.4, ptr %call.4595)
   %call.4591.i = tail call ptr @str_cat(ptr %call.4588.i, ptr nonnull @.str.3)
   tail call void @stdout_writeln_str(ptr %call.4591.i)
@@ -9406,12 +9403,12 @@ entry:
 
 define void @ui_field(ptr %0, ptr %1) local_unnamed_addr {
 entry:
-  %call.4599 = tail call ptr @str_cat(ptr nonnull @.str.273, ptr nonnull @.str.7)
+  %call.4599 = tail call ptr @str_cat(ptr nonnull @.str.274, ptr nonnull @.str.7)
   %call.4601 = tail call ptr @str_cat(ptr %call.4599, ptr %0)
   %call.4604 = tail call ptr @str_cat(ptr %call.4601, ptr nonnull @.str.3)
   %call.4609 = tail call ptr @str_cat(ptr nonnull @.str.8, ptr %1)
   %call.4612 = tail call ptr @str_cat(ptr %call.4609, ptr nonnull @.str.3)
-  %call.4617 = tail call ptr @str_cat(ptr %call.4604, ptr nonnull @.str.274)
+  %call.4617 = tail call ptr @str_cat(ptr %call.4604, ptr nonnull @.str.275)
   %call.4620 = tail call ptr @str_cat(ptr %call.4617, ptr %call.4612)
   tail call void @stdout_writeln_str(ptr %call.4620)
   tail call void @heap_free(ptr %call.4604)
@@ -9421,7 +9418,7 @@ entry:
 
 define void @ui_info(ptr %0) local_unnamed_addr {
 entry:
-  %call.4626 = tail call ptr @str_cat(ptr nonnull @.str.275, ptr %0)
+  %call.4626 = tail call ptr @str_cat(ptr nonnull @.str.276, ptr %0)
   %call.4588.i = tail call ptr @str_cat(ptr nonnull @.str.7, ptr %call.4626)
   %call.4591.i = tail call ptr @str_cat(ptr %call.4588.i, ptr nonnull @.str.3)
   tail call void @stdout_writeln_str(ptr %call.4591.i)
@@ -9430,7 +9427,7 @@ entry:
 
 define void @ui_ok(ptr %0) local_unnamed_addr {
 entry:
-  %call.4630 = tail call ptr @str_cat(ptr nonnull @.str.276, ptr %0)
+  %call.4630 = tail call ptr @str_cat(ptr nonnull @.str.277, ptr %0)
   %call.4588.i = tail call ptr @str_cat(ptr nonnull @.str.5, ptr %call.4630)
   %call.4591.i = tail call ptr @str_cat(ptr %call.4588.i, ptr nonnull @.str.3)
   tail call void @stdout_writeln_str(ptr %call.4591.i)
@@ -9439,12 +9436,12 @@ entry:
 
 define void @ui_tip(ptr %0) local_unnamed_addr {
 entry:
-  %call.4634 = tail call ptr @str_cat(ptr nonnull @.str.274, ptr nonnull @.str.7)
-  %call.4636 = tail call ptr @str_cat(ptr %call.4634, ptr nonnull @.str.277)
+  %call.4634 = tail call ptr @str_cat(ptr nonnull @.str.275, ptr nonnull @.str.7)
+  %call.4636 = tail call ptr @str_cat(ptr %call.4634, ptr nonnull @.str.278)
   %call.4639 = tail call ptr @str_cat(ptr %call.4636, ptr nonnull @.str.3)
   %call.4644 = tail call ptr @str_cat(ptr nonnull @.str.8, ptr %0)
   %call.4647 = tail call ptr @str_cat(ptr %call.4644, ptr nonnull @.str.3)
-  %call.4652 = tail call ptr @str_cat(ptr %call.4639, ptr nonnull @.str.274)
+  %call.4652 = tail call ptr @str_cat(ptr %call.4639, ptr nonnull @.str.275)
   %call.4655 = tail call ptr @str_cat(ptr %call.4652, ptr %call.4647)
   tail call void @stdout_writeln_str(ptr %call.4655)
   tail call void @heap_free(ptr %call.4647)
@@ -9462,7 +9459,7 @@ entry:
 then.962.i:                                       ; preds = %entry
   %bin.4576.i = add nsw i32 %call.4573.i, -2
   %call.4577.i = tail call ptr @substring(ptr %call.4569.i.i, i32 %bin.4576.i, i32 2)
-  %call.4580.i = tail call i32 @str_cmp(ptr %call.4577.i, ptr nonnull @.str.271)
+  %call.4580.i = tail call i32 @str_cmp(ptr %call.4577.i, ptr nonnull @.str.272)
   %bin.4581.i = icmp eq i32 %call.4580.i, 0
   br i1 %bin.4581.i, label %then.965.i, label %ui_clean_line.exit
 
@@ -9478,7 +9475,7 @@ ui_clean_line.exit:                               ; preds = %entry, %then.962.i,
   %call.4672 = tail call ptr @str_cat(ptr nonnull @.str.5, ptr %common.ret.op.i)
   %call.4673 = tail call ptr @str_cat(ptr nonnull @.str.9, ptr %call.4672)
   %call.4676 = tail call ptr @str_cat(ptr %call.4673, ptr nonnull @.str.3)
-  %call.4681 = tail call ptr @str_cat(ptr %call.4665, ptr nonnull @.str.274)
+  %call.4681 = tail call ptr @str_cat(ptr %call.4665, ptr nonnull @.str.275)
   %call.4684 = tail call ptr @str_cat(ptr %call.4681, ptr %call.4676)
   tail call void @stdout_writeln_str(ptr %call.4684)
   tail call void @heap_free(ptr %call.4665)
@@ -9488,7 +9485,7 @@ ui_clean_line.exit:                               ; preds = %entry, %then.962.i,
 
 define void @ui_warn(ptr %0) local_unnamed_addr {
 entry:
-  %call.4690 = tail call ptr @str_cat(ptr nonnull @.str.278, ptr %0)
+  %call.4690 = tail call ptr @str_cat(ptr nonnull @.str.279, ptr %0)
   %call.4588.i = tail call ptr @str_cat(ptr nonnull @.str.6, ptr %call.4690)
   %call.4591.i = tail call ptr @str_cat(ptr %call.4588.i, ptr nonnull @.str.3)
   tail call void @stdout_writeln_str(ptr %call.4591.i)
@@ -9497,8 +9494,8 @@ entry:
 
 define range(i32 0, 2) i32 @wants_keep_alive(ptr %0) local_unnamed_addr {
 entry:
-  %call.4692 = tail call ptr @header_value(ptr %0, ptr nonnull @.str.279)
-  %call.4695 = tail call i32 @strstr_pos(ptr %call.4692, ptr nonnull @.str.280)
+  %call.4692 = tail call ptr @header_value(ptr %0, ptr nonnull @.str.280)
+  %call.4695 = tail call i32 @strstr_pos(ptr %call.4692, ptr nonnull @.str.281)
   %bin.4696 = icmp sgt i32 %call.4695, -1
   br i1 %bin.4696, label %common.ret, label %endif.970
 
@@ -9507,7 +9504,7 @@ common.ret:                                       ; preds = %endif.970, %entry
   ret i32 %common.ret.op
 
 endif.970:                                        ; preds = %entry
-  %call.4699 = tail call i32 @strstr_pos(ptr %call.4692, ptr nonnull @.str.281)
+  %call.4699 = tail call i32 @strstr_pos(ptr %call.4692, ptr nonnull @.str.282)
   %bin.4700 = icmp sgt i32 %call.4699, -1
   %spec.select = zext i1 %bin.4700 to i32
   br label %common.ret
@@ -9714,9 +9711,9 @@ entry:
   %str_clone.2724.i = tail call ptr @str_clone(ptr %call.3755.i.i)
   %call.3755.i1.i = tail call ptr @json_get_string(ptr %0, ptr nonnull @.str.117)
   %str_clone.2728.i = tail call ptr @str_clone(ptr %call.3755.i1.i)
-  %call.3755.i2.i = tail call ptr @json_get_string(ptr %0, ptr nonnull @.str.179)
+  %call.3755.i2.i = tail call ptr @json_get_string(ptr %0, ptr nonnull @.str.180)
   %str_clone.2732.i = tail call ptr @str_clone(ptr %call.3755.i2.i)
-  %call.3755.i3.i = tail call ptr @json_get_string(ptr %0, ptr nonnull @.str.180)
+  %call.3755.i3.i = tail call ptr @json_get_string(ptr %0, ptr nonnull @.str.181)
   %str_clone.2736.i = tail call ptr @str_clone(ptr %call.3755.i3.i)
   %load.2737.fca.0.insert.i = insertvalue %RequestContext poison, i32 %call.3751.i.i, 0
   %load.2737.fca.1.insert.i = insertvalue %RequestContext %load.2737.fca.0.insert.i, ptr %str_clone.2724.i, 1
@@ -9731,10 +9728,10 @@ entry:
   %call.3755.i.i = tail call ptr @json_get_string(ptr %0, ptr nonnull @.str.120)
   %str_clone.3323.i = tail call ptr @str_clone(ptr %call.3755.i.i)
   %call.3751.i.i = tail call i32 @json_get_i32(ptr %0, ptr nonnull @.str.121)
-  %call.3707.i.i = tail call ptr @json_get_array(ptr %0, ptr nonnull @.str.212)
+  %call.3707.i.i = tail call ptr @json_get_array(ptr %0, ptr nonnull @.str.213)
   %call.3330.i = tail call ptr @json_decode_i32_array(ptr %call.3707.i.i)
-  %call.3751.i1.i = tail call i32 @json_get_i32(ptr %0, ptr nonnull @.str.213)
-  %call.3751.i2.i = tail call i32 @json_get_i32(ptr %0, ptr nonnull @.str.214)
+  %call.3751.i1.i = tail call i32 @json_get_i32(ptr %0, ptr nonnull @.str.214)
+  %call.3751.i2.i = tail call i32 @json_get_i32(ptr %0, ptr nonnull @.str.215)
   %load.3337.fca.0.insert.i = insertvalue %Server poison, ptr %str_clone.3323.i, 0
   %load.3337.fca.1.insert.i = insertvalue %Server %load.3337.fca.0.insert.i, i32 %call.3751.i.i, 1
   %load.3337.fca.2.insert.i = insertvalue %Server %load.3337.fca.1.insert.i, ptr %call.3330.i, 2
@@ -9745,23 +9742,23 @@ entry:
 
 define %TcpListener @Deserialize_TcpListener_from_json(ptr %0) local_unnamed_addr {
 entry:
-  %call.3751.i.i = tail call i32 @json_get_i32(ptr %0, ptr nonnull @.str.215)
+  %call.3751.i.i = tail call i32 @json_get_i32(ptr %0, ptr nonnull @.str.216)
   %load.3418.fca.0.insert.i = insertvalue %TcpListener poison, i32 %call.3751.i.i, 0
   ret %TcpListener %load.3418.fca.0.insert.i
 }
 
 define %TcpStream @Deserialize_TcpStream_from_json(ptr %0) local_unnamed_addr {
 entry:
-  %call.3751.i.i = tail call i32 @json_get_i32(ptr %0, ptr nonnull @.str.215)
+  %call.3751.i.i = tail call i32 @json_get_i32(ptr %0, ptr nonnull @.str.216)
   %load.3440.fca.0.insert.i = insertvalue %TcpStream poison, i32 %call.3751.i.i, 0
   ret %TcpStream %load.3440.fca.0.insert.i
 }
 
 define %Version @Deserialize_Version_from_json(ptr %0) local_unnamed_addr {
 entry:
-  %call.3751.i.i = tail call i32 @json_get_i32(ptr %0, ptr nonnull @.str.216)
-  %call.3751.i1.i = tail call i32 @json_get_i32(ptr %0, ptr nonnull @.str.217)
-  %call.3751.i2.i = tail call i32 @json_get_i32(ptr %0, ptr nonnull @.str.218)
+  %call.3751.i.i = tail call i32 @json_get_i32(ptr %0, ptr nonnull @.str.217)
+  %call.3751.i1.i = tail call i32 @json_get_i32(ptr %0, ptr nonnull @.str.218)
+  %call.3751.i2.i = tail call i32 @json_get_i32(ptr %0, ptr nonnull @.str.219)
   %load.3580.fca.0.insert.i = insertvalue %Version poison, i32 %call.3751.i.i, 0
   %load.3580.fca.1.insert.i = insertvalue %Version %load.3580.fca.0.insert.i, i32 %call.3751.i1.i, 1
   %load.3580.fca.2.insert.i = insertvalue %Version %load.3580.fca.1.insert.i, i32 %call.3751.i2.i, 2
@@ -10458,7 +10455,7 @@ define ptr @Serialize_TcpListener_to_json(ptr readonly %0) local_unnamed_addr {
 entry:
   %call.3419.i = tail call ptr @vec_str_new()
   %call.3420.i = tail call ptr @vec_str_new()
-  tail call void @vec_str_push(ptr %call.3419.i, ptr nonnull @.str.215)
+  tail call void @vec_str_push(ptr %call.3419.i, ptr nonnull @.str.216)
   %load.3423.i = load i32, ptr %0, align 4
   %call.3424.i = tail call ptr @i32_to_string(i32 %load.3423.i)
   tail call void @vec_str_push(ptr %call.3420.i, ptr %call.3424.i)
@@ -10481,7 +10478,7 @@ define ptr @Serialize_TcpStream_to_json(ptr readonly %0) local_unnamed_addr {
 entry:
   %call.3441.i = tail call ptr @vec_str_new()
   %call.3442.i = tail call ptr @vec_str_new()
-  tail call void @vec_str_push(ptr %call.3441.i, ptr nonnull @.str.215)
+  tail call void @vec_str_push(ptr %call.3441.i, ptr nonnull @.str.216)
   %load.3445.i = load i32, ptr %0, align 4
   %call.3446.i = tail call ptr @i32_to_string(i32 %load.3445.i)
   tail call void @vec_str_push(ptr %call.3442.i, ptr %call.3446.i)

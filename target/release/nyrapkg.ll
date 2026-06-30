@@ -2,7 +2,7 @@
 source_filename = "./main.ny"
 target triple = "arm64-apple-darwin24.6.0"
 
-@.str.0 = private unnamed_addr constant [6 x i8] c"0.1.0\00", align 1
+@.str.0 = private unnamed_addr constant [6 x i8] c"0.1.1\00", align 1
 @.str.1 = private unnamed_addr constant [14 x i8] c"nyra-lang/pkg\00", align 1
 @.str.2 = private unnamed_addr constant [15 x i8] c"nyra-lang/nyra\00", align 1
 @.str.3 = private unnamed_addr constant [5 x i8] c"[0m\00", align 1
@@ -176,114 +176,115 @@ target triple = "arm64-apple-darwin24.6.0"
 @.str.171 = private unnamed_addr constant [7 x i8] c".jsonl\00", align 1
 @.str.172 = private unnamed_addr constant [8 x i8] c"file://\00", align 1
 @.str.173 = private unnamed_addr constant [10 x i8] c"ny-sqlite\00", align 1
-@.str.174 = private unnamed_addr constant [28 x i8] c"examples/packages/ny-sqlite\00", align 1
-@.str.175 = private unnamed_addr constant [9 x i8] c"ny-serde\00", align 1
-@.str.176 = private unnamed_addr constant [27 x i8] c"examples/packages/ny-serde\00", align 1
-@.str.177 = private unnamed_addr constant [8 x i8] c"ny-toml\00", align 1
-@.str.178 = private unnamed_addr constant [26 x i8] c"examples/packages/ny-toml\00", align 1
-@.str.179 = private unnamed_addr constant [6 x i8] c"query\00", align 1
-@.str.180 = private unnamed_addr constant [4 x i8] c"raw\00", align 1
-@.str.181 = private unnamed_addr constant [41 x i8] c"cannot determine current executable path\00", align 1
-@.str.182 = private unnamed_addr constant [23 x i8] c"executable not found: \00", align 1
-@.str.183 = private unnamed_addr constant [5 x i8] c"cp \22\00", align 1
-@.str.184 = private unnamed_addr constant [4 x i8] c"\22 \22\00", align 1
-@.str.185 = private unnamed_addr constant [2 x i8] c"\22\00", align 1
-@.str.186 = private unnamed_addr constant [3 x i8] c"-c\00", align 1
-@.str.187 = private unnamed_addr constant [3 x i8] c"sh\00", align 1
-@.str.188 = private unnamed_addr constant [19 x i8] c"failed to copy to \00", align 1
-@.str.189 = private unnamed_addr constant [18 x i8] c"installed nyrapkg\00", align 1
-@.str.190 = private unnamed_addr constant [49 x i8] c"add to PATH: export PATH=\22$HOME/.nyra/bin:$PATH\22\00", align 1
-@.str.191 = private unnamed_addr constant [80 x i8] c"self-update failed (no release yet? try `nyrapkg bootstrap` from a local build)\00", align 1
-@.str.192 = private unnamed_addr constant [16 x i8] c"updated nyrapkg\00", align 1
-@.str.193 = private unnamed_addr constant [19 x i8] c"nyra update failed\00", align 1
-@.str.194 = private unnamed_addr constant [23 x i8] c"updated nyra toolchain\00", align 1
-@.str.195 = private unnamed_addr constant [8 x i8] c"nyrapkg\00", align 1
-@.str.196 = private unnamed_addr constant [5 x i8] c"nyra\00", align 1
-@.str.197 = private unnamed_addr constant [59 x i8] c"nyra not found \E2\80\94 install with `nyrapkg toolchain update`\00", align 1
-@.str.198 = private unnamed_addr constant [4 x i8] c"bin\00", align 1
-@.str.199 = private unnamed_addr constant [11 x i8] c"executable\00", align 1
-@.str.200 = private unnamed_addr constant [37 x i8] c"usage: nyrapkg self update [version]\00", align 1
-@.str.201 = private unnamed_addr constant [42 x i8] c"usage: nyrapkg toolchain update [version]\00", align 1
-@.str.202 = private unnamed_addr constant [44 x i8] c"usage: nyrapkg update <nyra|self> [version]\00", align 1
-@.str.203 = private unnamed_addr constant [6 x i8] c"nyra \00", align 1
-@.str.204 = private unnamed_addr constant [35 x i8] c"https://raw.githubusercontent.com/\00", align 1
-@.str.205 = private unnamed_addr constant [25 x i8] c"/main/scripts/install.sh\00", align 1
-@.str.206 = private unnamed_addr constant [13 x i8] c"curl -fsSL \22\00", align 1
-@.str.207 = private unnamed_addr constant [29 x i8] c"\22 | sh -s -- --install-dir \22\00", align 1
-@.str.208 = private unnamed_addr constant [12 x i8] c" --version \00", align 1
-@.str.209 = private unnamed_addr constant [2 x i8] c"^\00", align 1
-@.str.210 = private unnamed_addr constant [3 x i8] c">=\00", align 1
-@.str.211 = private unnamed_addr constant [2 x i8] c"~\00", align 1
-@.str.212 = private unnamed_addr constant [7 x i8] c"router\00", align 1
-@.str.213 = private unnamed_addr constant [5 x i8] c"cors\00", align 1
-@.str.214 = private unnamed_addr constant [11 x i8] c"keep_alive\00", align 1
-@.str.215 = private unnamed_addr constant [3 x i8] c"fd\00", align 1
-@.str.216 = private unnamed_addr constant [6 x i8] c"major\00", align 1
-@.str.217 = private unnamed_addr constant [6 x i8] c"minor\00", align 1
-@.str.218 = private unnamed_addr constant [6 x i8] c"patch\00", align 1
-@.str.219 = private unnamed_addr constant [5 x i8] c"\0D\0A\0D\0A\00", align 1
-@.str.220 = private unnamed_addr constant [269 x i8] c"HTTP/1.1 204 No Content\0D\0AAccess-Control-Allow-Origin: *\0D\0AAccess-Control-Allow-Methods: GET, POST, PUT, DELETE, PATCH, OPTIONS, HEAD\0D\0AAccess-Control-Allow-Headers: Content-Type, Authorization\0D\0AAccess-Control-Max-Age: 86400\0D\0AContent-Length: 0\0D\0AConnection: keep-alive\0D\0A\0D\0A\00", align 1
-@.str.221 = private unnamed_addr constant [10 x i8] c"HTTP/1.1 \00", align 1
-@.str.222 = private unnamed_addr constant [3 x i8] c"\0D\0A\00", align 1
-@.str.223 = private unnamed_addr constant [15 x i8] c"Content-Type: \00", align 1
-@.str.224 = private unnamed_addr constant [17 x i8] c"Content-Length: \00", align 1
-@.str.225 = private unnamed_addr constant [25 x i8] c"Connection: keep-alive\0D\0A\00", align 1
-@.str.226 = private unnamed_addr constant [20 x i8] c"Connection: close\0D\0A\00", align 1
-@.str.227 = private unnamed_addr constant [2 x i8] c"/\00", align 1
-@.str.228 = private unnamed_addr constant [12 x i8] c".nyra/cache\00", align 1
-@.str.229 = private unnamed_addr constant [13 x i8] c".nyra/config\00", align 1
-@.str.230 = private unnamed_addr constant [3 x i8] c": \00", align 1
-@.str.231 = private unnamed_addr constant [18 x i8] c" HTTP/1.1\0D\0AHost: \00", align 1
-@.str.232 = private unnamed_addr constant [38 x i8] c"\0D\0AUser-Agent: Nyra/1.0\0D\0AAccept: */*\0D\0A\00", align 1
-@.str.233 = private unnamed_addr constant [22 x i8] c"Connection: close\0D\0A\0D\0A\00", align 1
-@.str.234 = private unnamed_addr constant [6 x i8] c"HTTP/\00", align 1
-@.str.235 = private unnamed_addr constant [18 x i8] c"Transfer-Encoding\00", align 1
-@.str.236 = private unnamed_addr constant [8 x i8] c"chunked\00", align 1
-@.str.237 = private unnamed_addr constant [4 x i8] c"GET\00", align 1
-@.str.238 = private unnamed_addr constant [5 x i8] c"POST\00", align 1
-@.str.239 = private unnamed_addr constant [5 x i8] c"HEAD\00", align 1
-@.str.240 = private unnamed_addr constant [4 x i8] c"PUT\00", align 1
-@.str.241 = private unnamed_addr constant [7 x i8] c"DELETE\00", align 1
-@.str.242 = private unnamed_addr constant [8 x i8] c"OPTIONS\00", align 1
-@.str.243 = private unnamed_addr constant [6 x i8] c"PATCH\00", align 1
-@.str.244 = private unnamed_addr constant [7 x i8] c"/.nyra\00", align 1
-@.str.245 = private unnamed_addr constant [6 x i8] c".nyra\00", align 1
-@.str.246 = private unnamed_addr constant [8 x i8] c"http://\00", align 1
-@.str.247 = private unnamed_addr constant [10 x i8] c"localhost\00", align 1
-@.str.248 = private unnamed_addr constant [2 x i8] c"?\00", align 1
-@.str.249 = private unnamed_addr constant [24 x i8] c"{\22error\22:\22bad request\22}\00", align 1
-@.str.250 = private unnamed_addr constant [25 x i8] c"text/html; charset=utf-8\00", align 1
-@.str.251 = private unnamed_addr constant [34 x i8] c"{\22error\22:\22internal server error\22}\00", align 1
-@.str.252 = private unnamed_addr constant [32 x i8] c"application/json; charset=utf-8\00", align 1
-@.str.253 = private unnamed_addr constant [31 x i8] c"{\22error\22:\22method not allowed\22}\00", align 1
-@.str.254 = private unnamed_addr constant [22 x i8] c"{\22error\22:\22not found\22}\00", align 1
-@.str.255 = private unnamed_addr constant [26 x i8] c"text/plain; charset=utf-8\00", align 1
-@.str.256 = private unnamed_addr constant [25 x i8] c"{\22error\22:\22unauthorized\22}\00", align 1
-@.str.257 = private unnamed_addr constant [2 x i8] c":\00", align 1
-@.str.258 = private unnamed_addr constant [3 x i8] c"OK\00", align 1
-@.str.259 = private unnamed_addr constant [8 x i8] c"Created\00", align 1
-@.str.260 = private unnamed_addr constant [11 x i8] c"No Content\00", align 1
-@.str.261 = private unnamed_addr constant [12 x i8] c"Bad Request\00", align 1
-@.str.262 = private unnamed_addr constant [13 x i8] c"Unauthorized\00", align 1
-@.str.263 = private unnamed_addr constant [10 x i8] c"Not Found\00", align 1
-@.str.264 = private unnamed_addr constant [19 x i8] c"Method Not Allowed\00", align 1
-@.str.265 = private unnamed_addr constant [21 x i8] c"Unprocessable Entity\00", align 1
-@.str.266 = private unnamed_addr constant [18 x i8] c"Too Many Requests\00", align 1
-@.str.267 = private unnamed_addr constant [22 x i8] c"Internal Server Error\00", align 1
-@.str.268 = private unnamed_addr constant [29 x i8] c": OpenSSL not available \E2\80\94 \00", align 1
-@.str.269 = private unnamed_addr constant [64 x i8] c"install OpenSSL (brew install openssl / apt install libssl-dev)\00", align 1
-@.str.270 = private unnamed_addr constant [86 x i8] c"HTTPS unavailable \E2\80\94 install OpenSSL (brew install openssl / apt install libssl-dev)\00", align 1
-@.str.271 = private unnamed_addr constant [3 x i8] c"\\n\00", align 1
-@.str.272 = private unnamed_addr constant [6 x i8] c"\E2\9C\96  \00", align 1
-@.str.273 = private unnamed_addr constant [7 x i8] c"      \00", align 1
-@.str.274 = private unnamed_addr constant [3 x i8] c"  \00", align 1
-@.str.275 = private unnamed_addr constant [6 x i8] c"\E2\86\92  \00", align 1
-@.str.276 = private unnamed_addr constant [6 x i8] c"\E2\9C\94  \00", align 1
-@.str.277 = private unnamed_addr constant [4 x i8] c"tip\00", align 1
-@.str.278 = private unnamed_addr constant [4 x i8] c"!  \00", align 1
-@.str.279 = private unnamed_addr constant [11 x i8] c"Connection\00", align 1
-@.str.280 = private unnamed_addr constant [11 x i8] c"keep-alive\00", align 1
-@.str.281 = private unnamed_addr constant [11 x i8] c"Keep-Alive\00", align 1
+@.str.174 = private unnamed_addr constant [6 x i8] c"0.1.0\00", align 1
+@.str.175 = private unnamed_addr constant [28 x i8] c"examples/packages/ny-sqlite\00", align 1
+@.str.176 = private unnamed_addr constant [9 x i8] c"ny-serde\00", align 1
+@.str.177 = private unnamed_addr constant [27 x i8] c"examples/packages/ny-serde\00", align 1
+@.str.178 = private unnamed_addr constant [8 x i8] c"ny-toml\00", align 1
+@.str.179 = private unnamed_addr constant [26 x i8] c"examples/packages/ny-toml\00", align 1
+@.str.180 = private unnamed_addr constant [6 x i8] c"query\00", align 1
+@.str.181 = private unnamed_addr constant [4 x i8] c"raw\00", align 1
+@.str.182 = private unnamed_addr constant [41 x i8] c"cannot determine current executable path\00", align 1
+@.str.183 = private unnamed_addr constant [23 x i8] c"executable not found: \00", align 1
+@.str.184 = private unnamed_addr constant [5 x i8] c"cp \22\00", align 1
+@.str.185 = private unnamed_addr constant [4 x i8] c"\22 \22\00", align 1
+@.str.186 = private unnamed_addr constant [2 x i8] c"\22\00", align 1
+@.str.187 = private unnamed_addr constant [3 x i8] c"-c\00", align 1
+@.str.188 = private unnamed_addr constant [3 x i8] c"sh\00", align 1
+@.str.189 = private unnamed_addr constant [19 x i8] c"failed to copy to \00", align 1
+@.str.190 = private unnamed_addr constant [18 x i8] c"installed nyrapkg\00", align 1
+@.str.191 = private unnamed_addr constant [49 x i8] c"add to PATH: export PATH=\22$HOME/.nyra/bin:$PATH\22\00", align 1
+@.str.192 = private unnamed_addr constant [80 x i8] c"self-update failed (no release yet? try `nyrapkg bootstrap` from a local build)\00", align 1
+@.str.193 = private unnamed_addr constant [16 x i8] c"updated nyrapkg\00", align 1
+@.str.194 = private unnamed_addr constant [19 x i8] c"nyra update failed\00", align 1
+@.str.195 = private unnamed_addr constant [23 x i8] c"updated nyra toolchain\00", align 1
+@.str.196 = private unnamed_addr constant [8 x i8] c"nyrapkg\00", align 1
+@.str.197 = private unnamed_addr constant [5 x i8] c"nyra\00", align 1
+@.str.198 = private unnamed_addr constant [59 x i8] c"nyra not found \E2\80\94 install with `nyrapkg toolchain update`\00", align 1
+@.str.199 = private unnamed_addr constant [4 x i8] c"bin\00", align 1
+@.str.200 = private unnamed_addr constant [11 x i8] c"executable\00", align 1
+@.str.201 = private unnamed_addr constant [37 x i8] c"usage: nyrapkg self update [version]\00", align 1
+@.str.202 = private unnamed_addr constant [42 x i8] c"usage: nyrapkg toolchain update [version]\00", align 1
+@.str.203 = private unnamed_addr constant [44 x i8] c"usage: nyrapkg update <nyra|self> [version]\00", align 1
+@.str.204 = private unnamed_addr constant [6 x i8] c"nyra \00", align 1
+@.str.205 = private unnamed_addr constant [35 x i8] c"https://raw.githubusercontent.com/\00", align 1
+@.str.206 = private unnamed_addr constant [25 x i8] c"/main/scripts/install.sh\00", align 1
+@.str.207 = private unnamed_addr constant [13 x i8] c"curl -fsSL \22\00", align 1
+@.str.208 = private unnamed_addr constant [29 x i8] c"\22 | sh -s -- --install-dir \22\00", align 1
+@.str.209 = private unnamed_addr constant [12 x i8] c" --version \00", align 1
+@.str.210 = private unnamed_addr constant [2 x i8] c"^\00", align 1
+@.str.211 = private unnamed_addr constant [3 x i8] c">=\00", align 1
+@.str.212 = private unnamed_addr constant [2 x i8] c"~\00", align 1
+@.str.213 = private unnamed_addr constant [7 x i8] c"router\00", align 1
+@.str.214 = private unnamed_addr constant [5 x i8] c"cors\00", align 1
+@.str.215 = private unnamed_addr constant [11 x i8] c"keep_alive\00", align 1
+@.str.216 = private unnamed_addr constant [3 x i8] c"fd\00", align 1
+@.str.217 = private unnamed_addr constant [6 x i8] c"major\00", align 1
+@.str.218 = private unnamed_addr constant [6 x i8] c"minor\00", align 1
+@.str.219 = private unnamed_addr constant [6 x i8] c"patch\00", align 1
+@.str.220 = private unnamed_addr constant [5 x i8] c"\0D\0A\0D\0A\00", align 1
+@.str.221 = private unnamed_addr constant [269 x i8] c"HTTP/1.1 204 No Content\0D\0AAccess-Control-Allow-Origin: *\0D\0AAccess-Control-Allow-Methods: GET, POST, PUT, DELETE, PATCH, OPTIONS, HEAD\0D\0AAccess-Control-Allow-Headers: Content-Type, Authorization\0D\0AAccess-Control-Max-Age: 86400\0D\0AContent-Length: 0\0D\0AConnection: keep-alive\0D\0A\0D\0A\00", align 1
+@.str.222 = private unnamed_addr constant [10 x i8] c"HTTP/1.1 \00", align 1
+@.str.223 = private unnamed_addr constant [3 x i8] c"\0D\0A\00", align 1
+@.str.224 = private unnamed_addr constant [15 x i8] c"Content-Type: \00", align 1
+@.str.225 = private unnamed_addr constant [17 x i8] c"Content-Length: \00", align 1
+@.str.226 = private unnamed_addr constant [25 x i8] c"Connection: keep-alive\0D\0A\00", align 1
+@.str.227 = private unnamed_addr constant [20 x i8] c"Connection: close\0D\0A\00", align 1
+@.str.228 = private unnamed_addr constant [2 x i8] c"/\00", align 1
+@.str.229 = private unnamed_addr constant [12 x i8] c".nyra/cache\00", align 1
+@.str.230 = private unnamed_addr constant [13 x i8] c".nyra/config\00", align 1
+@.str.231 = private unnamed_addr constant [3 x i8] c": \00", align 1
+@.str.232 = private unnamed_addr constant [18 x i8] c" HTTP/1.1\0D\0AHost: \00", align 1
+@.str.233 = private unnamed_addr constant [38 x i8] c"\0D\0AUser-Agent: Nyra/1.0\0D\0AAccept: */*\0D\0A\00", align 1
+@.str.234 = private unnamed_addr constant [22 x i8] c"Connection: close\0D\0A\0D\0A\00", align 1
+@.str.235 = private unnamed_addr constant [6 x i8] c"HTTP/\00", align 1
+@.str.236 = private unnamed_addr constant [18 x i8] c"Transfer-Encoding\00", align 1
+@.str.237 = private unnamed_addr constant [8 x i8] c"chunked\00", align 1
+@.str.238 = private unnamed_addr constant [4 x i8] c"GET\00", align 1
+@.str.239 = private unnamed_addr constant [5 x i8] c"POST\00", align 1
+@.str.240 = private unnamed_addr constant [5 x i8] c"HEAD\00", align 1
+@.str.241 = private unnamed_addr constant [4 x i8] c"PUT\00", align 1
+@.str.242 = private unnamed_addr constant [7 x i8] c"DELETE\00", align 1
+@.str.243 = private unnamed_addr constant [8 x i8] c"OPTIONS\00", align 1
+@.str.244 = private unnamed_addr constant [6 x i8] c"PATCH\00", align 1
+@.str.245 = private unnamed_addr constant [7 x i8] c"/.nyra\00", align 1
+@.str.246 = private unnamed_addr constant [6 x i8] c".nyra\00", align 1
+@.str.247 = private unnamed_addr constant [8 x i8] c"http://\00", align 1
+@.str.248 = private unnamed_addr constant [10 x i8] c"localhost\00", align 1
+@.str.249 = private unnamed_addr constant [2 x i8] c"?\00", align 1
+@.str.250 = private unnamed_addr constant [24 x i8] c"{\22error\22:\22bad request\22}\00", align 1
+@.str.251 = private unnamed_addr constant [25 x i8] c"text/html; charset=utf-8\00", align 1
+@.str.252 = private unnamed_addr constant [34 x i8] c"{\22error\22:\22internal server error\22}\00", align 1
+@.str.253 = private unnamed_addr constant [32 x i8] c"application/json; charset=utf-8\00", align 1
+@.str.254 = private unnamed_addr constant [31 x i8] c"{\22error\22:\22method not allowed\22}\00", align 1
+@.str.255 = private unnamed_addr constant [22 x i8] c"{\22error\22:\22not found\22}\00", align 1
+@.str.256 = private unnamed_addr constant [26 x i8] c"text/plain; charset=utf-8\00", align 1
+@.str.257 = private unnamed_addr constant [25 x i8] c"{\22error\22:\22unauthorized\22}\00", align 1
+@.str.258 = private unnamed_addr constant [2 x i8] c":\00", align 1
+@.str.259 = private unnamed_addr constant [3 x i8] c"OK\00", align 1
+@.str.260 = private unnamed_addr constant [8 x i8] c"Created\00", align 1
+@.str.261 = private unnamed_addr constant [11 x i8] c"No Content\00", align 1
+@.str.262 = private unnamed_addr constant [12 x i8] c"Bad Request\00", align 1
+@.str.263 = private unnamed_addr constant [13 x i8] c"Unauthorized\00", align 1
+@.str.264 = private unnamed_addr constant [10 x i8] c"Not Found\00", align 1
+@.str.265 = private unnamed_addr constant [19 x i8] c"Method Not Allowed\00", align 1
+@.str.266 = private unnamed_addr constant [21 x i8] c"Unprocessable Entity\00", align 1
+@.str.267 = private unnamed_addr constant [18 x i8] c"Too Many Requests\00", align 1
+@.str.268 = private unnamed_addr constant [22 x i8] c"Internal Server Error\00", align 1
+@.str.269 = private unnamed_addr constant [29 x i8] c": OpenSSL not available \E2\80\94 \00", align 1
+@.str.270 = private unnamed_addr constant [64 x i8] c"install OpenSSL (brew install openssl / apt install libssl-dev)\00", align 1
+@.str.271 = private unnamed_addr constant [86 x i8] c"HTTPS unavailable \E2\80\94 install OpenSSL (brew install openssl / apt install libssl-dev)\00", align 1
+@.str.272 = private unnamed_addr constant [3 x i8] c"\\n\00", align 1
+@.str.273 = private unnamed_addr constant [6 x i8] c"\E2\9C\96  \00", align 1
+@.str.274 = private unnamed_addr constant [7 x i8] c"      \00", align 1
+@.str.275 = private unnamed_addr constant [3 x i8] c"  \00", align 1
+@.str.276 = private unnamed_addr constant [6 x i8] c"\E2\86\92  \00", align 1
+@.str.277 = private unnamed_addr constant [6 x i8] c"\E2\9C\94  \00", align 1
+@.str.278 = private unnamed_addr constant [4 x i8] c"tip\00", align 1
+@.str.279 = private unnamed_addr constant [4 x i8] c"!  \00", align 1
+@.str.280 = private unnamed_addr constant [11 x i8] c"Connection\00", align 1
+@.str.281 = private unnamed_addr constant [11 x i8] c"keep-alive\00", align 1
+@.str.282 = private unnamed_addr constant [11 x i8] c"Keep-Alive\00", align 1
 
 
 declare i32 @printf(ptr, ...)
@@ -3268,11 +3269,11 @@ entry:
   %bin.1551 = icmp eq i32 %call.1550, 0
   br i1 %bin.1551, label %then.294, label %else.295
 then.294:
-  %ld.1552 = load ptr, ptr %alloca.1535
+  %ld.1552 = load ptr, ptr %alloca.1548
   call void @heap_free(ptr %ld.1552)
-  %ld.1553 = load ptr, ptr %alloca.1530
+  %ld.1553 = load ptr, ptr %alloca.1535
   call void @heap_free(ptr %ld.1553)
-  %ld.1554 = load ptr, ptr %alloca.1548
+  %ld.1554 = load ptr, ptr %alloca.1530
   call void @heap_free(ptr %ld.1554)
   %load.1555 = load %LockFile, %LockFile* %alloca.1542
   ret %LockFile %load.1555
@@ -3305,9 +3306,9 @@ while.end.299:
   %loop.exit.1570 = phi i32 [%loop.phi.1558, %while.cond.297]
   %ld.1571 = load ptr, ptr %alloca.1530
   call void @heap_free(ptr %ld.1571)
-  %ld.1572 = load ptr, ptr %alloca.1548
+  %ld.1572 = load ptr, ptr %alloca.1535
   call void @heap_free(ptr %ld.1572)
-  %ld.1573 = load ptr, ptr %alloca.1535
+  %ld.1573 = load ptr, ptr %alloca.1548
   call void @heap_free(ptr %ld.1573)
   %load.1574 = load %LockFile, %LockFile* %alloca.1542
   ret %LockFile %load.1574
@@ -3343,9 +3344,9 @@ then.300:
   %str.1598 = getelementptr inbounds i8, ptr @.str.143, i64 0
   %call.1599 = call ptr @json_get_string(ptr %ld.1597, ptr %str.1598)
   %call.1600 = call %LockEntry @LockEntry_git(ptr %call.1589, ptr %call.1591, ptr %call.1593, ptr %call.1596, ptr %call.1599)
-  %ld.1601 = load ptr, ptr %alloca.1582
+  %ld.1601 = load ptr, ptr %alloca.1577
   call void @heap_free(ptr %ld.1601)
-  %ld.1602 = load ptr, ptr %alloca.1577
+  %ld.1602 = load ptr, ptr %alloca.1582
   call void @heap_free(ptr %ld.1602)
   ret %LockEntry %call.1600
 else.301:
@@ -3358,9 +3359,9 @@ endif.302:
   %str.1607 = getelementptr inbounds i8, ptr @.str.132, i64 0
   %call.1608 = call ptr @json_get_string(ptr %0, ptr %str.1607)
   %call.1609 = call %LockEntry @LockEntry_local(ptr %call.1604, ptr %call.1606, ptr %call.1608)
-  %ld.1610 = load ptr, ptr %alloca.1582
+  %ld.1610 = load ptr, ptr %alloca.1577
   call void @heap_free(ptr %ld.1610)
-  %ld.1611 = load ptr, ptr %alloca.1577
+  %ld.1611 = load ptr, ptr %alloca.1582
   call void @heap_free(ptr %ld.1611)
   ret %LockEntry %call.1609
 }
@@ -4790,7 +4791,7 @@ then.428:
   %str_clone.2488 = call ptr @str_clone(ptr %str.2487)
   store ptr %str_clone.2488, ptr %gep.2486
   %gep.2489 = getelementptr inbounds %PackageSpec, %PackageSpec* %alloca.2485, i32 0, i32 1
-  %str.2490 = getelementptr inbounds i8, ptr @.str.0, i64 0
+  %str.2490 = getelementptr inbounds i8, ptr @.str.174, i64 0
   %str_clone.2491 = call ptr @str_clone(ptr %str.2490)
   store ptr %str_clone.2491, ptr %gep.2489
   %gep.2492 = getelementptr inbounds %PackageSpec, %PackageSpec* %alloca.2485, i32 0, i32 2
@@ -4802,7 +4803,7 @@ then.428:
   %str_clone.2497 = call ptr @str_clone(ptr %str.2496)
   store ptr %str_clone.2497, ptr %gep.2495
   %gep.2498 = getelementptr inbounds %PackageSpec, %PackageSpec* %alloca.2485, i32 0, i32 4
-  %str.2499 = getelementptr inbounds i8, ptr @.str.174, i64 0
+  %str.2499 = getelementptr inbounds i8, ptr @.str.175, i64 0
   %str_clone.2500 = call ptr @str_clone(ptr %str.2499)
   store ptr %str_clone.2500, ptr %gep.2498
   %gep.2501 = getelementptr inbounds %PackageSpec, %PackageSpec* %alloca.2485, i32 0, i32 5
@@ -4819,11 +4820,11 @@ endif.430:
 then.431:
   %alloca.2505 = alloca %PackageSpec
   %gep.2506 = getelementptr inbounds %PackageSpec, %PackageSpec* %alloca.2505, i32 0, i32 0
-  %str.2507 = getelementptr inbounds i8, ptr @.str.175, i64 0
+  %str.2507 = getelementptr inbounds i8, ptr @.str.176, i64 0
   %str_clone.2508 = call ptr @str_clone(ptr %str.2507)
   store ptr %str_clone.2508, ptr %gep.2506
   %gep.2509 = getelementptr inbounds %PackageSpec, %PackageSpec* %alloca.2505, i32 0, i32 1
-  %str.2510 = getelementptr inbounds i8, ptr @.str.0, i64 0
+  %str.2510 = getelementptr inbounds i8, ptr @.str.174, i64 0
   %str_clone.2511 = call ptr @str_clone(ptr %str.2510)
   store ptr %str_clone.2511, ptr %gep.2509
   %gep.2512 = getelementptr inbounds %PackageSpec, %PackageSpec* %alloca.2505, i32 0, i32 2
@@ -4835,7 +4836,7 @@ then.431:
   %str_clone.2517 = call ptr @str_clone(ptr %str.2516)
   store ptr %str_clone.2517, ptr %gep.2515
   %gep.2518 = getelementptr inbounds %PackageSpec, %PackageSpec* %alloca.2505, i32 0, i32 4
-  %str.2519 = getelementptr inbounds i8, ptr @.str.176, i64 0
+  %str.2519 = getelementptr inbounds i8, ptr @.str.177, i64 0
   %str_clone.2520 = call ptr @str_clone(ptr %str.2519)
   store ptr %str_clone.2520, ptr %gep.2518
   %gep.2521 = getelementptr inbounds %PackageSpec, %PackageSpec* %alloca.2505, i32 0, i32 5
@@ -4849,11 +4850,11 @@ else.432:
 endif.433:
   %alloca.2524 = alloca %PackageSpec
   %gep.2525 = getelementptr inbounds %PackageSpec, %PackageSpec* %alloca.2524, i32 0, i32 0
-  %str.2526 = getelementptr inbounds i8, ptr @.str.177, i64 0
+  %str.2526 = getelementptr inbounds i8, ptr @.str.178, i64 0
   %str_clone.2527 = call ptr @str_clone(ptr %str.2526)
   store ptr %str_clone.2527, ptr %gep.2525
   %gep.2528 = getelementptr inbounds %PackageSpec, %PackageSpec* %alloca.2524, i32 0, i32 1
-  %str.2529 = getelementptr inbounds i8, ptr @.str.0, i64 0
+  %str.2529 = getelementptr inbounds i8, ptr @.str.174, i64 0
   %str_clone.2530 = call ptr @str_clone(ptr %str.2529)
   store ptr %str_clone.2530, ptr %gep.2528
   %gep.2531 = getelementptr inbounds %PackageSpec, %PackageSpec* %alloca.2524, i32 0, i32 2
@@ -4865,7 +4866,7 @@ endif.433:
   %str_clone.2536 = call ptr @str_clone(ptr %str.2535)
   store ptr %str_clone.2536, ptr %gep.2534
   %gep.2537 = getelementptr inbounds %PackageSpec, %PackageSpec* %alloca.2524, i32 0, i32 4
-  %str.2538 = getelementptr inbounds i8, ptr @.str.178, i64 0
+  %str.2538 = getelementptr inbounds i8, ptr @.str.179, i64 0
   %str_clone.2539 = call ptr @str_clone(ptr %str.2538)
   store ptr %str_clone.2539, ptr %gep.2537
   %gep.2540 = getelementptr inbounds %PackageSpec, %PackageSpec* %alloca.2524, i32 0, i32 5
@@ -5226,12 +5227,12 @@ entry:
   %str_clone.2728 = call ptr @str_clone(ptr %call.2727)
   store ptr %str_clone.2728, ptr %gep.2725
   %gep.2729 = getelementptr inbounds %RequestContext, %RequestContext* %alloca.2717, i32 0, i32 3
-  %str.2730 = getelementptr inbounds i8, ptr @.str.179, i64 0
+  %str.2730 = getelementptr inbounds i8, ptr @.str.180, i64 0
   %call.2731 = call ptr @decode_string(ptr %0, ptr %str.2730)
   %str_clone.2732 = call ptr @str_clone(ptr %call.2731)
   store ptr %str_clone.2732, ptr %gep.2729
   %gep.2733 = getelementptr inbounds %RequestContext, %RequestContext* %alloca.2717, i32 0, i32 4
-  %str.2734 = getelementptr inbounds i8, ptr @.str.180, i64 0
+  %str.2734 = getelementptr inbounds i8, ptr @.str.181, i64 0
   %call.2735 = call ptr @decode_string(ptr %0, ptr %str.2734)
   %str_clone.2736 = call ptr @str_clone(ptr %call.2735)
   store ptr %str_clone.2736, ptr %gep.2733
@@ -5258,12 +5259,12 @@ entry:
   %gep.2748 = getelementptr inbounds %RequestContext, %RequestContext* %0, i32 0, i32 2
   %load.2749 = load ptr, ptr %gep.2748
   call void @vec_str_push(ptr %call.2739, ptr %load.2749)
-  %str.2750 = getelementptr inbounds i8, ptr @.str.179, i64 0
+  %str.2750 = getelementptr inbounds i8, ptr @.str.180, i64 0
   call void @vec_str_push(ptr %call.2738, ptr %str.2750)
   %gep.2751 = getelementptr inbounds %RequestContext, %RequestContext* %0, i32 0, i32 3
   %load.2752 = load ptr, ptr %gep.2751
   call void @vec_str_push(ptr %call.2739, ptr %load.2752)
-  %str.2753 = getelementptr inbounds i8, ptr @.str.180, i64 0
+  %str.2753 = getelementptr inbounds i8, ptr @.str.181, i64 0
   call void @vec_str_push(ptr %call.2738, ptr %str.2753)
   %gep.2754 = getelementptr inbounds %RequestContext, %RequestContext* %0, i32 0, i32 4
   %load.2755 = load ptr, ptr %gep.2754
@@ -5280,7 +5281,7 @@ entry:
   %bin.2760 = icmp eq i32 %call.2759, 0
   br i1 %bin.2760, label %then.477, label %else.478
 then.477:
-  %str.2761 = getelementptr inbounds i8, ptr @.str.181, i64 0
+  %str.2761 = getelementptr inbounds i8, ptr @.str.182, i64 0
   call i32 @puts(ptr %str.2761)
   ret i32 1
 else.478:
@@ -5290,7 +5291,7 @@ endif.479:
   %bin.2763 = icmp eq i32 %call.2762, 0
   br i1 %bin.2763, label %then.480, label %else.481
 then.480:
-  %str.2764 = getelementptr inbounds i8, ptr @.str.182, i64 0
+  %str.2764 = getelementptr inbounds i8, ptr @.str.183, i64 0
   %call.2766 = call ptr @str_cat(ptr %str.2764, ptr %call.2757)
   %str.2767 = getelementptr inbounds i8, ptr @.str.11, i64 0
   %call.2768 = call ptr @str_cat(ptr %call.2766, ptr %str.2767)
@@ -5303,15 +5304,15 @@ endif.482:
   %call.2770 = call ptr @nyrapkg_installed_bin()
   %call.2771 = call ptr @bin_dir()
   %call.2772 = call i32 @ensure_dir(ptr %call.2771)
-  %str.2773 = getelementptr inbounds i8, ptr @.str.183, i64 0
+  %str.2773 = getelementptr inbounds i8, ptr @.str.184, i64 0
   %call.2775 = call ptr @str_cat(ptr %str.2773, ptr %call.2757)
-  %str.2776 = getelementptr inbounds i8, ptr @.str.184, i64 0
+  %str.2776 = getelementptr inbounds i8, ptr @.str.185, i64 0
   %call.2777 = call ptr @str_cat(ptr %call.2775, ptr %str.2776)
   %alloca.2778 = alloca ptr
   store ptr %call.2777, ptr %alloca.2778
   %ref.2780 = load ptr, ptr %alloca.2778
   %call.2782 = call ptr @str_cat(ptr %ref.2780, ptr %call.2770)
-  %str.2783 = getelementptr inbounds i8, ptr @.str.185, i64 0
+  %str.2783 = getelementptr inbounds i8, ptr @.str.186, i64 0
   %call.2784 = call ptr @str_cat(ptr %call.2782, ptr %str.2783)
   %ld.2785 = load ptr, ptr %alloca.2778
   call void @heap_free(ptr %ld.2785)
@@ -5319,13 +5320,13 @@ endif.482:
   %call.2786 = call %StrVec @StrVec_new()
   %arg.tmp.2787 = alloca %StrVec
   store %StrVec %call.2786, %StrVec* %arg.tmp.2787
-  %str.2788 = getelementptr inbounds i8, ptr @.str.186, i64 0
+  %str.2788 = getelementptr inbounds i8, ptr @.str.187, i64 0
   %call.2789 = call %StrVec @StrVec_push(%StrVec* %arg.tmp.2787, ptr %str.2788)
   %arg.tmp.2790 = alloca %StrVec
   store %StrVec %call.2789, %StrVec* %arg.tmp.2790
   %ld.2791 = load ptr, ptr %alloca.2778
   %call.2792 = call %StrVec @StrVec_push(%StrVec* %arg.tmp.2790, ptr %ld.2791)
-  %str.2793 = getelementptr inbounds i8, ptr @.str.187, i64 0
+  %str.2793 = getelementptr inbounds i8, ptr @.str.188, i64 0
   %arg.tmp.2794 = alloca %StrVec
   store %StrVec %call.2792, %StrVec* %arg.tmp.2794
   %call.2795 = call %ExecResult @exec(ptr %str.2793, %StrVec* %arg.tmp.2794)
@@ -5354,7 +5355,7 @@ then.486:
 else.487:
   br label %endif.488
 endif.488:
-  %str.2809 = getelementptr inbounds i8, ptr @.str.188, i64 0
+  %str.2809 = getelementptr inbounds i8, ptr @.str.189, i64 0
   %call.2811 = call ptr @str_cat(ptr %str.2809, ptr %call.2770)
   %str.2812 = getelementptr inbounds i8, ptr @.str.11, i64 0
   %call.2813 = call ptr @str_cat(ptr %call.2811, ptr %str.2812)
@@ -5366,11 +5367,11 @@ endif.488:
 else.484:
   br label %endif.485
 endif.485:
-  %str.2816 = getelementptr inbounds i8, ptr @.str.189, i64 0
+  %str.2816 = getelementptr inbounds i8, ptr @.str.190, i64 0
   call void @ui_ok(ptr %str.2816)
   %str.2817 = getelementptr inbounds i8, ptr @.str.41, i64 0
   call void @ui_field(ptr %str.2817, ptr %call.2770)
-  %str.2818 = getelementptr inbounds i8, ptr @.str.190, i64 0
+  %str.2818 = getelementptr inbounds i8, ptr @.str.191, i64 0
   call void @ui_tip(ptr %str.2818)
   %ld.2819 = load ptr, ptr %alloca.2778
   call void @heap_free(ptr %ld.2819)
@@ -5384,13 +5385,13 @@ entry:
   %bin.2823 = icmp ne i32 %call.2822, 0
   br i1 %bin.2823, label %then.489, label %else.490
 then.489:
-  %str.2824 = getelementptr inbounds i8, ptr @.str.191, i64 0
+  %str.2824 = getelementptr inbounds i8, ptr @.str.192, i64 0
   call void @ui_err(ptr %str.2824)
   ret i32 1
 else.490:
   br label %endif.491
 endif.491:
-  %str.2825 = getelementptr inbounds i8, ptr @.str.192, i64 0
+  %str.2825 = getelementptr inbounds i8, ptr @.str.193, i64 0
   call void @ui_ok(ptr %str.2825)
   %call.2826 = call i32 @Self_cmd_version()
   ret i32 %call.2826
@@ -5403,20 +5404,20 @@ entry:
   %bin.2830 = icmp ne i32 %call.2829, 0
   br i1 %bin.2830, label %then.492, label %else.493
 then.492:
-  %str.2831 = getelementptr inbounds i8, ptr @.str.193, i64 0
+  %str.2831 = getelementptr inbounds i8, ptr @.str.194, i64 0
   call void @ui_err(ptr %str.2831)
   ret i32 1
 else.493:
   br label %endif.494
 endif.494:
-  %str.2832 = getelementptr inbounds i8, ptr @.str.194, i64 0
+  %str.2832 = getelementptr inbounds i8, ptr @.str.195, i64 0
   call void @ui_ok(ptr %str.2832)
   %call.2833 = call i32 @Self_cmd_version()
   ret i32 %call.2833
 }
 define i32 @Self_cmd_version() {
 entry:
-  %str.2834 = getelementptr inbounds i8, ptr @.str.195, i64 0
+  %str.2834 = getelementptr inbounds i8, ptr @.str.196, i64 0
   %call.2835 = call ptr @Version_string()
   call void @ui_version_line(ptr %str.2834, ptr %call.2835)
   %call.2836 = call ptr @Self_nyra_version_text()
@@ -5424,12 +5425,12 @@ entry:
   %bin.2839 = icmp sgt i32 %call.2838, 0
   br i1 %bin.2839, label %then.495, label %else.496
 then.495:
-  %str.2840 = getelementptr inbounds i8, ptr @.str.196, i64 0
+  %str.2840 = getelementptr inbounds i8, ptr @.str.197, i64 0
   %call.2841 = call ptr @Self_nyra_version_number(ptr %call.2836)
   call void @ui_version_line(ptr %str.2840, ptr %call.2841)
   br label %endif.497
 else.496:
-  %str.2842 = getelementptr inbounds i8, ptr @.str.197, i64 0
+  %str.2842 = getelementptr inbounds i8, ptr @.str.198, i64 0
   call void @ui_warn(ptr %str.2842)
   br label %endif.497
 endif.497:
@@ -5440,19 +5441,19 @@ entry:
   %str.2843 = getelementptr inbounds i8, ptr @.str.106, i64 0
   %call.2844 = call ptr @nyra_home_dir()
   call void @ui_field(ptr %str.2843, ptr %call.2844)
-  %str.2845 = getelementptr inbounds i8, ptr @.str.198, i64 0
+  %str.2845 = getelementptr inbounds i8, ptr @.str.199, i64 0
   %call.2846 = call ptr @bin_dir()
   call void @ui_field(ptr %str.2845, ptr %call.2846)
   %str.2847 = getelementptr inbounds i8, ptr @.str.165, i64 0
   %call.2848 = call ptr @config_path()
   call void @ui_field(ptr %str.2847, ptr %call.2848)
-  %str.2849 = getelementptr inbounds i8, ptr @.str.195, i64 0
+  %str.2849 = getelementptr inbounds i8, ptr @.str.196, i64 0
   %call.2850 = call ptr @nyrapkg_installed_bin()
   call void @ui_field(ptr %str.2849, ptr %call.2850)
-  %str.2851 = getelementptr inbounds i8, ptr @.str.196, i64 0
+  %str.2851 = getelementptr inbounds i8, ptr @.str.197, i64 0
   %call.2852 = call ptr @nyra_bin_resolved()
   call void @ui_field(ptr %str.2851, ptr %call.2852)
-  %str.2853 = getelementptr inbounds i8, ptr @.str.199, i64 0
+  %str.2853 = getelementptr inbounds i8, ptr @.str.200, i64 0
   %call.2854 = call ptr @current_executable()
   call void @ui_field(ptr %str.2853, ptr %call.2854)
   ret i32 0
@@ -5563,7 +5564,7 @@ if.expr.522:
 else.520:
   br label %endif.521
 endif.521:
-  %str.2912 = getelementptr inbounds i8, ptr @.str.200, i64 0
+  %str.2912 = getelementptr inbounds i8, ptr @.str.201, i64 0
   call i32 @puts(ptr %str.2912)
   ret i32 1
 else.517:
@@ -5602,7 +5603,7 @@ if.expr.531:
 else.529:
   br label %endif.530
 endif.530:
-  %str.2931 = getelementptr inbounds i8, ptr @.str.201, i64 0
+  %str.2931 = getelementptr inbounds i8, ptr @.str.202, i64 0
   call i32 @puts(ptr %str.2931)
   ret i32 1
 else.526:
@@ -5626,7 +5627,7 @@ entry:
   %bin.2938 = icmp slt i32 %call.2937, 2
   br i1 %bin.2938, label %then.537, label %else.538
 then.537:
-  %str.2939 = getelementptr inbounds i8, ptr @.str.202, i64 0
+  %str.2939 = getelementptr inbounds i8, ptr @.str.203, i64 0
   call i32 @puts(ptr %str.2939)
   ret i32 1
 else.538:
@@ -5647,7 +5648,7 @@ if.else.542:
   br label %if.expr.540
 if.expr.540:
   %load.2946 = load ptr, ptr %alloca.2945
-  %str.2948 = getelementptr inbounds i8, ptr @.str.196, i64 0
+  %str.2948 = getelementptr inbounds i8, ptr @.str.197, i64 0
   %call.2949 = call i32 @str_cmp(ptr %call.2940, ptr %str.2948)
   %bin.2950 = icmp eq i32 %call.2949, 0
   %str.2952 = getelementptr inbounds i8, ptr @.str.53, i64 0
@@ -5664,7 +5665,7 @@ endif.545:
   %str.2958 = getelementptr inbounds i8, ptr @.str.52, i64 0
   %call.2959 = call i32 @str_cmp(ptr %call.2940, ptr %str.2958)
   %bin.2960 = icmp eq i32 %call.2959, 0
-  %str.2962 = getelementptr inbounds i8, ptr @.str.195, i64 0
+  %str.2962 = getelementptr inbounds i8, ptr @.str.196, i64 0
   %call.2963 = call i32 @str_cmp(ptr %call.2940, ptr %str.2962)
   %bin.2964 = icmp eq i32 %call.2963, 0
   %bin.2965 = or i1 %bin.2960, %bin.2964
@@ -5675,13 +5676,13 @@ then.546:
 else.547:
   br label %endif.548
 endif.548:
-  %str.2967 = getelementptr inbounds i8, ptr @.str.202, i64 0
+  %str.2967 = getelementptr inbounds i8, ptr @.str.203, i64 0
   call i32 @puts(ptr %str.2967)
   ret i32 1
 }
 define ptr @Self_nyra_version_number(ptr %0) {
 entry:
-  %str.2969 = getelementptr inbounds i8, ptr @.str.203, i64 0
+  %str.2969 = getelementptr inbounds i8, ptr @.str.204, i64 0
   %call.2970 = call i32 @str_starts_with(ptr %0, ptr %str.2969)
   %bin.2971 = icmp eq i32 %call.2970, 1
   br i1 %bin.2971, label %then.549, label %else.550
@@ -5728,16 +5729,16 @@ endif.554:
 }
 define i32 @Self_run_install_script(ptr %0, ptr %1, ptr %2) {
 entry:
-  %str.2994 = getelementptr inbounds i8, ptr @.str.204, i64 0
+  %str.2994 = getelementptr inbounds i8, ptr @.str.205, i64 0
   %call.2996 = call ptr @str_cat(ptr %str.2994, ptr %0)
-  %str.2997 = getelementptr inbounds i8, ptr @.str.205, i64 0
+  %str.2997 = getelementptr inbounds i8, ptr @.str.206, i64 0
   %call.2998 = call ptr @str_cat(ptr %call.2996, ptr %str.2997)
   %alloca.2999 = alloca ptr
   store ptr %call.2998, ptr %alloca.2999
-  %str.3000 = getelementptr inbounds i8, ptr @.str.206, i64 0
+  %str.3000 = getelementptr inbounds i8, ptr @.str.207, i64 0
   %ref.3002 = load ptr, ptr %alloca.2999
   %call.3003 = call ptr @str_cat(ptr %str.3000, ptr %ref.3002)
-  %str.3004 = getelementptr inbounds i8, ptr @.str.207, i64 0
+  %str.3004 = getelementptr inbounds i8, ptr @.str.208, i64 0
   %call.3005 = call ptr @str_cat(ptr %call.3003, ptr %str.3004)
   %alloca.3006 = alloca ptr
   store ptr %call.3005, ptr %alloca.3006
@@ -5747,7 +5748,7 @@ entry:
   call void @heap_free(ptr %ld.3011)
   store ptr %call.3010, ptr %alloca.3006
   %ref.3013 = load ptr, ptr %alloca.3006
-  %str.3014 = getelementptr inbounds i8, ptr @.str.185, i64 0
+  %str.3014 = getelementptr inbounds i8, ptr @.str.186, i64 0
   %call.3015 = call ptr @str_cat(ptr %ref.3013, ptr %str.3014)
   %ld.3016 = load ptr, ptr %alloca.3006
   call void @heap_free(ptr %ld.3016)
@@ -5757,7 +5758,7 @@ entry:
   br i1 %bin.3019, label %then.555, label %else.556
 then.555:
   %ref.3021 = load ptr, ptr %alloca.3006
-  %str.3022 = getelementptr inbounds i8, ptr @.str.208, i64 0
+  %str.3022 = getelementptr inbounds i8, ptr @.str.209, i64 0
   %call.3023 = call ptr @str_cat(ptr %ref.3021, ptr %str.3022)
   %call.3025 = call ptr @str_cat(ptr %call.3023, ptr %2)
   %str.3026 = getelementptr inbounds i8, ptr @.str.11, i64 0
@@ -5772,13 +5773,13 @@ endif.557:
   %call.3029 = call %StrVec @StrVec_new()
   %arg.tmp.3030 = alloca %StrVec
   store %StrVec %call.3029, %StrVec* %arg.tmp.3030
-  %str.3031 = getelementptr inbounds i8, ptr @.str.186, i64 0
+  %str.3031 = getelementptr inbounds i8, ptr @.str.187, i64 0
   %call.3032 = call %StrVec @StrVec_push(%StrVec* %arg.tmp.3030, ptr %str.3031)
   %arg.tmp.3033 = alloca %StrVec
   store %StrVec %call.3032, %StrVec* %arg.tmp.3033
   %ld.3034 = load ptr, ptr %alloca.3006
   %call.3035 = call %StrVec @StrVec_push(%StrVec* %arg.tmp.3033, ptr %ld.3034)
-  %str.3036 = getelementptr inbounds i8, ptr @.str.187, i64 0
+  %str.3036 = getelementptr inbounds i8, ptr @.str.188, i64 0
   %arg.tmp.3037 = alloca %StrVec
   store %StrVec %call.3035, %StrVec* %arg.tmp.3037
   %call.3038 = call %ExecResult @exec(ptr %str.3036, %StrVec* %arg.tmp.3037)
@@ -5829,17 +5830,17 @@ endif.566:
   store %ExecResult %call.3038, %ExecResult* %alloca.3062
   %gep.3061 = getelementptr inbounds %ExecResult, %ExecResult* %alloca.3062, i32 0, i32 0
   %load.3063 = load i32, i32* %gep.3061
-  %ld.3064 = load ptr, ptr %alloca.3006
+  %ld.3064 = load ptr, ptr %alloca.2999
   call void @heap_free(ptr %ld.3064)
-  %ld.3065 = load ptr, ptr %alloca.2999
+  %ld.3065 = load ptr, ptr %alloca.3006
   call void @heap_free(ptr %ld.3065)
   ret i32 %load.3063
 else.559:
   br label %endif.560
 endif.560:
-  %ld.3066 = load ptr, ptr %alloca.2999
+  %ld.3066 = load ptr, ptr %alloca.3006
   call void @heap_free(ptr %ld.3066)
-  %ld.3067 = load ptr, ptr %alloca.3006
+  %ld.3067 = load ptr, ptr %alloca.2999
   call void @heap_free(ptr %ld.3067)
   ret i32 0
 }
@@ -5939,17 +5940,17 @@ entry:
   %call.3118 = call ptr @str_cat(ptr %ref.3115, ptr %ref.3117)
   %ref.3120 = load ptr, ptr %alloca.3113
   %call.3121 = call ptr @str_cat(ptr %call.3118, ptr %ref.3120)
-  %ld.3122 = load ptr, ptr %alloca.3107
+  %ld.3122 = load ptr, ptr %alloca.3113
   call void @heap_free(ptr %ld.3122)
-  %ld.3123 = load ptr, ptr %alloca.3113
+  %ld.3123 = load ptr, ptr %alloca.3101
   call void @heap_free(ptr %ld.3123)
-  %ld.3124 = load ptr, ptr %alloca.3101
+  %ld.3124 = load ptr, ptr %alloca.3107
   call void @heap_free(ptr %ld.3124)
   ret ptr %call.3121
 }
 define ptr @Semver_format_caret(%Version* %0) {
 entry:
-  %str.3125 = getelementptr inbounds i8, ptr @.str.209, i64 0
+  %str.3125 = getelementptr inbounds i8, ptr @.str.210, i64 0
   %call.3126 = call ptr @Semver_format(%Version* %0)
   %call.3127 = call ptr @str_cat(ptr %str.3125, ptr %call.3126)
   ret ptr %call.3127
@@ -5961,7 +5962,7 @@ entry:
 }
 define ptr @Semver_format_gte(%Version* %0) {
 entry:
-  %str.3129 = getelementptr inbounds i8, ptr @.str.210, i64 0
+  %str.3129 = getelementptr inbounds i8, ptr @.str.211, i64 0
   %call.3130 = call ptr @Semver_format(%Version* %0)
   %call.3131 = call ptr @str_cat(ptr %str.3129, ptr %call.3130)
   ret ptr %call.3131
@@ -6036,7 +6037,7 @@ match.end.585:
 }
 define ptr @Semver_format_tilde(%Version* %0) {
 entry:
-  %str.3162 = getelementptr inbounds i8, ptr @.str.211, i64 0
+  %str.3162 = getelementptr inbounds i8, ptr @.str.212, i64 0
   %call.3163 = call ptr @Semver_format(%Version* %0)
   %call.3164 = call ptr @str_cat(ptr %str.3162, ptr %call.3163)
   ret ptr %call.3164
@@ -6044,7 +6045,7 @@ entry:
 define %VersionReq @Semver_parse_req(ptr %0) {
 entry:
   %call.3166 = call ptr @trim(ptr %0)
-  %str.3168 = getelementptr inbounds i8, ptr @.str.209, i64 0
+  %str.3168 = getelementptr inbounds i8, ptr @.str.210, i64 0
   %call.3169 = call i32 @str_starts_with(ptr %call.3166, ptr %str.3168)
   %bin.3170 = icmp eq i32 %call.3169, 1
   br i1 %bin.3170, label %then.599, label %else.600
@@ -6063,7 +6064,7 @@ then.599:
 else.600:
   br label %endif.601
 endif.601:
-  %str.3182 = getelementptr inbounds i8, ptr @.str.211, i64 0
+  %str.3182 = getelementptr inbounds i8, ptr @.str.212, i64 0
   %call.3183 = call i32 @str_starts_with(ptr %call.3166, ptr %str.3182)
   %bin.3184 = icmp eq i32 %call.3183, 1
   br i1 %bin.3184, label %then.602, label %else.603
@@ -6082,7 +6083,7 @@ then.602:
 else.603:
   br label %endif.604
 endif.604:
-  %str.3196 = getelementptr inbounds i8, ptr @.str.210, i64 0
+  %str.3196 = getelementptr inbounds i8, ptr @.str.211, i64 0
   %call.3197 = call i32 @str_starts_with(ptr %call.3166, ptr %str.3196)
   %bin.3198 = icmp eq i32 %call.3197, 1
   br i1 %bin.3198, label %then.605, label %else.606
@@ -6343,16 +6344,16 @@ entry:
   %call.3326 = call i32 @decode_i32(ptr %0, ptr %str.3325)
   store i32 %call.3326, i32* %gep.3324
   %gep.3327 = getelementptr inbounds %Server, %Server* %alloca.3319, i32 0, i32 2
-  %str.3328 = getelementptr inbounds i8, ptr @.str.212, i64 0
+  %str.3328 = getelementptr inbounds i8, ptr @.str.213, i64 0
   %call.3329 = call ptr @decode_array(ptr %0, ptr %str.3328)
   %call.3330 = call ptr @json_decode_i32_array(ptr %call.3329)
   store ptr %call.3330, ptr %gep.3327
   %gep.3331 = getelementptr inbounds %Server, %Server* %alloca.3319, i32 0, i32 3
-  %str.3332 = getelementptr inbounds i8, ptr @.str.213, i64 0
+  %str.3332 = getelementptr inbounds i8, ptr @.str.214, i64 0
   %call.3333 = call i32 @decode_i32(ptr %0, ptr %str.3332)
   store i32 %call.3333, i32* %gep.3331
   %gep.3334 = getelementptr inbounds %Server, %Server* %alloca.3319, i32 0, i32 4
-  %str.3335 = getelementptr inbounds i8, ptr @.str.214, i64 0
+  %str.3335 = getelementptr inbounds i8, ptr @.str.215, i64 0
   %call.3336 = call i32 @decode_i32(ptr %0, ptr %str.3335)
   store i32 %call.3336, i32* %gep.3334
   %load.3337 = load %Server, %Server* %alloca.3319
@@ -6373,19 +6374,19 @@ entry:
   %load.3345 = load i32, i32* %gep.3344
   %call.3346 = call ptr @i32_to_string(i32 %load.3345)
   call void @vec_str_push(ptr %call.3339, ptr %call.3346)
-  %str.3347 = getelementptr inbounds i8, ptr @.str.212, i64 0
+  %str.3347 = getelementptr inbounds i8, ptr @.str.213, i64 0
   call void @vec_str_push(ptr %call.3338, ptr %str.3347)
   %gep.3348 = getelementptr inbounds %Server, %Server* %0, i32 0, i32 2
   %load.3349 = load ptr, ptr %gep.3348
   %call.3350 = call ptr @json_encode_i32_array(ptr %load.3349)
   call void @vec_str_push(ptr %call.3339, ptr %call.3350)
-  %str.3351 = getelementptr inbounds i8, ptr @.str.213, i64 0
+  %str.3351 = getelementptr inbounds i8, ptr @.str.214, i64 0
   call void @vec_str_push(ptr %call.3338, ptr %str.3351)
   %gep.3352 = getelementptr inbounds %Server, %Server* %0, i32 0, i32 3
   %load.3353 = load i32, i32* %gep.3352
   %call.3354 = call ptr @i32_to_string(i32 %load.3353)
   call void @vec_str_push(ptr %call.3339, ptr %call.3354)
-  %str.3355 = getelementptr inbounds i8, ptr @.str.214, i64 0
+  %str.3355 = getelementptr inbounds i8, ptr @.str.215, i64 0
   call void @vec_str_push(ptr %call.3338, ptr %str.3355)
   %gep.3356 = getelementptr inbounds %Server, %Server* %0, i32 0, i32 4
   %load.3357 = load i32, i32* %gep.3356
@@ -6512,7 +6513,7 @@ define %TcpListener @TcpListener_json_decode(ptr %0) {
 entry:
   %alloca.3414 = alloca %TcpListener
   %gep.3415 = getelementptr inbounds %TcpListener, %TcpListener* %alloca.3414, i32 0, i32 0
-  %str.3416 = getelementptr inbounds i8, ptr @.str.215, i64 0
+  %str.3416 = getelementptr inbounds i8, ptr @.str.216, i64 0
   %call.3417 = call i32 @decode_i32(ptr %0, ptr %str.3416)
   store i32 %call.3417, i32* %gep.3415
   %load.3418 = load %TcpListener, %TcpListener* %alloca.3414
@@ -6522,7 +6523,7 @@ define ptr @TcpListener_json_encode(%TcpListener* %0) {
 entry:
   %call.3419 = call ptr @vec_str_new()
   %call.3420 = call ptr @vec_str_new()
-  %str.3421 = getelementptr inbounds i8, ptr @.str.215, i64 0
+  %str.3421 = getelementptr inbounds i8, ptr @.str.216, i64 0
   call void @vec_str_push(ptr %call.3419, ptr %str.3421)
   %gep.3422 = getelementptr inbounds %TcpListener, %TcpListener* %0, i32 0, i32 0
   %load.3423 = load i32, i32* %gep.3422
@@ -6557,7 +6558,7 @@ define %TcpStream @TcpStream_json_decode(ptr %0) {
 entry:
   %alloca.3436 = alloca %TcpStream
   %gep.3437 = getelementptr inbounds %TcpStream, %TcpStream* %alloca.3436, i32 0, i32 0
-  %str.3438 = getelementptr inbounds i8, ptr @.str.215, i64 0
+  %str.3438 = getelementptr inbounds i8, ptr @.str.216, i64 0
   %call.3439 = call i32 @decode_i32(ptr %0, ptr %str.3438)
   store i32 %call.3439, i32* %gep.3437
   %load.3440 = load %TcpStream, %TcpStream* %alloca.3436
@@ -6567,7 +6568,7 @@ define ptr @TcpStream_json_encode(%TcpStream* %0) {
 entry:
   %call.3441 = call ptr @vec_str_new()
   %call.3442 = call ptr @vec_str_new()
-  %str.3443 = getelementptr inbounds i8, ptr @.str.215, i64 0
+  %str.3443 = getelementptr inbounds i8, ptr @.str.216, i64 0
   call void @vec_str_push(ptr %call.3441, ptr %str.3443)
   %gep.3444 = getelementptr inbounds %TcpStream, %TcpStream* %0, i32 0, i32 0
   %load.3445 = load i32, i32* %gep.3444
@@ -6827,15 +6828,15 @@ define %Version @Version_json_decode(ptr %0) {
 entry:
   %alloca.3570 = alloca %Version
   %gep.3571 = getelementptr inbounds %Version, %Version* %alloca.3570, i32 0, i32 0
-  %str.3572 = getelementptr inbounds i8, ptr @.str.216, i64 0
+  %str.3572 = getelementptr inbounds i8, ptr @.str.217, i64 0
   %call.3573 = call i32 @decode_i32(ptr %0, ptr %str.3572)
   store i32 %call.3573, i32* %gep.3571
   %gep.3574 = getelementptr inbounds %Version, %Version* %alloca.3570, i32 0, i32 1
-  %str.3575 = getelementptr inbounds i8, ptr @.str.217, i64 0
+  %str.3575 = getelementptr inbounds i8, ptr @.str.218, i64 0
   %call.3576 = call i32 @decode_i32(ptr %0, ptr %str.3575)
   store i32 %call.3576, i32* %gep.3574
   %gep.3577 = getelementptr inbounds %Version, %Version* %alloca.3570, i32 0, i32 2
-  %str.3578 = getelementptr inbounds i8, ptr @.str.218, i64 0
+  %str.3578 = getelementptr inbounds i8, ptr @.str.219, i64 0
   %call.3579 = call i32 @decode_i32(ptr %0, ptr %str.3578)
   store i32 %call.3579, i32* %gep.3577
   %load.3580 = load %Version, %Version* %alloca.3570
@@ -6845,19 +6846,19 @@ define ptr @Version_json_encode(%Version* %0) {
 entry:
   %call.3581 = call ptr @vec_str_new()
   %call.3582 = call ptr @vec_str_new()
-  %str.3583 = getelementptr inbounds i8, ptr @.str.216, i64 0
+  %str.3583 = getelementptr inbounds i8, ptr @.str.217, i64 0
   call void @vec_str_push(ptr %call.3581, ptr %str.3583)
   %gep.3584 = getelementptr inbounds %Version, %Version* %0, i32 0, i32 0
   %load.3585 = load i32, i32* %gep.3584
   %call.3586 = call ptr @i32_to_string(i32 %load.3585)
   call void @vec_str_push(ptr %call.3582, ptr %call.3586)
-  %str.3587 = getelementptr inbounds i8, ptr @.str.217, i64 0
+  %str.3587 = getelementptr inbounds i8, ptr @.str.218, i64 0
   call void @vec_str_push(ptr %call.3581, ptr %str.3587)
   %gep.3588 = getelementptr inbounds %Version, %Version* %0, i32 0, i32 1
   %load.3589 = load i32, i32* %gep.3588
   %call.3590 = call ptr @i32_to_string(i32 %load.3589)
   call void @vec_str_push(ptr %call.3582, ptr %call.3590)
-  %str.3591 = getelementptr inbounds i8, ptr @.str.218, i64 0
+  %str.3591 = getelementptr inbounds i8, ptr @.str.219, i64 0
   call void @vec_str_push(ptr %call.3581, ptr %str.3591)
   %gep.3592 = getelementptr inbounds %Version, %Version* %0, i32 0, i32 2
   %load.3593 = load i32, i32* %gep.3592
@@ -6880,13 +6881,13 @@ entry:
 define ptr @bin_dir() {
 entry:
   %call.3597 = call ptr @nyra_home_dir()
-  %str.3598 = getelementptr inbounds i8, ptr @.str.198, i64 0
+  %str.3598 = getelementptr inbounds i8, ptr @.str.199, i64 0
   %call.3599 = call ptr @join_path(ptr %call.3597, ptr %str.3598)
   ret ptr %call.3599
 }
 define ptr @body_from_raw(ptr %0) {
 entry:
-  %str.3601 = getelementptr inbounds i8, ptr @.str.219, i64 0
+  %str.3601 = getelementptr inbounds i8, ptr @.str.220, i64 0
   %call.3602 = call i32 @strstr_pos(ptr %0, ptr %str.3601)
   %bin.3603 = icmp slt i32 %call.3602, 0
   br i1 %bin.3603, label %then.655, label %else.656
@@ -6914,7 +6915,7 @@ endif.660:
 }
 define ptr @build_options_preflight() {
 entry:
-  %str.3615 = getelementptr inbounds i8, ptr @.str.220, i64 0
+  %str.3615 = getelementptr inbounds i8, ptr @.str.221, i64 0
   ret ptr %str.3615
 }
 define ptr @build_response(%HttpResponse* %0, i32 %1) {
@@ -6927,17 +6928,17 @@ entry:
   %gep.3620 = getelementptr inbounds %HttpResponse, %HttpResponse* %0, i32 0, i32 0
   %load.3621 = load i32, i32* %gep.3620
   %call.3622 = call ptr @status_text(i32 %load.3621)
-  %str.3623 = getelementptr inbounds i8, ptr @.str.221, i64 0
+  %str.3623 = getelementptr inbounds i8, ptr @.str.222, i64 0
   %ref.3625 = load ptr, ptr %alloca.3619
   %call.3626 = call ptr @str_cat(ptr %str.3623, ptr %ref.3625)
   %str.3627 = getelementptr inbounds i8, ptr @.str.30, i64 0
   %call.3628 = call ptr @str_cat(ptr %call.3626, ptr %str.3627)
-  %str.3630 = getelementptr inbounds i8, ptr @.str.222, i64 0
+  %str.3630 = getelementptr inbounds i8, ptr @.str.223, i64 0
   %call.3631 = call ptr @str_cat(ptr %call.3622, ptr %str.3630)
   %call.3632 = call ptr @str_cat(ptr %call.3628, ptr %call.3631)
   %alloca.3633 = alloca ptr
   store ptr %call.3632, ptr %alloca.3633
-  %str.3634 = getelementptr inbounds i8, ptr @.str.223, i64 0
+  %str.3634 = getelementptr inbounds i8, ptr @.str.224, i64 0
   %gep.3635 = getelementptr inbounds %HttpResponse, %HttpResponse* %0, i32 0, i32 2
   %load.3636 = load ptr, ptr %gep.3635
   %call.3637 = call ptr @str_cat(ptr %str.3634, ptr %load.3636)
@@ -6946,14 +6947,14 @@ entry:
   %gep.3639 = getelementptr inbounds %HttpResponse, %HttpResponse* %0, i32 0, i32 1
   %load.3640 = load ptr, ptr %gep.3639
   %call.3641 = call i32 @str_len(ptr %load.3640)
-  %str.3642 = getelementptr inbounds i8, ptr @.str.224, i64 0
+  %str.3642 = getelementptr inbounds i8, ptr @.str.225, i64 0
   %call.3643 = call ptr @i32_to_string(i32 %call.3641)
   %call.3644 = call ptr @str_cat(ptr %str.3642, ptr %call.3643)
   %alloca.3645 = alloca ptr
   store ptr %call.3644, ptr %alloca.3645
   %bin.3646 = icmp eq i32 %1, 1
-  %str.3647 = getelementptr inbounds i8, ptr @.str.225, i64 0
-  %str.3648 = getelementptr inbounds i8, ptr @.str.226, i64 0
+  %str.3647 = getelementptr inbounds i8, ptr @.str.226, i64 0
+  %str.3648 = getelementptr inbounds i8, ptr @.str.227, i64 0
   %alloca.3649 = alloca ptr
   br i1 %bin.3646, label %if.then.662, label %if.else.663
 if.then.662:
@@ -6965,14 +6966,14 @@ if.else.663:
 if.expr.661:
   %load.3650 = load ptr, ptr %alloca.3649
   %ref.3652 = load ptr, ptr %alloca.3638
-  %str.3653 = getelementptr inbounds i8, ptr @.str.222, i64 0
+  %str.3653 = getelementptr inbounds i8, ptr @.str.223, i64 0
   %call.3654 = call ptr @str_cat(ptr %ref.3652, ptr %str.3653)
   %ref.3656 = load ptr, ptr %alloca.3645
-  %str.3657 = getelementptr inbounds i8, ptr @.str.222, i64 0
+  %str.3657 = getelementptr inbounds i8, ptr @.str.223, i64 0
   %call.3658 = call ptr @str_cat(ptr %ref.3656, ptr %str.3657)
   %call.3659 = call ptr @str_cat(ptr %call.3654, ptr %call.3658)
   %call.3661 = call ptr @str_cat(ptr %call.3659, ptr %load.3650)
-  %str.3662 = getelementptr inbounds i8, ptr @.str.222, i64 0
+  %str.3662 = getelementptr inbounds i8, ptr @.str.223, i64 0
   %call.3663 = call ptr @str_cat(ptr %call.3661, ptr %str.3662)
   %alloca.3664 = alloca ptr
   store ptr %call.3663, ptr %alloca.3664
@@ -6982,22 +6983,22 @@ if.expr.661:
   %gep.3670 = getelementptr inbounds %HttpResponse, %HttpResponse* %0, i32 0, i32 1
   %load.3671 = load ptr, ptr %gep.3670
   %call.3672 = call ptr @str_cat(ptr %call.3669, ptr %load.3671)
-  %ld.3673 = load ptr, ptr %alloca.3619
+  %ld.3673 = load ptr, ptr %alloca.3664
   call void @heap_free(ptr %ld.3673)
   %ld.3674 = load ptr, ptr %alloca.3638
   call void @heap_free(ptr %ld.3674)
-  %ld.3675 = load ptr, ptr %alloca.3645
+  %ld.3675 = load ptr, ptr %alloca.3633
   call void @heap_free(ptr %ld.3675)
-  %ld.3676 = load ptr, ptr %alloca.3633
+  %ld.3676 = load ptr, ptr %alloca.3619
   call void @heap_free(ptr %ld.3676)
-  %ld.3677 = load ptr, ptr %alloca.3664
+  %ld.3677 = load ptr, ptr %alloca.3645
   call void @heap_free(ptr %ld.3677)
   ret ptr %call.3672
 }
 define ptr @cache_module_path(ptr %0) {
 entry:
   %str.3679 = getelementptr inbounds i8, ptr @.str.16, i64 0
-  %str.3680 = getelementptr inbounds i8, ptr @.str.227, i64 0
+  %str.3680 = getelementptr inbounds i8, ptr @.str.228, i64 0
   %call.3681 = call ptr @String_replace(ptr %0, ptr %str.3679, ptr %str.3680)
   %call.3682 = call ptr @cache_root()
   %call.3683 = call ptr @join_path(ptr %call.3682, ptr %call.3681)
@@ -7005,7 +7006,7 @@ entry:
 }
 define ptr @cache_root() {
 entry:
-  %str.3684 = getelementptr inbounds i8, ptr @.str.228, i64 0
+  %str.3684 = getelementptr inbounds i8, ptr @.str.229, i64 0
   ret ptr %str.3684
 }
 define ptr @char_from_code(i32 %0) {
@@ -7036,7 +7037,7 @@ then.664:
 else.665:
   br label %endif.666
 endif.666:
-  %str.3699 = getelementptr inbounds i8, ptr @.str.229, i64 0
+  %str.3699 = getelementptr inbounds i8, ptr @.str.230, i64 0
   ret ptr %str.3699
 }
 define ptr @current_executable() {
@@ -7083,7 +7084,7 @@ while.cond.670:
   br i1 %bin.3715, label %while.body.671, label %while.end.672
 while.body.671:
   %ref.3717 = load ptr, ptr %alloca.3711
-  %str.3718 = getelementptr inbounds i8, ptr @.str.222, i64 0
+  %str.3718 = getelementptr inbounds i8, ptr @.str.223, i64 0
   %call.3719 = call i32 @strstr_pos(ptr %ref.3717, ptr %str.3718)
   %bin.3720 = icmp slt i32 %call.3719, 0
   br i1 %bin.3720, label %then.673, label %else.674
@@ -7315,9 +7316,9 @@ if.expr.691:
   %load.3811 = load ptr, ptr %alloca.3810
   %str_clone.3812 = call ptr @str_clone(ptr %load.3811)
   store ptr %str_clone.3812, ptr %gep.3803
-  %ld.3813 = load ptr, ptr %alloca.3788
+  %ld.3813 = load ptr, ptr %alloca.3785
   call void @heap_free(ptr %ld.3813)
-  %ld.3814 = load ptr, ptr %alloca.3785
+  %ld.3814 = load ptr, ptr %alloca.3788
   call void @heap_free(ptr %ld.3814)
   %load.3815 = load %ExecResult, %ExecResult* %alloca.3789
   ret %ExecResult %load.3815
@@ -7384,7 +7385,7 @@ while.end.702:
 }
 define ptr @first_line(ptr %0) {
 entry:
-  %str.3841 = getelementptr inbounds i8, ptr @.str.222, i64 0
+  %str.3841 = getelementptr inbounds i8, ptr @.str.223, i64 0
   %call.3842 = call i32 @strstr_pos(ptr %0, ptr %str.3841)
   %bin.3843 = icmp slt i32 %call.3842, 0
   br i1 %bin.3843, label %then.706, label %else.707
@@ -7426,7 +7427,7 @@ entry:
 }
 define ptr @header_value(ptr %0, ptr %1) {
 entry:
-  %str.3858 = getelementptr inbounds i8, ptr @.str.230, i64 0
+  %str.3858 = getelementptr inbounds i8, ptr @.str.231, i64 0
   %call.3859 = call ptr @str_cat(ptr %1, ptr %str.3858)
   %str.3860 = getelementptr inbounds i8, ptr @.str.11, i64 0
   %call.3861 = call ptr @str_cat(ptr %call.3859, ptr %str.3860)
@@ -7453,7 +7454,7 @@ endif.711:
   %alloca.3879 = alloca ptr
   store ptr %call.3878, ptr %alloca.3879
   %ref.3881 = load ptr, ptr %alloca.3879
-  %str.3882 = getelementptr inbounds i8, ptr @.str.222, i64 0
+  %str.3882 = getelementptr inbounds i8, ptr @.str.223, i64 0
   %call.3883 = call i32 @strstr_pos(ptr %ref.3881, ptr %str.3882)
   %bin.3884 = icmp slt i32 %call.3883, 0
   br i1 %bin.3884, label %then.712, label %else.713
@@ -7509,7 +7510,7 @@ endif.723:
 }
 define ptr @http_body_from_response(ptr %0) {
 entry:
-  %str.3906 = getelementptr inbounds i8, ptr @.str.219, i64 0
+  %str.3906 = getelementptr inbounds i8, ptr @.str.220, i64 0
   %call.3907 = call i32 @strstr_pos(ptr %0, ptr %str.3906)
   %bin.3908 = icmp slt i32 %call.3907, 0
   br i1 %bin.3908, label %then.724, label %else.725
@@ -7539,14 +7540,14 @@ entry:
   %alloca.3925 = alloca ptr
   store ptr %call.3924, ptr %alloca.3925
   %ref.3927 = load ptr, ptr %alloca.3925
-  %str.3928 = getelementptr inbounds i8, ptr @.str.231, i64 0
+  %str.3928 = getelementptr inbounds i8, ptr @.str.232, i64 0
   %call.3929 = call ptr @str_cat(ptr %ref.3927, ptr %str.3928)
   %alloca.3931 = alloca %HttpUrl
   store %HttpUrl %call.3916, %HttpUrl* %alloca.3931
   %gep.3930 = getelementptr inbounds %HttpUrl, %HttpUrl* %alloca.3931, i32 0, i32 0
   %load.3932 = load ptr, ptr %gep.3930
   %call.3933 = call ptr @str_cat(ptr %call.3929, ptr %load.3932)
-  %str.3934 = getelementptr inbounds i8, ptr @.str.232, i64 0
+  %str.3934 = getelementptr inbounds i8, ptr @.str.233, i64 0
   %call.3935 = call ptr @str_cat(ptr %call.3933, ptr %str.3934)
   %alloca.3936 = alloca ptr
   store ptr %call.3935, ptr %alloca.3936
@@ -7554,17 +7555,17 @@ entry:
   %bin.3939 = icmp sgt i32 %call.3938, 0
   br i1 %bin.3939, label %then.727, label %else.728
 then.727:
-  %str.3940 = getelementptr inbounds i8, ptr @.str.224, i64 0
+  %str.3940 = getelementptr inbounds i8, ptr @.str.225, i64 0
   %call.3942 = call i32 @str_len(ptr %2)
   %call.3943 = call ptr @i32_to_string(i32 %call.3942)
   %call.3944 = call ptr @str_cat(ptr %str.3940, ptr %call.3943)
   %ref.3946 = load ptr, ptr %alloca.3936
-  %str.3947 = getelementptr inbounds i8, ptr @.str.223, i64 0
+  %str.3947 = getelementptr inbounds i8, ptr @.str.224, i64 0
   %call.3949 = call ptr @str_cat(ptr %str.3947, ptr %3)
   %call.3950 = call ptr @str_cat(ptr %ref.3946, ptr %call.3949)
-  %str.3951 = getelementptr inbounds i8, ptr @.str.222, i64 0
+  %str.3951 = getelementptr inbounds i8, ptr @.str.223, i64 0
   %call.3952 = call ptr @str_cat(ptr %call.3950, ptr %str.3951)
-  %str.3954 = getelementptr inbounds i8, ptr @.str.222, i64 0
+  %str.3954 = getelementptr inbounds i8, ptr @.str.223, i64 0
   %call.3955 = call ptr @str_cat(ptr %call.3944, ptr %str.3954)
   %call.3956 = call ptr @str_cat(ptr %call.3952, ptr %call.3955)
   %ld.3957 = load ptr, ptr %alloca.3936
@@ -7575,7 +7576,7 @@ else.728:
   br label %endif.729
 endif.729:
   %ref.3959 = load ptr, ptr %alloca.3936
-  %str.3960 = getelementptr inbounds i8, ptr @.str.233, i64 0
+  %str.3960 = getelementptr inbounds i8, ptr @.str.234, i64 0
   %call.3961 = call ptr @str_cat(ptr %ref.3959, ptr %str.3960)
   %call.3963 = call ptr @str_cat(ptr %call.3961, ptr %2)
   %alloca.3964 = alloca ptr
@@ -7589,11 +7590,11 @@ endif.729:
   br i1 %bin.3970, label %then.730, label %else.731
 then.730:
   %call.3971 = call %HttpResponse @response_internal_error()
-  %ld.3972 = load ptr, ptr %alloca.3936
+  %ld.3972 = load ptr, ptr %alloca.3925
   call void @heap_free(ptr %ld.3972)
-  %ld.3973 = load ptr, ptr %alloca.3964
+  %ld.3973 = load ptr, ptr %alloca.3936
   call void @heap_free(ptr %ld.3973)
-  %ld.3974 = load ptr, ptr %alloca.3925
+  %ld.3974 = load ptr, ptr %alloca.3964
   call void @heap_free(ptr %ld.3974)
   ret %HttpResponse %call.3971
 else.731:
@@ -7615,11 +7616,11 @@ then.733:
   %str.3984 = getelementptr inbounds i8, ptr @.str.12, i64 0
   %str_clone.3985 = call ptr @str_clone(ptr %str.3984)
   store ptr %str_clone.3985, ptr %gep.3983
-  %ld.3986 = load ptr, ptr %alloca.3925
+  %ld.3986 = load ptr, ptr %alloca.3964
   call void @heap_free(ptr %ld.3986)
-  %ld.3987 = load ptr, ptr %alloca.3964
+  %ld.3987 = load ptr, ptr %alloca.3936
   call void @heap_free(ptr %ld.3987)
-  %ld.3988 = load ptr, ptr %alloca.3936
+  %ld.3988 = load ptr, ptr %alloca.3925
   call void @heap_free(ptr %ld.3988)
   %load.3989 = load %HttpResponse, %HttpResponse* %alloca.3978
   ret %HttpResponse %load.3989
@@ -7636,9 +7637,9 @@ endif.735:
   %str.3995 = getelementptr inbounds i8, ptr @.str.13, i64 0
   %str_clone.3996 = call ptr @str_clone(ptr %str.3995)
   store ptr %str_clone.3996, ptr %gep.3994
-  %ld.3997 = load ptr, ptr %alloca.3925
+  %ld.3997 = load ptr, ptr %alloca.3964
   call void @heap_free(ptr %ld.3997)
-  %ld.3998 = load ptr, ptr %alloca.3964
+  %ld.3998 = load ptr, ptr %alloca.3925
   call void @heap_free(ptr %ld.3998)
   %ld.3999 = load ptr, ptr %alloca.3936
   call void @heap_free(ptr %ld.3999)
@@ -7661,7 +7662,7 @@ else.737:
   br label %endif.738
 endif.738:
   %call.4006 = call ptr @substring(ptr %0, i32 0, i32 5)
-  %str.4007 = getelementptr inbounds i8, ptr @.str.234, i64 0
+  %str.4007 = getelementptr inbounds i8, ptr @.str.235, i64 0
   %call.4008 = call i32 @str_cmp(ptr %call.4006, ptr %str.4007)
   %bin.4009 = icmp ne i32 %call.4008, 0
   br i1 %bin.4009, label %then.739, label %else.740
@@ -7713,9 +7714,9 @@ while.end.747:
 }
 define i32 @is_chunked_transfer(ptr %0) {
 entry:
-  %str.4036 = getelementptr inbounds i8, ptr @.str.235, i64 0
+  %str.4036 = getelementptr inbounds i8, ptr @.str.236, i64 0
   %call.4037 = call ptr @header_value(ptr %0, ptr %str.4036)
-  %str.4039 = getelementptr inbounds i8, ptr @.str.236, i64 0
+  %str.4039 = getelementptr inbounds i8, ptr @.str.237, i64 0
   %call.4040 = call i32 @strstr_pos(ptr %call.4037, ptr %str.4039)
   %bin.4041 = icmp sge i32 %call.4040, 0
   br i1 %bin.4041, label %then.751, label %else.752
@@ -7752,7 +7753,7 @@ then.757:
 else.758:
   br label %endif.759
 endif.759:
-  %str.4056 = getelementptr inbounds i8, ptr @.str.227, i64 0
+  %str.4056 = getelementptr inbounds i8, ptr @.str.228, i64 0
   %call.4057 = call ptr @str_cat(ptr %0, ptr %str.4056)
   %call.4059 = call ptr @str_cat(ptr %call.4057, ptr %1)
   ret ptr %call.4059
@@ -7791,7 +7792,7 @@ else.761:
   br label %endif.762
 endif.762:
   %call.4072 = call ptr @substring(ptr %0, i32 0, i32 3)
-  %str.4073 = getelementptr inbounds i8, ptr @.str.237, i64 0
+  %str.4073 = getelementptr inbounds i8, ptr @.str.238, i64 0
   %call.4074 = call i32 @str_cmp(ptr %call.4072, ptr %str.4073)
   %bin.4075 = icmp eq i32 %call.4074, 0
   br i1 %bin.4075, label %then.763, label %else.764
@@ -7805,7 +7806,7 @@ endif.765:
   br i1 %bin.4078, label %then.766, label %else.767
 then.766:
   %call.4080 = call ptr @substring(ptr %0, i32 0, i32 4)
-  %str.4081 = getelementptr inbounds i8, ptr @.str.238, i64 0
+  %str.4081 = getelementptr inbounds i8, ptr @.str.239, i64 0
   %call.4082 = call i32 @str_cmp(ptr %call.4080, ptr %str.4081)
   %bin.4083 = icmp eq i32 %call.4082, 0
   br i1 %bin.4083, label %then.769, label %else.770
@@ -7815,7 +7816,7 @@ else.770:
   br label %endif.771
 endif.771:
   %call.4085 = call ptr @substring(ptr %0, i32 0, i32 4)
-  %str.4086 = getelementptr inbounds i8, ptr @.str.239, i64 0
+  %str.4086 = getelementptr inbounds i8, ptr @.str.240, i64 0
   %call.4087 = call i32 @str_cmp(ptr %call.4085, ptr %str.4086)
   %bin.4088 = icmp eq i32 %call.4087, 0
   br i1 %bin.4088, label %then.772, label %else.773
@@ -7833,7 +7834,7 @@ endif.768:
   br i1 %bin.4091, label %then.775, label %else.776
 then.775:
   %call.4093 = call ptr @substring(ptr %0, i32 0, i32 3)
-  %str.4094 = getelementptr inbounds i8, ptr @.str.240, i64 0
+  %str.4094 = getelementptr inbounds i8, ptr @.str.241, i64 0
   %call.4095 = call i32 @str_cmp(ptr %call.4093, ptr %str.4094)
   %bin.4096 = icmp eq i32 %call.4095, 0
   br i1 %bin.4096, label %then.778, label %else.779
@@ -7851,7 +7852,7 @@ endif.777:
   br i1 %bin.4099, label %then.781, label %else.782
 then.781:
   %call.4101 = call ptr @substring(ptr %0, i32 0, i32 6)
-  %str.4102 = getelementptr inbounds i8, ptr @.str.241, i64 0
+  %str.4102 = getelementptr inbounds i8, ptr @.str.242, i64 0
   %call.4103 = call i32 @str_cmp(ptr %call.4101, ptr %str.4102)
   %bin.4104 = icmp eq i32 %call.4103, 0
   br i1 %bin.4104, label %then.784, label %else.785
@@ -7869,7 +7870,7 @@ endif.783:
   br i1 %bin.4107, label %then.787, label %else.788
 then.787:
   %call.4109 = call ptr @substring(ptr %0, i32 0, i32 7)
-  %str.4110 = getelementptr inbounds i8, ptr @.str.242, i64 0
+  %str.4110 = getelementptr inbounds i8, ptr @.str.243, i64 0
   %call.4111 = call i32 @str_cmp(ptr %call.4109, ptr %str.4110)
   %bin.4112 = icmp eq i32 %call.4111, 0
   br i1 %bin.4112, label %then.790, label %else.791
@@ -7887,7 +7888,7 @@ endif.789:
   br i1 %bin.4115, label %then.793, label %else.794
 then.793:
   %call.4117 = call ptr @substring(ptr %0, i32 0, i32 5)
-  %str.4118 = getelementptr inbounds i8, ptr @.str.243, i64 0
+  %str.4118 = getelementptr inbounds i8, ptr @.str.244, i64 0
   %call.4119 = call i32 @str_cmp(ptr %call.4117, ptr %str.4118)
   %bin.4120 = icmp eq i32 %call.4119, 0
   br i1 %bin.4120, label %then.796, label %else.797
@@ -7907,7 +7908,7 @@ entry:
   %bin.4121 = icmp eq i32 %0, 1
   br i1 %bin.4121, label %then.799, label %else.800
 then.799:
-  %str.4122 = getelementptr inbounds i8, ptr @.str.237, i64 0
+  %str.4122 = getelementptr inbounds i8, ptr @.str.238, i64 0
   ret ptr %str.4122
 else.800:
   br label %endif.801
@@ -7915,7 +7916,7 @@ endif.801:
   %bin.4123 = icmp eq i32 %0, 2
   br i1 %bin.4123, label %then.802, label %else.803
 then.802:
-  %str.4124 = getelementptr inbounds i8, ptr @.str.238, i64 0
+  %str.4124 = getelementptr inbounds i8, ptr @.str.239, i64 0
   ret ptr %str.4124
 else.803:
   br label %endif.804
@@ -7923,7 +7924,7 @@ endif.804:
   %bin.4125 = icmp eq i32 %0, 3
   br i1 %bin.4125, label %then.805, label %else.806
 then.805:
-  %str.4126 = getelementptr inbounds i8, ptr @.str.240, i64 0
+  %str.4126 = getelementptr inbounds i8, ptr @.str.241, i64 0
   ret ptr %str.4126
 else.806:
   br label %endif.807
@@ -7931,7 +7932,7 @@ endif.807:
   %bin.4127 = icmp eq i32 %0, 4
   br i1 %bin.4127, label %then.808, label %else.809
 then.808:
-  %str.4128 = getelementptr inbounds i8, ptr @.str.241, i64 0
+  %str.4128 = getelementptr inbounds i8, ptr @.str.242, i64 0
   ret ptr %str.4128
 else.809:
   br label %endif.810
@@ -7939,7 +7940,7 @@ endif.810:
   %bin.4129 = icmp eq i32 %0, 7
   br i1 %bin.4129, label %then.811, label %else.812
 then.811:
-  %str.4130 = getelementptr inbounds i8, ptr @.str.243, i64 0
+  %str.4130 = getelementptr inbounds i8, ptr @.str.244, i64 0
   ret ptr %str.4130
 else.812:
   br label %endif.813
@@ -7947,7 +7948,7 @@ endif.813:
   %bin.4131 = icmp eq i32 %0, 6
   br i1 %bin.4131, label %then.814, label %else.815
 then.814:
-  %str.4132 = getelementptr inbounds i8, ptr @.str.239, i64 0
+  %str.4132 = getelementptr inbounds i8, ptr @.str.240, i64 0
   ret ptr %str.4132
 else.815:
   br label %endif.816
@@ -7955,12 +7956,12 @@ endif.816:
   %bin.4133 = icmp eq i32 %0, 5
   br i1 %bin.4133, label %then.817, label %else.818
 then.817:
-  %str.4134 = getelementptr inbounds i8, ptr @.str.242, i64 0
+  %str.4134 = getelementptr inbounds i8, ptr @.str.243, i64 0
   ret ptr %str.4134
 else.818:
   br label %endif.819
 endif.819:
-  %str.4135 = getelementptr inbounds i8, ptr @.str.237, i64 0
+  %str.4135 = getelementptr inbounds i8, ptr @.str.238, i64 0
   ret ptr %str.4135
 }
 define i64 @now_ms() {
@@ -7985,9 +7986,9 @@ endif.822:
   %bin.4144 = icmp sgt i32 %call.4143, 0
   br i1 %bin.4144, label %then.823, label %else.824
 then.823:
-  %str.4145 = getelementptr inbounds i8, ptr @.str.198, i64 0
+  %str.4145 = getelementptr inbounds i8, ptr @.str.199, i64 0
   %call.4146 = call ptr @join_path(ptr %call.4141, ptr %str.4145)
-  %str.4147 = getelementptr inbounds i8, ptr @.str.196, i64 0
+  %str.4147 = getelementptr inbounds i8, ptr @.str.197, i64 0
   %call.4148 = call ptr @join_path(ptr %call.4146, ptr %str.4147)
   %call.4149 = call i32 @file_exists(ptr %call.4148)
   %bin.4150 = icmp eq i32 %call.4149, 1
@@ -8001,7 +8002,7 @@ endif.828:
 else.824:
   br label %endif.825
 endif.825:
-  %str.4151 = getelementptr inbounds i8, ptr @.str.196, i64 0
+  %str.4151 = getelementptr inbounds i8, ptr @.str.197, i64 0
   ret ptr %str.4151
 }
 define ptr @nyra_home_dir() {
@@ -8022,26 +8023,26 @@ endif.831:
   %bin.4161 = icmp sgt i32 %call.4160, 0
   br i1 %bin.4161, label %then.832, label %else.833
 then.832:
-  %str.4163 = getelementptr inbounds i8, ptr @.str.244, i64 0
+  %str.4163 = getelementptr inbounds i8, ptr @.str.245, i64 0
   %call.4164 = call ptr @str_cat(ptr %call.4158, ptr %str.4163)
   ret ptr %call.4164
 else.833:
   br label %endif.834
 endif.834:
-  %str.4165 = getelementptr inbounds i8, ptr @.str.245, i64 0
+  %str.4165 = getelementptr inbounds i8, ptr @.str.246, i64 0
   ret ptr %str.4165
 }
 define ptr @nyra_installed_bin() {
 entry:
   %call.4166 = call ptr @bin_dir()
-  %str.4167 = getelementptr inbounds i8, ptr @.str.196, i64 0
+  %str.4167 = getelementptr inbounds i8, ptr @.str.197, i64 0
   %call.4168 = call ptr @join_path(ptr %call.4166, ptr %str.4167)
   ret ptr %call.4168
 }
 define ptr @nyrapkg_installed_bin() {
 entry:
   %call.4169 = call ptr @bin_dir()
-  %str.4170 = getelementptr inbounds i8, ptr @.str.195, i64 0
+  %str.4170 = getelementptr inbounds i8, ptr @.str.196, i64 0
   %call.4171 = call ptr @join_path(ptr %call.4169, ptr %str.4170)
   ret ptr %call.4171
 }
@@ -8081,7 +8082,7 @@ endif.837:
   br i1 %bin.4188, label %then.841, label %else.842
 then.841:
   %call.4190 = call ptr @substring(ptr %str_clone.4173, i32 0, i32 7)
-  %str.4191 = getelementptr inbounds i8, ptr @.str.246, i64 0
+  %str.4191 = getelementptr inbounds i8, ptr @.str.247, i64 0
   %call.4192 = call i32 @str_cmp(ptr %call.4190, ptr %str.4191)
   %bin.4193 = icmp eq i32 %call.4192, 0
   br i1 %bin.4193, label %then.844, label %else.845
@@ -8096,7 +8097,7 @@ else.842:
   br label %endif.843
 endif.843:
   %if.phi.4195 = phi i32 [%if.phi.4194, %endif.846], [%if.phi.4184, %else.842]
-  %str.4196 = getelementptr inbounds i8, ptr @.str.247, i64 0
+  %str.4196 = getelementptr inbounds i8, ptr @.str.248, i64 0
   %alloca.4197 = alloca ptr
   store ptr %str.4196, ptr %alloca.4197
   br i1 %if.phi.4185, label %then.847, label %else.848
@@ -8106,7 +8107,7 @@ else.848:
   br label %endif.849
 endif.849:
   %if.phi.4198 = phi i32 [443, %then.847], [80, %else.848]
-  %str.4199 = getelementptr inbounds i8, ptr @.str.227, i64 0
+  %str.4199 = getelementptr inbounds i8, ptr @.str.228, i64 0
   %alloca.4200 = alloca ptr
   store ptr %str.4199, ptr %alloca.4200
   %str_clone.4201 = call ptr @str_clone(ptr %str_clone.4173)
@@ -8233,7 +8234,7 @@ else.872:
   br label %endif.873
 endif.873:
   %call.4268 = call ptr @substring(ptr %0, i32 0, i32 3)
-  %str.4269 = getelementptr inbounds i8, ptr @.str.237, i64 0
+  %str.4269 = getelementptr inbounds i8, ptr @.str.238, i64 0
   %call.4270 = call i32 @str_cmp(ptr %call.4268, ptr %str.4269)
   %bin.4271 = icmp eq i32 %call.4270, 0
   br i1 %bin.4271, label %then.874, label %else.875
@@ -8257,7 +8258,7 @@ entry:
   %bin.4277 = icmp slt i32 %call.4276, 0
   br i1 %bin.4277, label %then.877, label %else.878
 then.877:
-  %str.4278 = getelementptr inbounds i8, ptr @.str.227, i64 0
+  %str.4278 = getelementptr inbounds i8, ptr @.str.228, i64 0
   ret ptr %str.4278
 else.878:
   br label %endif.879
@@ -8284,7 +8285,7 @@ endif.882:
   %alloca.4295 = alloca ptr
   store ptr %call.4294, ptr %alloca.4295
   %ref.4297 = load ptr, ptr %alloca.4295
-  %str.4298 = getelementptr inbounds i8, ptr @.str.248, i64 0
+  %str.4298 = getelementptr inbounds i8, ptr @.str.249, i64 0
   %call.4299 = call i32 @strstr_pos(ptr %ref.4297, ptr %str.4298)
   %bin.4300 = icmp slt i32 %call.4299, 0
   br i1 %bin.4300, label %then.883, label %else.884
@@ -8346,7 +8347,7 @@ endif.891:
   %alloca.4331 = alloca ptr
   store ptr %call.4330, ptr %alloca.4331
   %ref.4333 = load ptr, ptr %alloca.4331
-  %str.4334 = getelementptr inbounds i8, ptr @.str.248, i64 0
+  %str.4334 = getelementptr inbounds i8, ptr @.str.249, i64 0
   %call.4335 = call i32 @strstr_pos(ptr %ref.4333, ptr %str.4334)
   %bin.4336 = icmp slt i32 %call.4335, 0
   br i1 %bin.4336, label %then.892, label %else.893
@@ -8367,15 +8368,15 @@ endif.894:
   %bin.4346 = add i32 %call.4335, 1
   %bin.4347 = sub i32 %call.4345, %bin.4346
   %call.4348 = call ptr @substring(ptr %ref.4341, i32 %bin.4342, i32 %bin.4347)
-  %ld.4349 = load ptr, ptr %alloca.4320
+  %ld.4349 = load ptr, ptr %alloca.4331
   call void @heap_free(ptr %ld.4349)
-  %ld.4350 = load ptr, ptr %alloca.4331
+  %ld.4350 = load ptr, ptr %alloca.4320
   call void @heap_free(ptr %ld.4350)
   ret ptr %call.4348
 }
 define %HttpResponse @response_bad_request() {
 entry:
-  %str.4351 = getelementptr inbounds i8, ptr @.str.249, i64 0
+  %str.4351 = getelementptr inbounds i8, ptr @.str.250, i64 0
   %call.4352 = call %HttpResponse @response_json(i32 400, ptr %str.4351)
   ret %HttpResponse %call.4352
 }
@@ -8393,7 +8394,7 @@ entry:
   %str_clone.4357 = call ptr @str_clone(ptr %1)
   store ptr %str_clone.4357, ptr %gep.4356
   %gep.4358 = getelementptr inbounds %HttpResponse, %HttpResponse* %alloca.4354, i32 0, i32 2
-  %str.4359 = getelementptr inbounds i8, ptr @.str.250, i64 0
+  %str.4359 = getelementptr inbounds i8, ptr @.str.251, i64 0
   %str_clone.4360 = call ptr @str_clone(ptr %str.4359)
   store ptr %str_clone.4360, ptr %gep.4358
   %load.4361 = load %HttpResponse, %HttpResponse* %alloca.4354
@@ -8401,7 +8402,7 @@ entry:
 }
 define %HttpResponse @response_internal_error() {
 entry:
-  %str.4362 = getelementptr inbounds i8, ptr @.str.251, i64 0
+  %str.4362 = getelementptr inbounds i8, ptr @.str.252, i64 0
   %call.4363 = call %HttpResponse @response_json(i32 500, ptr %str.4362)
   ret %HttpResponse %call.4363
 }
@@ -8414,7 +8415,7 @@ entry:
   %str_clone.4367 = call ptr @str_clone(ptr %1)
   store ptr %str_clone.4367, ptr %gep.4366
   %gep.4368 = getelementptr inbounds %HttpResponse, %HttpResponse* %alloca.4364, i32 0, i32 2
-  %str.4369 = getelementptr inbounds i8, ptr @.str.252, i64 0
+  %str.4369 = getelementptr inbounds i8, ptr @.str.253, i64 0
   %str_clone.4370 = call ptr @str_clone(ptr %str.4369)
   store ptr %str_clone.4370, ptr %gep.4368
   %load.4371 = load %HttpResponse, %HttpResponse* %alloca.4364
@@ -8422,7 +8423,7 @@ entry:
 }
 define %HttpResponse @response_method_not_allowed() {
 entry:
-  %str.4372 = getelementptr inbounds i8, ptr @.str.253, i64 0
+  %str.4372 = getelementptr inbounds i8, ptr @.str.254, i64 0
   %call.4373 = call %HttpResponse @response_json(i32 405, ptr %str.4372)
   ret %HttpResponse %call.4373
 }
@@ -8444,7 +8445,7 @@ entry:
 }
 define %HttpResponse @response_not_found() {
 entry:
-  %str.4383 = getelementptr inbounds i8, ptr @.str.254, i64 0
+  %str.4383 = getelementptr inbounds i8, ptr @.str.255, i64 0
   %call.4384 = call %HttpResponse @response_json(i32 404, ptr %str.4383)
   ret %HttpResponse %call.4384
 }
@@ -8462,7 +8463,7 @@ entry:
   %str_clone.4389 = call ptr @str_clone(ptr %1)
   store ptr %str_clone.4389, ptr %gep.4388
   %gep.4390 = getelementptr inbounds %HttpResponse, %HttpResponse* %alloca.4386, i32 0, i32 2
-  %str.4391 = getelementptr inbounds i8, ptr @.str.255, i64 0
+  %str.4391 = getelementptr inbounds i8, ptr @.str.256, i64 0
   %str_clone.4392 = call ptr @str_clone(ptr %str.4391)
   store ptr %str_clone.4392, ptr %gep.4390
   %load.4393 = load %HttpResponse, %HttpResponse* %alloca.4386
@@ -8470,14 +8471,14 @@ entry:
 }
 define %HttpResponse @response_unauthorized() {
 entry:
-  %str.4394 = getelementptr inbounds i8, ptr @.str.256, i64 0
+  %str.4394 = getelementptr inbounds i8, ptr @.str.257, i64 0
   %call.4395 = call %HttpResponse @response_json(i32 401, ptr %str.4394)
   ret %HttpResponse %call.4395
 }
 define ptr @route_key(i32 %0, ptr %1) {
 entry:
   %call.4396 = call ptr @method_name(i32 %0)
-  %str.4398 = getelementptr inbounds i8, ptr @.str.257, i64 0
+  %str.4398 = getelementptr inbounds i8, ptr @.str.258, i64 0
   %call.4399 = call ptr @str_cat(ptr %call.4396, ptr %str.4398)
   %alloca.4400 = alloca ptr
   store ptr %call.4399, ptr %alloca.4400
@@ -8512,7 +8513,7 @@ entry:
   %bin.4411 = icmp eq i32 %0, 200
   br i1 %bin.4411, label %then.895, label %else.896
 then.895:
-  %str.4412 = getelementptr inbounds i8, ptr @.str.258, i64 0
+  %str.4412 = getelementptr inbounds i8, ptr @.str.259, i64 0
   ret ptr %str.4412
 else.896:
   br label %endif.897
@@ -8520,7 +8521,7 @@ endif.897:
   %bin.4413 = icmp eq i32 %0, 201
   br i1 %bin.4413, label %then.898, label %else.899
 then.898:
-  %str.4414 = getelementptr inbounds i8, ptr @.str.259, i64 0
+  %str.4414 = getelementptr inbounds i8, ptr @.str.260, i64 0
   ret ptr %str.4414
 else.899:
   br label %endif.900
@@ -8528,7 +8529,7 @@ endif.900:
   %bin.4415 = icmp eq i32 %0, 204
   br i1 %bin.4415, label %then.901, label %else.902
 then.901:
-  %str.4416 = getelementptr inbounds i8, ptr @.str.260, i64 0
+  %str.4416 = getelementptr inbounds i8, ptr @.str.261, i64 0
   ret ptr %str.4416
 else.902:
   br label %endif.903
@@ -8536,7 +8537,7 @@ endif.903:
   %bin.4417 = icmp eq i32 %0, 400
   br i1 %bin.4417, label %then.904, label %else.905
 then.904:
-  %str.4418 = getelementptr inbounds i8, ptr @.str.261, i64 0
+  %str.4418 = getelementptr inbounds i8, ptr @.str.262, i64 0
   ret ptr %str.4418
 else.905:
   br label %endif.906
@@ -8544,7 +8545,7 @@ endif.906:
   %bin.4419 = icmp eq i32 %0, 401
   br i1 %bin.4419, label %then.907, label %else.908
 then.907:
-  %str.4420 = getelementptr inbounds i8, ptr @.str.262, i64 0
+  %str.4420 = getelementptr inbounds i8, ptr @.str.263, i64 0
   ret ptr %str.4420
 else.908:
   br label %endif.909
@@ -8552,7 +8553,7 @@ endif.909:
   %bin.4421 = icmp eq i32 %0, 404
   br i1 %bin.4421, label %then.910, label %else.911
 then.910:
-  %str.4422 = getelementptr inbounds i8, ptr @.str.263, i64 0
+  %str.4422 = getelementptr inbounds i8, ptr @.str.264, i64 0
   ret ptr %str.4422
 else.911:
   br label %endif.912
@@ -8560,7 +8561,7 @@ endif.912:
   %bin.4423 = icmp eq i32 %0, 405
   br i1 %bin.4423, label %then.913, label %else.914
 then.913:
-  %str.4424 = getelementptr inbounds i8, ptr @.str.264, i64 0
+  %str.4424 = getelementptr inbounds i8, ptr @.str.265, i64 0
   ret ptr %str.4424
 else.914:
   br label %endif.915
@@ -8568,7 +8569,7 @@ endif.915:
   %bin.4425 = icmp eq i32 %0, 422
   br i1 %bin.4425, label %then.916, label %else.917
 then.916:
-  %str.4426 = getelementptr inbounds i8, ptr @.str.265, i64 0
+  %str.4426 = getelementptr inbounds i8, ptr @.str.266, i64 0
   ret ptr %str.4426
 else.917:
   br label %endif.918
@@ -8576,7 +8577,7 @@ endif.918:
   %bin.4427 = icmp eq i32 %0, 429
   br i1 %bin.4427, label %then.919, label %else.920
 then.919:
-  %str.4428 = getelementptr inbounds i8, ptr @.str.266, i64 0
+  %str.4428 = getelementptr inbounds i8, ptr @.str.267, i64 0
   ret ptr %str.4428
 else.920:
   br label %endif.921
@@ -8584,12 +8585,12 @@ endif.921:
   %bin.4429 = icmp eq i32 %0, 500
   br i1 %bin.4429, label %then.922, label %else.923
 then.922:
-  %str.4430 = getelementptr inbounds i8, ptr @.str.267, i64 0
+  %str.4430 = getelementptr inbounds i8, ptr @.str.268, i64 0
   ret ptr %str.4430
 else.923:
   br label %endif.924
 endif.924:
-  %str.4431 = getelementptr inbounds i8, ptr @.str.258, i64 0
+  %str.4431 = getelementptr inbounds i8, ptr @.str.259, i64 0
   ret ptr %str.4431
 }
 define ptr @str_split_once(ptr %0, ptr %1) {
@@ -8823,9 +8824,9 @@ then.941:
 else.942:
   br label %endif.943
 endif.943:
-  %str.4523 = getelementptr inbounds i8, ptr @.str.268, i64 0
+  %str.4523 = getelementptr inbounds i8, ptr @.str.269, i64 0
   %call.4524 = call ptr @str_cat(ptr %0, ptr %str.4523)
-  %str.4525 = getelementptr inbounds i8, ptr @.str.269, i64 0
+  %str.4525 = getelementptr inbounds i8, ptr @.str.270, i64 0
   %call.4526 = call ptr @str_cat(ptr %call.4524, ptr %str.4525)
   %fmt.4527 = getelementptr inbounds i8, ptr @.str.39, i64 0
   call i32 (ptr, ...) @printf(ptr %fmt.4527, ptr %call.4526)
@@ -8866,7 +8867,7 @@ then.944:
   %unary.4535 = xor i1 %call.4536, true
   br i1 %unary.4535, label %then.947, label %else.948
 then.947:
-  %str.4537 = getelementptr inbounds i8, ptr @.str.270, i64 0
+  %str.4537 = getelementptr inbounds i8, ptr @.str.271, i64 0
   call i32 @puts(ptr %str.4537)
   %str.4538 = getelementptr inbounds i8, ptr @.str.11, i64 0
   ret ptr %str.4538
@@ -8955,7 +8956,7 @@ entry:
 then.962:
   %bin.4576 = sub i32 %call.4573, 2
   %call.4577 = call ptr @substring(ptr %call.4571, i32 %bin.4576, i32 2)
-  %str.4579 = getelementptr inbounds i8, ptr @.str.271, i64 0
+  %str.4579 = getelementptr inbounds i8, ptr @.str.272, i64 0
   %call.4580 = call i32 @str_cmp(ptr %call.4577, ptr %str.4579)
   %bin.4581 = icmp eq i32 %call.4580, 0
   br i1 %bin.4581, label %then.965, label %else.966
@@ -8984,14 +8985,14 @@ entry:
 define void @ui_err(ptr %0) {
 entry:
   %str.4592 = getelementptr inbounds i8, ptr @.str.4, i64 0
-  %str.4593 = getelementptr inbounds i8, ptr @.str.272, i64 0
+  %str.4593 = getelementptr inbounds i8, ptr @.str.273, i64 0
   %call.4595 = call ptr @str_cat(ptr %str.4593, ptr %0)
   call void @ui_emit(ptr %str.4592, ptr %call.4595)
   ret void
 }
 define void @ui_field(ptr %0, ptr %1) {
 entry:
-  %str.4596 = getelementptr inbounds i8, ptr @.str.273, i64 0
+  %str.4596 = getelementptr inbounds i8, ptr @.str.274, i64 0
   %str.4598 = getelementptr inbounds i8, ptr @.str.7, i64 0
   %call.4599 = call ptr @str_cat(ptr %str.4596, ptr %str.4598)
   %call.4601 = call ptr @str_cat(ptr %call.4599, ptr %0)
@@ -9006,7 +9007,7 @@ entry:
   %alloca.4613 = alloca ptr
   store ptr %call.4612, ptr %alloca.4613
   %ref.4615 = load ptr, ptr %alloca.4605
-  %str.4616 = getelementptr inbounds i8, ptr @.str.274, i64 0
+  %str.4616 = getelementptr inbounds i8, ptr @.str.275, i64 0
   %call.4617 = call ptr @str_cat(ptr %ref.4615, ptr %str.4616)
   %ref.4619 = load ptr, ptr %alloca.4613
   %call.4620 = call ptr @str_cat(ptr %call.4617, ptr %ref.4619)
@@ -9020,7 +9021,7 @@ entry:
 define void @ui_info(ptr %0) {
 entry:
   %str.4623 = getelementptr inbounds i8, ptr @.str.7, i64 0
-  %str.4624 = getelementptr inbounds i8, ptr @.str.275, i64 0
+  %str.4624 = getelementptr inbounds i8, ptr @.str.276, i64 0
   %call.4626 = call ptr @str_cat(ptr %str.4624, ptr %0)
   call void @ui_emit(ptr %str.4623, ptr %call.4626)
   ret void
@@ -9028,17 +9029,17 @@ entry:
 define void @ui_ok(ptr %0) {
 entry:
   %str.4627 = getelementptr inbounds i8, ptr @.str.5, i64 0
-  %str.4628 = getelementptr inbounds i8, ptr @.str.276, i64 0
+  %str.4628 = getelementptr inbounds i8, ptr @.str.277, i64 0
   %call.4630 = call ptr @str_cat(ptr %str.4628, ptr %0)
   call void @ui_emit(ptr %str.4627, ptr %call.4630)
   ret void
 }
 define void @ui_tip(ptr %0) {
 entry:
-  %str.4631 = getelementptr inbounds i8, ptr @.str.274, i64 0
+  %str.4631 = getelementptr inbounds i8, ptr @.str.275, i64 0
   %str.4633 = getelementptr inbounds i8, ptr @.str.7, i64 0
   %call.4634 = call ptr @str_cat(ptr %str.4631, ptr %str.4633)
-  %str.4635 = getelementptr inbounds i8, ptr @.str.277, i64 0
+  %str.4635 = getelementptr inbounds i8, ptr @.str.278, i64 0
   %call.4636 = call ptr @str_cat(ptr %call.4634, ptr %str.4635)
   %str.4638 = getelementptr inbounds i8, ptr @.str.3, i64 0
   %call.4639 = call ptr @str_cat(ptr %call.4636, ptr %str.4638)
@@ -9051,7 +9052,7 @@ entry:
   %alloca.4648 = alloca ptr
   store ptr %call.4647, ptr %alloca.4648
   %ref.4650 = load ptr, ptr %alloca.4640
-  %str.4651 = getelementptr inbounds i8, ptr @.str.274, i64 0
+  %str.4651 = getelementptr inbounds i8, ptr @.str.275, i64 0
   %call.4652 = call ptr @str_cat(ptr %ref.4650, ptr %str.4651)
   %ref.4654 = load ptr, ptr %alloca.4648
   %call.4655 = call ptr @str_cat(ptr %call.4652, ptr %ref.4654)
@@ -9080,7 +9081,7 @@ entry:
   %alloca.4677 = alloca ptr
   store ptr %call.4676, ptr %alloca.4677
   %ref.4679 = load ptr, ptr %alloca.4666
-  %str.4680 = getelementptr inbounds i8, ptr @.str.274, i64 0
+  %str.4680 = getelementptr inbounds i8, ptr @.str.275, i64 0
   %call.4681 = call ptr @str_cat(ptr %ref.4679, ptr %str.4680)
   %ref.4683 = load ptr, ptr %alloca.4677
   %call.4684 = call ptr @str_cat(ptr %call.4681, ptr %ref.4683)
@@ -9094,16 +9095,16 @@ entry:
 define void @ui_warn(ptr %0) {
 entry:
   %str.4687 = getelementptr inbounds i8, ptr @.str.6, i64 0
-  %str.4688 = getelementptr inbounds i8, ptr @.str.278, i64 0
+  %str.4688 = getelementptr inbounds i8, ptr @.str.279, i64 0
   %call.4690 = call ptr @str_cat(ptr %str.4688, ptr %0)
   call void @ui_emit(ptr %str.4687, ptr %call.4690)
   ret void
 }
 define i32 @wants_keep_alive(ptr %0) {
 entry:
-  %str.4691 = getelementptr inbounds i8, ptr @.str.279, i64 0
+  %str.4691 = getelementptr inbounds i8, ptr @.str.280, i64 0
   %call.4692 = call ptr @header_value(ptr %0, ptr %str.4691)
-  %str.4694 = getelementptr inbounds i8, ptr @.str.280, i64 0
+  %str.4694 = getelementptr inbounds i8, ptr @.str.281, i64 0
   %call.4695 = call i32 @strstr_pos(ptr %call.4692, ptr %str.4694)
   %bin.4696 = icmp sge i32 %call.4695, 0
   br i1 %bin.4696, label %then.968, label %else.969
@@ -9112,7 +9113,7 @@ then.968:
 else.969:
   br label %endif.970
 endif.970:
-  %str.4698 = getelementptr inbounds i8, ptr @.str.281, i64 0
+  %str.4698 = getelementptr inbounds i8, ptr @.str.282, i64 0
   %call.4699 = call i32 @strstr_pos(ptr %call.4692, ptr %str.4698)
   %bin.4700 = icmp sge i32 %call.4699, 0
   br i1 %bin.4700, label %then.971, label %else.972

@@ -1,12 +1,14 @@
 import "stdlib/strings.ny"
 import "stdlib/fs.ny"
 import "stdlib/vec_str.ny"
+import "stdlib/process.ny"
 import "paths.ny"
 import "manifest.ny"
 import "lockfile.ny"
 import "fetch.ny"
 import "registry.ny"
 import "semver.ny"
+import "self_cmd.ny"
 
 fn Cmd_print_ok(msg: string) -> void {
     print(strcat("✔  ", msg))
@@ -173,12 +175,97 @@ fn Cmd_verify(path: string) -> i32 {
     return 0
 }
 
+fn Cmd_drop_first(args: StrVec) -> StrVec {
+    let mut out = StrVec_new()
+    let mut i = 1
+    while i < args.len() {
+        out = out.push(args.get(i))
+        i = i + 1
+    }
+    return out
+}
+
+/// Accept `nyrapkg init` and `nyrapkg pkg init` (alias for `nyra pkg init`).
+pub fn Cmd_normalize_argv(args: StrVec) -> StrVec {
+    if args.len() > 0 && strcmp(args.get(0), "pkg") == 0 {
+        return Cmd_drop_first(args)
+    }
+    return args
+}
+
+fn Cmd_is_nyra_pkg_command(sub: string) -> i32 {
+    if strcmp(sub, "build") == 0 { return 1 }
+    if strcmp(sub, "prune") == 0 { return 1 }
+    if strcmp(sub, "c") == 0 { return 1 }
+    if strcmp(sub, "bind") == 0 { return 1 }
+    return 0
+}
+
+fn Cmd_delegate_nyra_pkg(args: StrVec) -> i32 {
+    let bin = nyra_bin_resolved()
+    let mut full = StrVec_new().push("pkg")
+    let mut i = 0
+    while i < args.len() {
+        full = full.push(args.get(i))
+        i = i + 1
+    }
+    return exec(bin, full).code
+}
+
+fn Cmd_print_usage() -> void {
+    print("nyrapkg — Nyra package manager (https://github.com/nyra-lang/pkg)")
+    print("  alias: nyra pkg <command> — same commands")
+    print("")
+    print("Project:")
+    print("  init [path]              new package (nyra.mod + main.ny)")
+    print("  add <module> [version]   add dependency")
+    print("  install <module> [ver]   fetch + update lock files")
+    print("  verify [path]            check nyra.mod / lock / sum")
+    print("")
+    print("Toolchain:")
+    print("  version, -V, --version   nyrapkg + nyra versions")
+    print("  which                    install paths (NYRA_HOME, bin/)")
+    print("  bootstrap                copy this binary to ~/.nyra/bin/nyrapkg")
+    print("  self update [version]    update nyrapkg from GitHub releases")
+    print("  toolchain update [ver]   update nyra compiler (~/.nyra)")
+    print("  update <nyra|self> [ver] alias for toolchain/self update")
+    print("")
+    print("Toolchain (via nyra pkg):")
+    print("  build [path]             verify lock + compile")
+    print("  prune [--check]          remove unused imports/locals")
+    print("  c add|list|remove …      system C libraries")
+    print("  bind c …                 manual C header bind")
+}
+
+fn Cmd_is_meta_command(sub: string) -> i32 {
+    if strcmp(sub, "version") == 0 { return 1 }
+    if strcmp(sub, "--version") == 0 { return 1 }
+    if strcmp(sub, "-V") == 0 { return 1 }
+    if strcmp(sub, "which") == 0 { return 1 }
+    if strcmp(sub, "bootstrap") == 0 { return 1 }
+    if strcmp(sub, "self-update") == 0 { return 1 }
+    if strcmp(sub, "self") == 0 { return 1 }
+    if strcmp(sub, "toolchain") == 0 { return 1 }
+    if strcmp(sub, "update") == 0 { return 1 }
+    return 0
+}
+
 fn Cmd_dispatch(args: StrVec) -> i32 {
     if args.len() == 0 {
-        print("usage: nyrapkg <init|add|install|verify> [args]")
+        Cmd_print_usage()
         return 1
     }
     let sub = args.get(0)
+    if strcmp(sub, "help") == 0 || strcmp(sub, "--help") == 0 || strcmp(sub, "-h") == 0 {
+        Cmd_print_usage()
+        return 0
+    }
+    if Cmd_is_nyra_pkg_command(sub) == 1 {
+        return Cmd_delegate_nyra_pkg(args)
+    }
+    if Cmd_is_meta_command(sub) == 1 {
+        return Self_dispatch(args)
+    }
     if strcmp(sub, "init") == 0 {
         let path = if args.len() > 1 { args.get(1) } else { "." }
         if Cmd_init(path) != 0 {
@@ -234,6 +321,6 @@ fn Cmd_dispatch(args: StrVec) -> i32 {
         let path = if args.len() > 1 { args.get(1) } else { "." }
         return Cmd_verify(path)
     }
-    print(strcat(strcat("unknown subcommand: ", sub), " (try init|add|install|verify)"))
+    print(strcat(strcat("unknown subcommand: ", sub), " (try `nyrapkg help`)"))
     return 1
 }

@@ -29,6 +29,8 @@ nyrapkg uses the same default Nyra layout:
 curl -fsSL https://raw.githubusercontent.com/nyra-lang/pkg/main/scripts/install.sh | sh
 ```
 
+> **Release tip:** GitHub’s `latest` API ignores **pre-releases**. Either uncheck “pre-release” when publishing, pin a tag (`| sh -s -- --version 0.1.0`), or use an `install.sh` that falls back to the newest release (included in this repo).
+
 ### From source (development)
 
 ```bash

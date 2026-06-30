@@ -1,53 +1,53 @@
 # nyrapkg
 
-مدير حزم مستقل لـ [Nyra](https://github.com/nyra-lang/nyra) — مكتوب **بالكامل بلغة Nyra**، مثل `cargo` بالنسبة لـ Rust.
+A standalone package manager for [Nyra](https://github.com/nyra-lang/nyra) — written **entirely in Nyra**, like `cargo` is for Rust.
 
-**المستودع:** [github.com/nyra-lang/pkg](https://github.com/nyra-lang/pkg)
+**Repository:** [github.com/nyra-lang/pkg](https://github.com/nyra-lang/pkg)
 
-يوفّر أوامر إدارة المشاريع (`init` / `add` / `install` / `verify`) وأوامر toolchain خاصة (`version`، `bootstrap`، تحديث nyrapkg أو Nyra).
+Provides project management commands (`init` / `add` / `install` / `verify`) and dedicated toolchain commands (`version`, `bootstrap`, updating nyrapkg or Nyra).
 
-> **ملاحظة:** أوامر `nyra pkg init|add|install|verify` أُزيلت من CLI الرسمي؛ استخدم **`nyrapkg`** لإدارة الحزم. ما زال `nyra pkg` يوفّر `build`، `bind`، `c`، `prune` فقط.
+> **Note:** `nyra pkg init|add|install|verify` were removed from the official CLI; use **`nyrapkg`** for package management. `nyra pkg` still provides only `build`, `bind`, `c`, and `prune`.
 
 ---
 
-## التثبيت على الجهاز
+## Installation
 
-nyrapkg يستخدم نفس مسار Nyra الافتراضي:
+nyrapkg uses the same default Nyra layout:
 
 ```
 ~/.nyra/
 ├── bin/
-│   ├── nyra          # مترجم اللغة (من nyra-lang/nyra)
-│   └── nyrapkg       # مدير الحزم (من nyra-lang/pkg)
+│   ├── nyra          # language compiler (from nyra-lang/nyra)
+│   └── nyrapkg       # package manager (from nyra-lang/pkg)
 ├── config            # registry=…
-└── lib/              # LLVM / WASI (اختياري)
+└── lib/              # LLVM / WASI (optional)
 ```
 
-### من GitHub Releases (عند توفر release)
+### From GitHub Releases (when available)
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/nyra-lang/pkg/main/scripts/install.sh | sh
 ```
 
-### من المصدر (تطوير)
+### From source (development)
 
 ```bash
 export NYRA_HOME=/path/to/nyra
 cd /path/to/pkg
 nyra build --release -o nyrapkg .
-nyrapkg bootstrap          # ينسخ الثنائي إلى ~/.nyra/bin/nyrapkg
+nyrapkg bootstrap          # copies the binary to ~/.nyra/bin/nyrapkg
 export PATH="$HOME/.nyra/bin:$PATH"
 ```
 
-### تثبيت Nyra (المترجم)
+### Installing Nyra (compiler)
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/nyra-lang/nyra/main/scripts/install.sh | sh
-# أو عبر nyrapkg بعد تثبيته:
+# or via nyrapkg after installing it:
 nyrapkg toolchain update
 ```
 
-أضف إلى الـ shell:
+Add to your shell:
 
 ```bash
 export NYRA_HOME="$HOME/.nyra"
@@ -79,7 +79,7 @@ nyra build --release -o nyrapkg .
 
 ```bash
 export PATH="$HOME/.nyra/bin:$PATH"
-export NYRA_HOME=/path/to/nyra   # أو ~/.nyra بعد التثبيت
+export NYRA_HOME=/path/to/nyra   # or ~/.nyra after installation
 
 nyrapkg --version
 nyrapkg init
@@ -100,20 +100,20 @@ NYRA_HOME=/path/to/nyra nyra run . -- version
 
 | Command | Description |
 |---------|-------------|
-| `nyrapkg --version` / `nyrapkg version` | إصدار nyrapkg + إصدار `nyra` إن وُجد |
-| `nyrapkg which` | مسارات `NYRA_HOME`، `bin/`، `config`، الثنائيات |
-| `nyrapkg bootstrap` | نسخ الثنائي الحالي إلى `~/.nyra/bin/nyrapkg` |
-| `nyrapkg self update [ver]` | تحديث nyrapkg من [releases](https://github.com/nyra-lang/pkg/releases) |
-| `nyrapkg toolchain update [ver]` | تحديث Nyra إلى `~/.nyra` |
-| `nyrapkg update nyra [ver]` | alias لـ `toolchain update` |
-| `nyrapkg update self [ver]` | alias لـ `self update` |
-| `nyrapkg help` | قائمة الأوامر |
+| `nyrapkg --version` / `nyrapkg version` | nyrapkg version + `nyra` version if available |
+| `nyrapkg which` | Paths for `NYRA_HOME`, `bin/`, `config`, and binaries |
+| `nyrapkg bootstrap` | Copy the current binary to `~/.nyra/bin/nyrapkg` |
+| `nyrapkg self update [ver]` | Update nyrapkg from [releases](https://github.com/nyra-lang/pkg/releases) |
+| `nyrapkg toolchain update [ver]` | Update Nyra in `~/.nyra` |
+| `nyrapkg update nyra [ver]` | Alias for `toolchain update` |
+| `nyrapkg update self [ver]` | Alias for `self update` |
+| `nyrapkg help` | Command list |
 
 ```bash
 nyrapkg --version
 nyrapkg which
 nyrapkg self update              # latest release
-nyrapkg self update 0.1.0        # إصدار محدد
+nyrapkg self update 0.1.0        # specific version
 nyrapkg toolchain update         # latest nyra
 nyrapkg update nyra 1.38.0
 ```

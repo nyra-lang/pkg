@@ -34,6 +34,9 @@ curl -fsSL https://raw.githubusercontent.com/nyra-lang/pkg/main/scripts/install.
 ```bash
 export NYRA_HOME=/path/to/nyra
 cd /path/to/pkg
+
+make dist                  # → dist/nyrapkg-<arch>-<os>.tar.gz (for GitHub Releases)
+# or manually:
 nyra build --release -o nyrapkg .
 nyrapkg bootstrap          # copies the binary to ~/.nyra/bin/nyrapkg
 export PATH="$HOME/.nyra/bin:$PATH"

@@ -1,0 +1,76 @@
+{
+  "units": [
+    {
+      "path": "/Volumes/Macbook/npm_projects/me/nyra/stdlib/builtins_string.ny",
+      "content_hash": 16064957011217714443
+    },
+    {
+      "path": "/Volumes/Macbook/npm_projects/me/nyra/stdlib/crypto/sha256.ny",
+      "content_hash": 7351530293372074547
+    },
+    {
+      "path": "/Volumes/Macbook/npm_projects/me/nyra/stdlib/env/mod.ny",
+      "content_hash": 726133287185372426
+    },
+    {
+      "path": "/Volumes/Macbook/npm_projects/me/nyra/stdlib/fs.ny",
+      "content_hash": 18430000818015491692
+    },
+    {
+      "path": "/Volumes/Macbook/npm_projects/me/nyra/stdlib/json/mod.ny",
+      "content_hash": 11353957536560480936
+    },
+    {
+      "path": "/Volumes/Macbook/npm_projects/me/nyra/stdlib/os/env.ny",
+      "content_hash": 14917041140691823225
+    },
+    {
+      "path": "/Volumes/Macbook/npm_projects/me/nyra/stdlib/process.ny",
+      "content_hash": 7770395504018009437
+    },
+    {
+      "path": "/Volumes/Macbook/npm_projects/me/nyra/stdlib/strings.ny",
+      "content_hash": 3539857211387347790
+    },
+    {
+      "path": "/Volumes/Macbook/npm_projects/me/nyra/stdlib/strings/ops.ny",
+      "content_hash": 14983918886915586664
+    },
+    {
+      "path": "/Volumes/Macbook/npm_projects/me/nyra/stdlib/vec_str.ny",
+      "content_hash": 4893182205665908057
+    },
+    {
+      "path": "/Volumes/Macbook/npm_projects/me/nyrapkg/main.ny",
+      "content_hash": 12260990485405418589
+    },
+    {
+      "path": "/Volumes/Macbook/npm_projects/me/nyrapkg/src/commands.ny",
+      "content_hash": 17475340925083501583
+    },
+    {
+      "path": "/Volumes/Macbook/npm_projects/me/nyrapkg/src/fetch.ny",
+      "content_hash": 6407995093563096141
+    },
+    {
+      "path": "/Volumes/Macbook/npm_projects/me/nyrapkg/src/lockfile.ny",
+      "content_hash": 18044922806490192841
+    },
+    {
+      "path": "/Volumes/Macbook/npm_projects/me/nyrapkg/src/manifest.ny",
+      "content_hash": 6854591021050929245
+    },
+    {
+      "path": "/Volumes/Macbook/npm_projects/me/nyrapkg/src/paths.ny",
+      "content_hash": 16992614553615406881
+    },
+    {
+      "path": "/Volumes/Macbook/npm_projects/me/nyrapkg/src/registry.ny",
+      "content_hash": 9279739175188158752
+    },
+    {
+      "path": "/Volumes/Macbook/npm_projects/me/nyrapkg/src/semver.ny",
+      "content_hash": 2402032485062335731
+    }
+  ]
+}

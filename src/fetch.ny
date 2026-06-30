@@ -4,23 +4,19 @@ import "stdlib/process.ny"
 import "stdlib/vec_str.ny"
 import "stdlib/fs.ny"
 import "stdlib/env/mod.ny"
+import "stdlib/pkg/git_fetch.ny"
 import "paths.ny"
 import "registry.ny"
 
 fn Fetch_remove_tree(path: string) -> i32 {
-    let args = StrVec_new().push("-rf").push(path)
-    let result = exec("rm", args)
-    return result.code
+    return remove_dir_all(path)
 }
 
 fn Fetch_copy_tree(src: string, dst: string) -> i32 {
-    ensure_dir(dst)
-    let args = StrVec_new().push("-R").push(src).push(dst)
-    let result = exec("cp", args)
-    return result.code
+    return copy_dir_contents(src, dst)
 }
 
-fn Fetch_git(url: string, rev: string, dest: string) -> i32 {
+fn Fetch_git_shell(url: string, rev: string, dest: string) -> i32 {
     if file_exists(dest) == 1 && file_exists(join_path(dest, "nyra.mod")) == 1 {
         let fetch_args = StrVec_new().push("-C").push(dest).push("fetch").push("--depth").push("1").push("origin").push(rev)
         let fetch = exec("git", fetch_args)
@@ -37,12 +33,31 @@ fn Fetch_git(url: string, rev: string, dest: string) -> i32 {
     return clone_result.code
 }
 
+fn Fetch_git(url: string, rev: string, dest: string) -> i32 {
+    let is_github = str_starts_with(url, "https://github.com/")
+    if is_github == 1 {
+        let code = GitFetch_http_tarball(url, rev, dest, cache_root())
+        if code == 0 {
+            return 0
+        }
+    }
+    let is_git_ssh = str_starts_with(url, "git@")
+    if is_git_ssh == 1 {
+        return Fetch_git_shell(url, rev, dest)
+    }
+    let is_https = str_starts_with(url, "https://")
+    if is_https == 1 {
+        let code = GitFetch_http_tarball(url, rev, dest, cache_root())
+        if code == 0 {
+            return 0
+        }
+    }
+    return Fetch_git_shell(url, rev, dest)
+}
+
 fn Fetch_local_package(subpath: string, dest: string) -> i32 {
     let nyra_home = env_get("NYRA_HOME")
-    let mut src = ""
-    if strlen(nyra_home) > 0 {
-        src = join_path(nyra_home, subpath)
-    }
+    let src = if strlen(nyra_home) > 0 { join_path(nyra_home, subpath) } else { "" }
     if strlen(src) == 0 || file_exists(src) == 0 {
         return 1
     }
@@ -50,26 +65,29 @@ fn Fetch_local_package(subpath: string, dest: string) -> i32 {
         Fetch_remove_tree(dest)
     }
     ensure_dir(dest)
-    return Fetch_copy_tree(strcat(src, "/."), dest)
+    return Fetch_copy_tree(src, dest)
 }
 
 fn Fetch_package_versioned(name: string, dest: string, req_text: string) -> i32 {
     if file_exists(dest) == 1 && file_exists(join_path(dest, "nyra.mod")) == 1 {
         return 0
     }
-    let mut base = name
-    let mut inline_req = ""
     let at = strstr_pos(name, "@")
+    let mut base = name
+    let inline_req = if at >= 0 { substring(name, at + 1, strlen(name) - at - 1) } else { "" }
     if at >= 0 {
         base = substring(name, 0, at)
-        inline_req = substring(name, at + 1, strlen(name) - at - 1)
     }
-    let mut req_use = req_text
-    if strlen(req_use) == 0 {
-        req_use = inline_req
-    }
-    if str_starts_with(base, "https://") == 1 || str_starts_with(base, "git@") == 1 {
+    let req_use = if strlen(req_text) > 0 { req_text } else { inline_req }
+    let is_https = str_starts_with(base, "https://")
+    let is_git_ssh = str_starts_with(base, "git@")
+    if is_https == 1 || is_git_ssh == 1 {
         return Fetch_git(base, "main", dest)
+    }
+    let reg = Registry_default_url()
+    let remote = Registry_resolve_entry(reg, base, req_use)
+    if strlen(remote.name) > 0 && remote.has_git == 1 {
+        return Fetch_git(remote.git_url, remote.git_rev, dest)
     }
     let spec = Registry_resolve_name(base)
     if spec.has_local == 1 {

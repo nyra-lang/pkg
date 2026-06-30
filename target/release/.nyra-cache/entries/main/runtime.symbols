@@ -1,3 +1,4 @@
+append_file
 async_poll
 bin_buf_finish
 bin_buf_new
@@ -13,8 +14,13 @@ bin_field_width_string_at
 char_at
 command_exec_capture
 command_run
+copy_dir_contents
+create_dir_all
 file_exists
+gunzip_file
+gzip_file
 heap_free
+http_download_file
 i32_to_string
 instant_elapsed_ms
 instant_now
@@ -28,9 +34,13 @@ json_get_bool
 json_get_i32
 json_get_object
 json_get_string
+json_join_raw_array
+json_split_array_elements
 list_dir
 path_is_dir
 read_file
+remove_dir_all
+remove_file
 rt_args_init
 rt_os_getenv
 rt_os_setenv
@@ -56,6 +66,7 @@ str_cat
 str_clone
 str_cmp
 str_contains
+str_ends_with
 str_len
 str_push_char
 str_replace
@@ -75,6 +86,8 @@ sys_listen
 sys_recv
 sys_send
 sys_set_nonblock
+tar_create
+tar_extract
 tls_available
 vec_str_free
 vec_str_from_argv

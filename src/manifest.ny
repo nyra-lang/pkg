@@ -1,6 +1,7 @@
 import "stdlib/strings.ny"
 import "stdlib/builtins_string.ny"
 import "stdlib/vec_str.ny"
+import "stdlib/fs.ny"
 import "semver.ny"
 
 struct RequireEntry {
@@ -56,11 +57,8 @@ fn Manifest_parse(path: string) -> NyraMod {
         } else if str_starts_with(line, "require ") == 1 {
             let entry = Manifest_parse_require_line(substring(line, 8, strlen(line) - 8))
             if strlen(entry.name) > 0 {
-                let mut req_part = ""
-                if entry.has_req == 1 {
-                    req_part = Semver_format_req(entry.version_req)
-                }
-                let packed = strcat(strcat(entry.name, "\x1f"), req_part)
+                let req_part = if entry.has_req == 1 { Semver_format_req(entry.version_req) } else { "" }
+                let packed = strcat(strcat(clone entry.name, "\x1f"), clone req_part)
                 Vec_str_push(requires, packed)
             }
         }
@@ -97,9 +95,10 @@ fn Manifest_require_req_at(mod: NyraMod, index: i32) -> string {
 }
 
 fn Manifest_has_require(mod: NyraMod, name: string) -> i32 {
+    let target = clone name
     let mut i = 0
     while i < Manifest_require_count(mod) {
-        if strcmp(Manifest_require_name_at(mod, i), name) == 0 {
+        if strcmp(Manifest_require_name_at(mod, i), target) == 0 {
             return 1
         }
         i = i + 1
@@ -108,27 +107,22 @@ fn Manifest_has_require(mod: NyraMod, name: string) -> i32 {
 }
 
 fn Manifest_append_require(path: string, name: string, req_text: string) -> i32 {
-    let content = read_file(path)
-    let mut line = strcat("require ", name)
-    if strlen(req_text) > 0 {
-        line = strcat(strcat(line, " "), req_text)
+    let pkg = clone name
+    let req = clone req_text
+    let line = if strlen(req) > 0 {
+        strcat(strcat(strcat("require ", pkg), " "), req)
+    } else {
+        strcat("require ", pkg)
     }
+    let existing = read_file(path)
+    let lines = StrVec_from_lines(clone existing)
     let mut i = 0
-    let lines = StrVec_from_lines(content)
     while i < lines.len() {
         let t = trim(lines.get(i))
-        if t == line || t == strcat("require ", name) {
+        if t == line || t == strcat("require ", pkg) {
             return 0
         }
         i = i + 1
     }
-    let mut out = content
-    if strlen(out) > 0 && char_at(out, strlen(out) - 1) != 10 {
-        out = strcat(out, "\n")
-    }
-    out = strcat(strcat(out, line), "\n")
-    return write_file(path, out)
+    return append_file(path, strcat(line, "\n"))
 }
-
-extern fn read_file(path: string) -> string
-extern fn write_file(path: string, content: string) -> i32

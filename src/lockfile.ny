@@ -1,27 +1,25 @@
 import "stdlib/strings.ny"
+import "stdlib/strings/ops.ny"
 import "stdlib/builtins_string.ny"
 import "stdlib/vec_str.ny"
 import "stdlib/crypto/sha256.ny"
 import "stdlib/json/mod.ny"
+import "stdlib/json/jsonl.ny"
 import "stdlib/fs.ny"
 
-struct LockEntry {
+pub struct LockEntry {
     pkg_name: string
     version: string
-    checksum: string
     source_kind: string
     source_url: string
     source_rev: string
+    checksum: string
 }
 
-struct LockFile {
+pub struct LockFile {
     lock_version: i32
-    module_name: string
+    mod_name: string
     entries: ptr
-}
-
-fn LockEntry_vec() -> ptr {
-    return Vec_str_new()
 }
 
 fn LockEntry_pack(entry: LockEntry) -> string {
@@ -29,23 +27,23 @@ fn LockEntry_pack(entry: LockEntry) -> string {
         strcat(
             strcat(
                 strcat(
-                    strcat(entry.pkg_name, "\x1f"),
-                    entry.version
-                ),
-                "\x1f"
-            ),
-            entry.checksum
-        ),
-        strcat(
-            strcat(
-                strcat(
-                    strcat("\x1f", entry.source_kind),
+                    strcat(
+                        strcat(clone entry.pkg_name, "\x1f"),
+                        clone entry.version
+                    ),
                     "\x1f"
                 ),
-                entry.source_url
+                clone entry.source_kind
             ),
-            strcat("\x1f", entry.source_rev)
-        )
+            strcat(
+                strcat(
+                    strcat("\x1f", clone entry.source_url),
+                    strcat("\x1f", clone entry.source_rev)
+                ),
+                strcat("\x1f", clone entry.checksum)
+            )
+        ),
+        ""
     )
 }
 
@@ -54,15 +52,41 @@ fn LockEntry_unpack(packed: string) -> LockEntry {
     return LockEntry {
         pkg_name: parts.get(0),
         version: parts.get(1),
-        checksum: parts.get(2),
-        source_kind: parts.get(3),
-        source_url: parts.get(4),
-        source_rev: parts.get(5),
+        source_kind: parts.get(2),
+        source_url: parts.get(3),
+        source_rev: parts.get(4),
+        checksum: parts.get(5),
+    }
+}
+
+fn LockEntry_local(pkg_name: string, version: string, checksum: string) -> LockEntry {
+    return LockEntry {
+        pkg_name: pkg_name,
+        version: version,
+        source_kind: "local",
+        source_url: "",
+        source_rev: "",
+        checksum: checksum,
+    }
+}
+
+fn LockEntry_git(pkg_name: string, version: string, checksum: string, url: string, rev: string) -> LockEntry {
+    return LockEntry {
+        pkg_name: pkg_name,
+        version: version,
+        source_kind: "git",
+        source_url: url,
+        source_rev: rev,
+        checksum: checksum,
     }
 }
 
 fn LockFile_new(mod_name: string) -> LockFile {
-    return LockFile { lock_version: 1, module_name: mod_name, entries: LockEntry_vec() }
+    return LockFile {
+        lock_version: 1,
+        mod_name: mod_name,
+        entries: Vec_str_new(),
+    }
 }
 
 fn LockFile_entry_count(lock: LockFile) -> i32 {
@@ -75,10 +99,11 @@ fn LockFile_push_entry(lock: LockFile, entry: LockEntry) -> LockFile {
 }
 
 fn LockFile_find_entry(lock: LockFile, pkg_name: string) -> i32 {
+    let target = clone pkg_name
     let mut i = 0
     while i < LockFile_entry_count(lock) {
         let e = LockEntry_unpack(Vec_str_get(lock.entries, i))
-        if strcmp(e.pkg_name, pkg_name) == 0 {
+        if strcmp(e.pkg_name, target) == 0 {
             return i
         }
         i = i + 1
@@ -91,118 +116,106 @@ fn LockFile_entry_at(lock: LockFile, index: i32) -> LockEntry {
 }
 
 fn LockFile_source_json(entry: LockEntry) -> string {
-    if strcmp(entry.source_kind, "git") == 0 {
+    let kind = clone entry.source_kind
+    if strcmp(kind, "git") == 0 {
         let keys = Vec_str_new()
-        let values = Vec_str_new()
+        let vals = Vec_str_new()
         Vec_str_push(keys, "kind")
-        Vec_str_push(values, "git")
+        Vec_str_push(vals, "git")
         Vec_str_push(keys, "url")
-        Vec_str_push(values, entry.source_url)
+        Vec_str_push(vals, clone entry.source_url)
         Vec_str_push(keys, "rev")
-        Vec_str_push(values, entry.source_rev)
-        let out = json_encode_object(keys, values)
-        Vec_str_free(keys)
-        Vec_str_free(values)
-        return out
+        Vec_str_push(vals, clone entry.source_rev)
+        return json_encode_object(keys, vals)
     }
     return "{\"kind\":\"local\"}"
 }
 
-fn LockFile_entry_json(entry: LockEntry) -> string {
+fn LockFile_entry_to_json(entry: LockEntry) -> string {
     let keys = Vec_str_new()
-    let values = Vec_str_new()
+    let vals = Vec_str_new()
     Vec_str_push(keys, "module")
-    Vec_str_push(values, entry.pkg_name)
+    Vec_str_push(vals, clone entry.pkg_name)
     Vec_str_push(keys, "version")
-    Vec_str_push(values, entry.version)
+    Vec_str_push(vals, clone entry.version)
     Vec_str_push(keys, "source")
-    Vec_str_push(values, LockFile_source_json(entry))
+    Vec_str_push(vals, LockFile_source_json(entry))
     Vec_str_push(keys, "checksum")
-    Vec_str_push(values, entry.checksum)
-    let out = json_encode_object(keys, values)
-    Vec_str_free(keys)
-    Vec_str_free(values)
-    return out
+    Vec_str_push(vals, clone entry.checksum)
+    return json_encode_object(keys, vals)
 }
 
 fn LockFile_write(lock: LockFile, path: string) -> i32 {
-    let mut require_json = "["
+    let count = LockFile_entry_count(lock)
+    let mut entry_handles = Vec_str_new()
     let mut i = 0
-    while i < LockFile_entry_count(lock) {
-        if i > 0 {
-            require_json = strcat(require_json, ",")
-        }
-        require_json = strcat(require_json, LockFile_entry_json(LockFile_entry_at(lock, i)))
+    while i < count {
+        Vec_str_push(entry_handles, LockFile_entry_to_json(LockFile_entry_at(lock, i)))
         i = i + 1
     }
-    require_json = strcat(require_json, "]")
-    let body = strcat(
-        strcat(
-            strcat(
-                strcat(
-                    strcat("{\n  \"version\": ", i32_to_string(lock.lock_version)),
-                    ",\n  \"module\": \""
-                ),
-                lock.module_name
-            ),
-            "\",\n  \"require\": "
-        ),
-        strcat(require_json, "\n}\n")
-    )
+    let require_json = json_join_raw_array(entry_handles)
+    Vec_str_free(entry_handles)
+    let keys = Vec_str_new()
+    let vals = Vec_str_new()
+    Vec_str_push(keys, "version")
+    Vec_str_push(vals, i32_to_string(lock.lock_version))
+    Vec_str_push(keys, "module")
+    Vec_str_push(vals, clone lock.mod_name)
+    Vec_str_push(keys, "require")
+    Vec_str_push(vals, require_json)
+    let body = strcat(json_encode_object(keys, vals), "\n")
     return write_file(path, body)
 }
 
 fn LockFile_write_sum(lock: LockFile, path: string) -> i32 {
-    let mut lines = ""
+    if write_file(path, "") != 0 {
+        return 1
+    }
     let mut i = 0
     while i < LockFile_entry_count(lock) {
         let e = LockFile_entry_at(lock, i)
-        let line = strcat(strcat(strcat(e.checksum, " "), e.pkg_name), "\n")
-        lines = strcat(lines, line)
+        let row = strcat(strcat(strcat(clone e.checksum, " "), clone e.pkg_name), "\n")
+        if append_file(path, row) != 0 {
+            return 1
+        }
         i = i + 1
     }
-    return write_file(path, lines)
+    return 0
+}
+
+fn LockFile_read_entry(obj: string) -> LockEntry {
+    let source = json_get_object(obj, "source")
+    let kind = json_get_string(clone source, "kind")
+    if strcmp(kind, "git") == 0 {
+        return LockEntry_git(
+            json_get_string(obj, "module"),
+            json_get_string(obj, "version"),
+            json_get_string(obj, "checksum"),
+            json_get_string(source, "url"),
+            json_get_string(source, "rev")
+        )
+    }
+    return LockEntry_local(
+        json_get_string(obj, "module"),
+        json_get_string(obj, "version"),
+        json_get_string(obj, "checksum")
+    )
 }
 
 fn LockFile_read(path: string) -> LockFile {
     let text = read_file(path)
     let mod_name = json_get_string(clone text, "module")
-    let version = json_get_i32(clone text, "version")
-    let require_arr = json_get_array(clone text, "require")
+    let lock_version = json_get_i32(clone text, "version")
     let mut lock = LockFile_new(mod_name)
-    lock.lock_version = version
-    if strlen(require_arr) <= 2 {
+    lock.lock_version = lock_version
+    let require_arr = json_get_array(clone text, "require")
+    if Json_is_array_body(require_arr) == 0 {
         return lock
     }
-    let inner = substring(require_arr, 1, strlen(require_arr) - 2)
-    let objects = StrVec { handle: String_split(inner, "},") }
+    let elems = Json_array_elements(require_arr)
     let mut i = 0
-    while i < objects.len() {
-        let mut obj = objects.get(i)
-        if i < objects.len() - 1 {
-            obj = strcat(obj, "}")
-        }
-        if str_starts_with(obj, "{") == 0 {
-            obj = strcat("{", obj)
-        }
-        let source = json_get_object(obj, "source")
-        let mut source_kind = "local"
-        let mut source_url = ""
-        let mut source_rev = ""
-        if strlen(source) > 0 {
-            source_kind = json_get_string(source, "kind")
-            source_url = json_get_string(source, "url")
-            source_rev = json_get_string(source, "rev")
-        }
-        let entry = LockEntry {
-            pkg_name: json_get_string(obj, "module"),
-            version: json_get_string(obj, "version"),
-            checksum: json_get_string(obj, "checksum"),
-            source_kind: source_kind,
-            source_url: source_url,
-            source_rev: source_rev,
-        }
-        lock = LockFile_push_entry(lock, entry)
+    while i < elems.len() {
+        lock = LockFile_push_entry(lock, LockFile_read_entry(elems.get(i)))
         i = i + 1
     }
     return lock
@@ -210,23 +223,27 @@ fn LockFile_read(path: string) -> LockFile {
 
 fn LockFile_verify_sum(lock: LockFile, sum_path: string) -> i32 {
     let text = read_file(sum_path)
-    let lines = StrVec_from_lines(text)
+    let lines = StrVec_from_lines(clone text)
     let mut i = 0
     while i < LockFile_entry_count(lock) {
         let e = LockFile_entry_at(lock, i)
+        let want_name = clone e.pkg_name
+        let want_hash = clone e.checksum
         let mut found = 0
         let mut j = 0
         while j < lines.len() {
-            let line = trim(lines.get(j))
-            if strlen(line) == 0 || str_starts_with(line, "#") == 1 {
+            let raw = trim(lines.get(j))
+            let n = strlen(raw)
+            let is_comment = if n > 0 { str_starts_with(raw, "#") } else { 0 }
+            if n == 0 || is_comment == 1 {
                 j = j + 1
                 continue
             }
-            let sp = strstr_pos(line, " ")
+            let sp = strstr_pos(raw, " ")
             if sp > 0 {
-                let hash = substring(line, 0, sp)
-                let name = trim(substring(line, sp + 1, strlen(line) - sp - 1))
-                if strcmp(name, e.pkg_name) == 0 && strcmp(hash, e.checksum) == 0 {
+                let hash = substring(raw, 0, sp)
+                let name = trim(substring(raw, sp + 1, strlen(raw) - sp - 1))
+                if strcmp(name, want_name) == 0 && strcmp(hash, want_hash) == 0 {
                     found = 1
                     break
                 }
@@ -234,7 +251,7 @@ fn LockFile_verify_sum(lock: LockFile, sum_path: string) -> i32 {
             j = j + 1
         }
         if found == 0 {
-            print(strcat(strcat("checksum mismatch for ", e.pkg_name), " in nyra.sum"))
+            print(strcat(strcat("checksum mismatch for ", want_name), " in nyra.sum"))
             return 1
         }
         i = i + 1
@@ -247,7 +264,7 @@ fn LockFile_checksum_dir(dir: string) -> string {
     let mut i = 0
     let mut digest_input = ""
     while i < entries.len() {
-        digest_input = strcat(strcat(digest_input, entries.get(i)), "\n")
+        digest_input = strcat(strcat(digest_input, clone entries.get(i)), "\n")
         i = i + 1
     }
     return sha256_hex(digest_input)

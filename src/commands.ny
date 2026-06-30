@@ -39,83 +39,86 @@ fn Cmd_init(path: string) -> i32 {
     return Cmd_sync_lock(dir)
 }
 
+fn Cmd_resolve_version(name: string, req_text: string) -> string {
+    let pinned = Registry_package_version(Registry_default_url(), name, req_text)
+    let pinned_len = strlen(pinned)
+    if pinned_len > 0 {
+        return pinned
+    }
+    let spec = Registry_resolve_name(name)
+    let spec_len = strlen(spec.version)
+    if spec_len > 0 {
+        return spec.version
+    }
+    return "0.0.0"
+}
+
 fn Cmd_sync_lock(dir: string) -> i32 {
     let mod_path = join_path(dir, "nyra.mod")
     let lock_path = join_path(dir, "nyra.lock")
     let sum_path = join_path(dir, "nyra.sum")
     let nyra_mod = Manifest_parse(mod_path)
-    let mut module_name = nyra_mod.module_name
-    if strlen(module_name) == 0 {
-        module_name = "example.local"
-    }
+    let mod_from_file = nyra_mod.module_name
+    let module_name = if strlen(mod_from_file) == 0 { "example.local" } else { clone mod_from_file }
+    let req_count = Manifest_require_count(nyra_mod)
     let mut lock = LockFile_new(module_name)
     let mut i = 0
-    while i < Manifest_require_count(nyra_mod) {
+    while i < req_count {
         let name = Manifest_require_name_at(nyra_mod, i)
-        if LockFile_find_entry(lock, name) >= 0 {
-            i = i + 1
-            continue
-        }
         let req_text = Manifest_require_req_at(nyra_mod, i)
         let dest = join_path(dir, cache_module_path(name))
         ensure_dir(dest)
         if Fetch_package_versioned(name, dest, req_text) != 0 {
             return 1
         }
-        let mut version = Registry_package_version(Registry_default_url(), name, req_text)
-        if strlen(version) == 0 {
-            let spec = Registry_resolve_name(name)
-            if strlen(spec.version) > 0 {
-                version = spec.version
-            } else {
-                version = "0.0.0"
-            }
-        }
-        let entry = LockEntry {
-            pkg_name: name,
-            version: version,
-            checksum: LockFile_checksum_dir(dest),
-            source_kind: "local",
-            source_url: "",
-            source_rev: "",
-        }
-        lock = LockFile_push_entry(lock, entry)
+        let version = Cmd_resolve_version(name, req_text)
+        let sum = LockFile_checksum_dir(dest)
+        lock = LockFile_push_entry(lock, LockEntry_local(clone name, clone version, clone sum))
         i = i + 1
-    }
-    if LockFile_write(lock, lock_path) != 0 {
-        return 1
     }
     if LockFile_write_sum(lock, sum_path) != 0 {
         return 1
     }
-    return 0
+    return LockFile_write(lock, lock_path)
 }
 
-fn Cmd_add(module_spec: string) -> i32 {
+struct ModuleSpec {
+    name: string
+    req_text: string
+}
+
+fn Cmd_parse_module_spec(module_spec: string) -> ModuleSpec {
+    let at = strstr_pos(module_spec, "@")
+    if at >= 0 {
+        return ModuleSpec {
+            name: substring(module_spec, 0, at),
+            req_text: substring(module_spec, at + 1, strlen(module_spec) - at - 1),
+        }
+    }
+    let sp = strstr_pos(module_spec, " ")
+    if sp >= 0 {
+        return ModuleSpec {
+            name: trim(substring(module_spec, 0, sp)),
+            req_text: trim(substring(module_spec, sp + 1, strlen(module_spec) - sp - 1)),
+        }
+    }
+    return ModuleSpec { name: module_spec, req_text: "" }
+}
+
+fn Cmd_add_name_req(name: string, req_text: string) -> i32 {
     let dir = "."
     let mod_path = join_path(dir, "nyra.mod")
     if file_exists(mod_path) == 0 {
         print("nyra.mod not found — run `nyrapkg init` first")
         return 1
     }
-    let at = strstr_pos(module_spec, "@")
-    let mut name = module_spec
-    let mut req_text = ""
-    if at >= 0 {
-        name = substring(module_spec, 0, at)
-        req_text = substring(module_spec, at + 1, strlen(module_spec) - at - 1)
-    }
-    Manifest_append_require(mod_path, clone name, clone req_text)
+    Manifest_append_require(mod_path, name, req_text)
     let dest = join_path(dir, cache_module_path(name))
     ensure_dir(dest)
     if Fetch_package_versioned(name, dest, req_text) != 0 {
         return 1
     }
     return Cmd_sync_lock(dir)
-}
-
-fn Cmd_install(module_spec: string) -> i32 {
-    return Cmd_add(module_spec)
 }
 
 fn Cmd_verify(path: string) -> i32 {
@@ -138,9 +141,10 @@ fn Cmd_verify(path: string) -> i32 {
                 return 1
             }
             let entry = LockFile_entry_at(lock, idx)
-            let req_text = Manifest_require_req_at(nyra_mod, i)
-            if strlen(req_text) > 0 {
-                let req = Semver_parse_req(req_text)
+            let req_raw = Manifest_require_req_at(nyra_mod, i)
+            let req_len = strlen(req_raw)
+            if req_len > 0 {
+                let req = Semver_parse_req(req_raw)
                 let pinned = Semver_parse_version(entry.version)
                 if Semver_satisfies(req, pinned) == 0 {
                     print(strcat(
@@ -176,10 +180,7 @@ fn Cmd_dispatch(args: StrVec) -> i32 {
     }
     let sub = args.get(0)
     if strcmp(sub, "init") == 0 {
-        let mut path = "."
-        if args.len() > 1 {
-            path = args.get(1)
-        }
+        let path = if args.len() > 1 { args.get(1) } else { "." }
         if Cmd_init(path) != 0 {
             return 1
         }
@@ -191,10 +192,18 @@ fn Cmd_dispatch(args: StrVec) -> i32 {
     }
     if strcmp(sub, "add") == 0 {
         if args.len() < 2 {
-            print("usage: nyrapkg add <module>")
+            print("usage: nyrapkg add <module> [version]")
             return 1
         }
-        if Cmd_add(args.get(1)) != 0 {
+        if args.len() >= 3 {
+            if Cmd_add_name_req(args.get(1), args.get(2)) != 0 {
+                return 1
+            }
+            Cmd_print_ok(strcat(strcat(strcat("added ", args.get(1)), " "), args.get(2)))
+            return 0
+        }
+        let spec = Cmd_parse_module_spec(args.get(1))
+        if Cmd_add_name_req(spec.name, spec.req_text) != 0 {
             return 1
         }
         Cmd_print_ok(strcat("added ", args.get(1)))
@@ -202,10 +211,19 @@ fn Cmd_dispatch(args: StrVec) -> i32 {
     }
     if strcmp(sub, "install") == 0 {
         if args.len() < 2 {
-            print("usage: nyrapkg install <module>")
+            print("usage: nyrapkg install <module> [version]")
             return 1
         }
-        if Cmd_install(args.get(1)) != 0 {
+        if args.len() >= 3 {
+            if Cmd_add_name_req(args.get(1), args.get(2)) != 0 {
+                return 1
+            }
+            Cmd_print_ok(strcat(strcat(strcat("installed ", args.get(1)), " "), args.get(2)))
+            Cmd_print_field("updated", "nyra.mod, nyra.lock, nyra.sum")
+            return 0
+        }
+        let spec = Cmd_parse_module_spec(args.get(1))
+        if Cmd_add_name_req(spec.name, spec.req_text) != 0 {
             return 1
         }
         Cmd_print_ok(strcat("installed ", args.get(1)))
@@ -213,10 +231,7 @@ fn Cmd_dispatch(args: StrVec) -> i32 {
         return 0
     }
     if strcmp(sub, "verify") == 0 {
-        let mut path = "."
-        if args.len() > 1 {
-            path = args.get(1)
-        }
+        let path = if args.len() > 1 { args.get(1) } else { "." }
         return Cmd_verify(path)
     }
     print(strcat(strcat("unknown subcommand: ", sub), " (try init|add|install|verify)"))

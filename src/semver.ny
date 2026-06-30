@@ -18,9 +18,12 @@ enum VersionReq {
 
 fn Semver_parse_version(text: string) -> Version {
     let s = trim(text)
+    let s_len = strlen(s)
+    if s_len == 0 {
+        return Version { major: 0, minor: 0, patch: 0 }
+    }
     let parts = StrVec { handle: String_split(s, ".") }
     if parts.len() != 3 {
-        print(strcat("invalid version: ", s))
         return Version { major: 0, minor: 0, patch: 0 }
     }
     return Version {

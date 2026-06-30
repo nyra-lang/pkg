@@ -1,5 +1,5 @@
 {
   "version": 1,
-  "module": "example.local",
+  "mod_name": "example.local",
   "require": []
 }

@@ -4,12 +4,11 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
+# shellcheck source=ci/lib.sh
+source "$ROOT/ci/lib.sh"
 
-BIN="${NYRAPKG_BIN:-$ROOT/target/release/nyrapkg}"
-if [[ "$BIN" != /* ]]; then
-  BIN="$ROOT/$BIN"
-fi
-test -x "$BIN" || { echo "error: build nyrapkg first (missing $BIN)" >&2; exit 1; }
+BIN="$(ci_resolve_binary "$ROOT" "${NYRAPKG_BIN:-}")"
+ci_assert_binary "$BIN"
 
 printf '==> nyrapkg verify .\n'
 "$BIN" verify .

@@ -36,6 +36,9 @@ jobs:
           - name: macOS
             os: macos-latest
             platform: macos
+          - name: Windows
+            os: windows-latest
+            platform: windows
     steps:
       - uses: actions/checkout@v4
       - uses: actions/checkout@v4
@@ -66,6 +69,9 @@ jobs:
           - name: macOS
             os: macos-latest
             platform: macos
+          - name: Windows
+            os: windows-latest
+            platform: windows
     steps:
       - uses: actions/checkout@v4
       - uses: actions/checkout@v4
@@ -96,6 +102,9 @@ jobs:
           - name: macOS
             os: macos-latest
             platform: macos
+          - name: Windows
+            os: windows-latest
+            platform: windows
     steps:
       - uses: actions/checkout@v4
       - uses: actions/checkout@v4
@@ -107,13 +116,22 @@ jobs:
         with:
           platform: ${{ matrix.platform }}
           nyra-path: nyra
-      - name: make build
-        run: make build NYRA_SRC="$NYRA_HOME"
+      - name: Build nyrapkg
+        run: bash ci/build.sh
+      - name: Locate release binary
+        id: bin
+        run: |
+          set -euo pipefail
+          if [[ -f target/release/nyrapkg.exe ]]; then
+            echo "path=target/release/nyrapkg.exe" >> "$GITHUB_OUTPUT"
+          else
+            echo "path=target/release/nyrapkg" >> "$GITHUB_OUTPUT"
+          fi
       - name: Upload nyrapkg binary
         uses: actions/upload-artifact@v4
         with:
           name: nyrapkg-${{ matrix.platform }}
-          path: target/release/nyrapkg
+          path: ${{ steps.bin.outputs.path }}
 
   # ── Stage 4a: lockfile ─────────────────────────────────────────────────────────
   lockfile:
@@ -131,6 +149,9 @@ jobs:
           - name: macOS
             os: macos-latest
             platform: macos
+          - name: Windows
+            os: windows-latest
+            platform: windows
     steps:
       - uses: actions/checkout@v4
       - uses: actions/checkout@v4
@@ -147,7 +168,9 @@ jobs:
         with:
           name: nyrapkg-${{ matrix.platform }}
           path: target/release
-      - run: chmod +x target/release/nyrapkg
+      - name: Mark binary executable (Unix)
+        if: runner.os != 'Windows'
+        run: chmod +x target/release/nyrapkg
       - name: Lockfile consistency
         run: bash ci/lockfile-check.sh
 
@@ -167,6 +190,9 @@ jobs:
           - name: macOS
             os: macos-latest
             platform: macos
+          - name: Windows
+            os: windows-latest
+            platform: windows
     steps:
       - uses: actions/checkout@v4
       - uses: actions/checkout@v4
@@ -183,11 +209,13 @@ jobs:
         with:
           name: nyrapkg-${{ matrix.platform }}
           path: target/release
-      - run: chmod +x target/release/nyrapkg
+      - name: Mark binary executable (Unix)
+        if: runner.os != 'Windows'
+        run: chmod +x target/release/nyrapkg
       - name: E2E CLI tests
         run: bash ci/e2e.sh
 
-  # ── Stage 4c: dist layout ──────────────────────────────────────────────────────
+  # ── Stage 4c: dist layout (Linux + macOS only; install.sh is Unix-only) ───────
   verify-dist:
     name: dist · ${{ matrix.name }}
     needs: build
@@ -260,9 +288,9 @@ jobs:
             printf '| 3 build | %s |\n' "$(icon "$BUILD")"
             printf '| 4 lockfile | %s |\n' "$(icon "$LOCKFILE")"
             printf '| 4 e2e | %s |\n' "$(icon "$E2E")"
-            printf '| 4 dist + install smoke | %s |\n' "$(icon "$DIST")"
+            printf '| 4 dist + install smoke (Linux/macOS) | %s |\n' "$(icon "$DIST")"
             echo ""
-            echo "_Matrix: Linux + macOS. Skipped stages usually mean an earlier stage failed._"
+            echo "_Matrix: Linux + macOS + Windows. Dist smoke runs on Unix only (install.sh). Skipped stages usually mean an earlier stage failed._"
           } >> "$GITHUB_STEP_SUMMARY"
           for r in "$CHECK" "$TEST" "$BUILD" "$LOCKFILE" "$E2E" "$DIST"; do
             if [[ "$r" == "failure" ]]; then

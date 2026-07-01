@@ -66,7 +66,7 @@ help:
 	@echo ""
 	@echo "  make build        nyra build --release -o nyrapkg"
 	@echo "  make check        nyra check ."
-	@echo "  make test         nyra test ."
+	@echo "  make test         nyra test tests"
 	@echo "  make e2e          CLI integration tests (needs build)"
 	@echo "  make lockfile     verify nyra.mod / lock / sum consistency"
 	@echo "  make install-smoke  test dist tarball install layout"
@@ -83,9 +83,7 @@ help:
 
 build:
 	@test -d "$(NYRA_SRC_ABS)/stdlib" || (echo "error: Nyra source not found (need stdlib/): $(NYRA_SRC_ABS)" >&2; echo "  hint: make dist NYRA_SRC=/path/to/nyra" >&2; exit 1)
-	NYRA_HOME="$(NYRA_SRC_ABS)" "$(NYRA)" build --release -o nyrapkg .
-	@test -x "$(BINARY)" || (echo "error: build did not produce $(BINARY)" >&2; exit 1)
-	@"$(BINARY)" --version || true
+	NYRA_HOME="$(NYRA_SRC_ABS)" bash ci/build.sh
 
 $(DIST): build
 	@mkdir -p "$(DIST_DIR)"

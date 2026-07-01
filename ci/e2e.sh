@@ -12,11 +12,12 @@ log() { printf '==> %s\n' "$*"; }
 fail() { printf 'error: %s\n' "$*" >&2; exit 1; }
 
 BIN="$(ci_resolve_binary "$ROOT" "${NYRAPKG_BIN:-}")"
-if [[ ! -x "$BIN" ]]; then
+if [[ ! -f "$BIN" ]]; then
   log "building nyrapkg for e2e"
   nyra build --release -o nyrapkg .
+  BIN="$(ci_resolve_binary "$ROOT")"
 fi
-test -x "$BIN" || fail "nyrapkg binary not found: $BIN"
+ci_assert_binary "$BIN"
 
 run() {
   log "$*"

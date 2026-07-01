@@ -9,7 +9,7 @@ cd "$ROOT"
 command -v nyra >/dev/null 2>&1 || { echo "error: nyra not found on PATH" >&2; exit 1; }
 test -d "$NYRA_HOME/stdlib" || { echo "error: NYRA_HOME missing stdlib/: $NYRA_HOME" >&2; exit 1; }
 
-printf '==> nyra test .\n'
-nyra test .
+printf '==> nyra test tests\n'
+nyra test tests
 
 printf '==> unit tests ok\n'

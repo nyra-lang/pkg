@@ -3,7 +3,7 @@ description: Rust toolchain, OS deps, and Nyra compiler build (run actions/check
 
 inputs:
   platform:
-    description: Runner OS family — macos or linux
+    description: Runner OS family — linux, macos, or windows
     required: true
   nyra-path:
     description: Path to the Nyra source checkout (stdlib + compiler)
@@ -30,6 +30,57 @@ runs:
       run: |
         echo "LIBCLANG_PATH=$(brew --prefix llvm)/lib" >> "$GITHUB_ENV"
 
+    - name: Install LLVM (Windows)
+      if: inputs.platform == 'windows'
+      uses: KyleMayes/install-llvm-action@v2
+      with:
+        version: "18.1.8"
+
+    - name: System dependencies (Windows)
+      if: inputs.platform == 'windows'
+      shell: pwsh
+      run: |
+        $msysUcrt = 'C:\msys64\ucrt64'
+        $pacman = 'C:\msys64\usr\bin\pacman.exe'
+        if (Test-Path $pacman) {
+          & $pacman -S --noconfirm --needed mingw-w64-ucrt-x86_64-toolchain mingw-w64-ucrt-x86_64-zlib mingw-w64-ucrt-x86_64-openssl
+        }
+
+        $zlibRoot = $null
+        $zlibCandidates = @(
+          $msysUcrt,
+          'C:\vcpkg\installed\x64-windows'
+        )
+        if ($env:VCPKG_INSTALLATION_ROOT) {
+          $zlibCandidates += (Join-Path $env:VCPKG_INSTALLATION_ROOT 'installed\x64-windows')
+        }
+        foreach ($root in $zlibCandidates) {
+          if (Test-Path (Join-Path $root 'include\zlib.h')) {
+            $zlibRoot = $root
+            break
+          }
+        }
+        if (-not $zlibRoot) {
+          $vcpkg = Join-Path $env:VCPKG_INSTALLATION_ROOT 'vcpkg.exe'
+          if (-not (Test-Path $vcpkg)) { $vcpkg = 'C:\vcpkg\vcpkg.exe' }
+          if (Test-Path $vcpkg) {
+            & $vcpkg install zlib:x64-windows
+            foreach ($root in $zlibCandidates) {
+              if (Test-Path (Join-Path $root 'include\zlib.h')) {
+                $zlibRoot = $root
+                break
+              }
+            }
+          }
+        }
+        if (-not $zlibRoot) {
+          Write-Error 'zlib headers not found (need MSYS2 ucrt64 or vcpkg)'
+        }
+        "ZLIB_ROOT=$zlibRoot" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+        if (Test-Path (Join-Path $msysUcrt 'include\stdlib.h')) {
+          "NYRA_SYSROOT=$msysUcrt" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+        }
+
     - name: System dependencies (Linux)
       if: inputs.platform == 'linux'
       shell: bash
@@ -40,6 +91,8 @@ runs:
 
     - name: Build Nyra compiler
       shell: bash
+      env:
+        RUSTUP_WINDOWS_PATH_ADD_BIN: "0"
       run: |
         set -euo pipefail
         NYRA_ROOT="${{ github.workspace }}/${{ inputs.nyra-path }}"

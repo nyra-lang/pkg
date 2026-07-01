@@ -1,148 +1,44 @@
 {
   "units": [
     {
-      "path": "/Volumes/Macbook/npm_projects/me/nyra/stdlib/archive/tar.ny",
-      "content_hash": 11602822378598026461
-    },
-    {
-      "path": "/Volumes/Macbook/npm_projects/me/nyra/stdlib/builtins_string.ny",
-      "content_hash": 15139954828916214080
-    },
-    {
-      "path": "/Volumes/Macbook/npm_projects/me/nyra/stdlib/compress/gzip.ny",
-      "content_hash": 5804266514172298336
-    },
-    {
-      "path": "/Volumes/Macbook/npm_projects/me/nyra/stdlib/crypto/sha256.ny",
-      "content_hash": 7351530293372074547
-    },
-    {
-      "path": "/Volumes/Macbook/npm_projects/me/nyra/stdlib/env/mod.ny",
-      "content_hash": 1437931452158877658
-    },
-    {
-      "path": "/Volumes/Macbook/npm_projects/me/nyra/stdlib/fs.ny",
-      "content_hash": 998181483901316072
-    },
-    {
-      "path": "/Volumes/Macbook/npm_projects/me/nyra/stdlib/fs/dir.ny",
-      "content_hash": 2502409651618384291
-    },
-    {
-      "path": "/Volumes/Macbook/npm_projects/me/nyra/stdlib/http.ny",
-      "content_hash": 2404844764977506375
-    },
-    {
-      "path": "/Volumes/Macbook/npm_projects/me/nyra/stdlib/http/download.ny",
-      "content_hash": 14957862707085704351
-    },
-    {
-      "path": "/Volumes/Macbook/npm_projects/me/nyra/stdlib/http/request.ny",
-      "content_hash": 17711610907437047664
-    },
-    {
-      "path": "/Volumes/Macbook/npm_projects/me/nyra/stdlib/io.ny",
-      "content_hash": 10558364282908139277
-    },
-    {
-      "path": "/Volumes/Macbook/npm_projects/me/nyra/stdlib/json/jsonl.ny",
-      "content_hash": 18225005615234908853
-    },
-    {
-      "path": "/Volumes/Macbook/npm_projects/me/nyra/stdlib/json/mod.ny",
-      "content_hash": 13028303744796096220
-    },
-    {
-      "path": "/Volumes/Macbook/npm_projects/me/nyra/stdlib/net/http/client.ny",
-      "content_hash": 10706869451569747374
-    },
-    {
-      "path": "/Volumes/Macbook/npm_projects/me/nyra/stdlib/net/http/request.ny",
-      "content_hash": 14238026785021525245
-    },
-    {
-      "path": "/Volumes/Macbook/npm_projects/me/nyra/stdlib/net/http/response.ny",
-      "content_hash": 8284999033311827943
-    },
-    {
-      "path": "/Volumes/Macbook/npm_projects/me/nyra/stdlib/net/http/types.ny",
-      "content_hash": 5332633664861222398
-    },
-    {
-      "path": "/Volumes/Macbook/npm_projects/me/nyra/stdlib/net/syscall.ny",
-      "content_hash": 260867135934001768
-    },
-    {
-      "path": "/Volumes/Macbook/npm_projects/me/nyra/stdlib/net/tcp.ny",
-      "content_hash": 1438987506895580787
-    },
-    {
-      "path": "/Volumes/Macbook/npm_projects/me/nyra/stdlib/os/env.ny",
-      "content_hash": 14917041140691823225
-    },
-    {
-      "path": "/Volumes/Macbook/npm_projects/me/nyra/stdlib/pkg/git_fetch.ny",
-      "content_hash": 125604483526856261
-    },
-    {
-      "path": "/Volumes/Macbook/npm_projects/me/nyra/stdlib/process.ny",
-      "content_hash": 7770395504018009437
-    },
-    {
-      "path": "/Volumes/Macbook/npm_projects/me/nyra/stdlib/strings.ny",
-      "content_hash": 2615995652764432987
-    },
-    {
-      "path": "/Volumes/Macbook/npm_projects/me/nyra/stdlib/strings/ops.ny",
-      "content_hash": 2490025299230156255
-    },
-    {
-      "path": "/Volumes/Macbook/npm_projects/me/nyra/stdlib/tls.ny",
-      "content_hash": 12042103148215758628
-    },
-    {
-      "path": "/Volumes/Macbook/npm_projects/me/nyra/stdlib/vec_str.ny",
-      "content_hash": 4360846627894998404
-    },
-    {
       "path": "/Volumes/Macbook/npm_projects/me/nyrapkg/main.ny",
-      "content_hash": 4182180238382815543
+      "content_hash": 12527917242098748717
     },
     {
       "path": "/Volumes/Macbook/npm_projects/me/nyrapkg/src/commands.ny",
-      "content_hash": 2624315871770439518
+      "content_hash": 7966237482264764706
     },
     {
       "path": "/Volumes/Macbook/npm_projects/me/nyrapkg/src/fetch.ny",
-      "content_hash": 15005313626310960021
+      "content_hash": 15251106602399292654
     },
     {
       "path": "/Volumes/Macbook/npm_projects/me/nyrapkg/src/lockfile.ny",
-      "content_hash": 12419761421382978403
+      "content_hash": 7744851453001023214
     },
     {
       "path": "/Volumes/Macbook/npm_projects/me/nyrapkg/src/manifest.ny",
-      "content_hash": 8077308721490306208
+      "content_hash": 15750379954718630670
     },
     {
       "path": "/Volumes/Macbook/npm_projects/me/nyrapkg/src/paths.ny",
-      "content_hash": 14721709120112870628
+      "content_hash": 7462561632894498208
     },
     {
       "path": "/Volumes/Macbook/npm_projects/me/nyrapkg/src/registry.ny",
-      "content_hash": 1057926114708326672
+      "content_hash": 14845859957932754631
     },
     {
       "path": "/Volumes/Macbook/npm_projects/me/nyrapkg/src/self_cmd.ny",
-      "content_hash": 4433521678240909851
+      "content_hash": 7769522008218448000
     },
     {
       "path": "/Volumes/Macbook/npm_projects/me/nyrapkg/src/semver.ny",
-      "content_hash": 17532784548314979380
+      "content_hash": 6410644448324186855
     },
     {
       "path": "/Volumes/Macbook/npm_projects/me/nyrapkg/src/ui.ny",
-      "content_hash": 15107516444551321456
+      "content_hash": 15951361021447841254
     },
     {
       "path": "/Volumes/Macbook/npm_projects/me/nyrapkg/src/version.ny",

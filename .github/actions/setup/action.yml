@@ -1,0 +1,57 @@
+name: nyrapkg CI setup
+description: Rust toolchain, OS deps, and Nyra compiler build (run actions/checkout for nyrapkg + nyra first).
+
+inputs:
+  platform:
+    description: Runner OS family — macos or linux
+    required: true
+  nyra-path:
+    description: Path to the Nyra source checkout (stdlib + compiler)
+    required: false
+    default: nyra
+
+runs:
+  using: composite
+  steps:
+    - uses: dtolnay/rust-toolchain@stable
+
+    - uses: Swatinem/rust-cache@v2
+      with:
+        workspaces: ${{ inputs.nyra-path }}
+
+    - name: System dependencies (macOS)
+      if: inputs.platform == 'macos'
+      shell: bash
+      run: brew install llvm sqlite z3 zlib
+
+    - name: macOS LLVM paths
+      if: inputs.platform == 'macos'
+      shell: bash
+      run: |
+        echo "LIBCLANG_PATH=$(brew --prefix llvm)/lib" >> "$GITHUB_ENV"
+
+    - name: System dependencies (Linux)
+      if: inputs.platform == 'linux'
+      shell: bash
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          clang lld libclang-dev llvm-dev libsqlite3-dev zlib1g-dev libssl-dev python3 git
+
+    - name: Build Nyra compiler
+      shell: bash
+      run: |
+        set -euo pipefail
+        NYRA_ROOT="${{ github.workspace }}/${{ inputs.nyra-path }}"
+        test -d "$NYRA_ROOT/stdlib" || { echo "missing Nyra stdlib at $NYRA_ROOT" >&2; exit 1; }
+        cd "$NYRA_ROOT"
+        cargo build -q -p cli -p compiler-ffi
+        echo "NYRA_HOME=$NYRA_ROOT" >> "$GITHUB_ENV"
+        echo "$NYRA_ROOT/target/debug" >> "$GITHUB_PATH"
+
+    - name: Verify nyra
+      shell: bash
+      run: |
+        set -euo pipefail
+        nyra --version
+        nyra check --help >/dev/null

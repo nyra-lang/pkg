@@ -1,0 +1,100 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+env:
+  NYRA_REF: main
+
+jobs:
+  build:
+    name: dist · ${{ matrix.name }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Linux
+            os: ubuntu-latest
+            platform: linux
+          - name: macOS
+            os: macos-latest
+            platform: macos
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/checkout@v4
+        with:
+          repository: nyra-lang/nyra
+          ref: ${{ env.NYRA_REF }}
+          path: nyra
+
+      - uses: ./.github/actions/setup
+        with:
+          platform: ${{ matrix.platform }}
+          nyra-path: nyra
+
+      - name: Package release
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          make verify-dist NYRA_SRC="$NYRA_HOME" VERSION="$VERSION"
+
+      - name: Install tarball smoke
+        run: bash ci/install-smoke.sh "dist/nyrapkg-"*.tar.gz
+
+      - name: Upload asset
+        uses: actions/upload-artifact@v4
+        with:
+          name: nyrapkg-${{ matrix.platform }}
+          path: dist/*
+
+  github-release:
+    name: GitHub Release
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: dist
+          merge-multiple: true
+
+      - name: SHA256SUMS
+        run: |
+          cd dist
+          shasum -a 256 nyrapkg-*.tar.gz > SHA256SUMS 2>/dev/null || sha256sum nyrapkg-*.tar.gz > SHA256SUMS
+          cat SHA256SUMS
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*
+          generate_release_notes: true
+
+  install-script-smoke:
+    name: install.sh · ${{ matrix.name }}
+    needs: github-release
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Linux
+            os: ubuntu-latest
+          - name: macOS
+            os: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install from GitHub release
+        env:
+          VERSION: ${{ github.ref_name }}
+        run: |
+          INSTALL_DIR="$(mktemp -d)/.nyra"
+          export NYRAPKG_INSTALL_DIR="$INSTALL_DIR"
+          bash scripts/install.sh --version "${VERSION#v}"
+          "$INSTALL_DIR/bin/nyrapkg" --version

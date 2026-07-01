@@ -1,0 +1,275 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  merge_group:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
+env:
+  NYRA_REF: main
+
+jobs:
+  # ── Stage 1: check ───────────────────────────────────────────────────────────
+  check:
+    name: check · ${{ matrix.name }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Linux
+            os: ubuntu-latest
+            platform: linux
+          - name: macOS
+            os: macos-latest
+            platform: macos
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: nyra-lang/nyra
+          ref: ${{ env.NYRA_REF }}
+          path: nyra
+      - uses: ./.github/actions/setup
+        with:
+          platform: ${{ matrix.platform }}
+          nyra-path: nyra
+      - name: nyra check
+        run: bash ci/check.sh
+
+  # ── Stage 2: test ────────────────────────────────────────────────────────────
+  test:
+    name: test · ${{ matrix.name }}
+    needs: check
+    if: ${{ !cancelled() && needs.check.result == 'success' }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Linux
+            os: ubuntu-latest
+            platform: linux
+          - name: macOS
+            os: macos-latest
+            platform: macos
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: nyra-lang/nyra
+          ref: ${{ env.NYRA_REF }}
+          path: nyra
+      - uses: ./.github/actions/setup
+        with:
+          platform: ${{ matrix.platform }}
+          nyra-path: nyra
+      - name: nyra test
+        run: bash ci/test.sh
+
+  # ── Stage 3: build ─────────────────────────────────────────────────────────────
+  build:
+    name: build · ${{ matrix.name }}
+    needs: test
+    if: ${{ !cancelled() && needs.test.result == 'success' }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Linux
+            os: ubuntu-latest
+            platform: linux
+          - name: macOS
+            os: macos-latest
+            platform: macos
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: nyra-lang/nyra
+          ref: ${{ env.NYRA_REF }}
+          path: nyra
+      - uses: ./.github/actions/setup
+        with:
+          platform: ${{ matrix.platform }}
+          nyra-path: nyra
+      - name: make build
+        run: make build NYRA_SRC="$NYRA_HOME"
+      - name: Upload nyrapkg binary
+        uses: actions/upload-artifact@v4
+        with:
+          name: nyrapkg-${{ matrix.platform }}
+          path: target/release/nyrapkg
+
+  # ── Stage 4a: lockfile ─────────────────────────────────────────────────────────
+  lockfile:
+    name: lockfile · ${{ matrix.name }}
+    needs: build
+    if: ${{ !cancelled() && needs.build.result == 'success' }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Linux
+            os: ubuntu-latest
+            platform: linux
+          - name: macOS
+            os: macos-latest
+            platform: macos
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: nyra-lang/nyra
+          ref: ${{ env.NYRA_REF }}
+          path: nyra
+      - uses: ./.github/actions/setup
+        with:
+          platform: ${{ matrix.platform }}
+          nyra-path: nyra
+      - name: Download nyrapkg binary
+        uses: actions/download-artifact@v4
+        with:
+          name: nyrapkg-${{ matrix.platform }}
+          path: target/release
+      - run: chmod +x target/release/nyrapkg
+      - name: Lockfile consistency
+        run: bash ci/lockfile-check.sh
+
+  # ── Stage 4b: E2E ────────────────────────────────────────────────────────────
+  e2e:
+    name: e2e · ${{ matrix.name }}
+    needs: build
+    if: ${{ !cancelled() && needs.build.result == 'success' }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Linux
+            os: ubuntu-latest
+            platform: linux
+          - name: macOS
+            os: macos-latest
+            platform: macos
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: nyra-lang/nyra
+          ref: ${{ env.NYRA_REF }}
+          path: nyra
+      - uses: ./.github/actions/setup
+        with:
+          platform: ${{ matrix.platform }}
+          nyra-path: nyra
+      - name: Download nyrapkg binary
+        uses: actions/download-artifact@v4
+        with:
+          name: nyrapkg-${{ matrix.platform }}
+          path: target/release
+      - run: chmod +x target/release/nyrapkg
+      - name: E2E CLI tests
+        run: bash ci/e2e.sh
+
+  # ── Stage 4c: dist layout ──────────────────────────────────────────────────────
+  verify-dist:
+    name: dist · ${{ matrix.name }}
+    needs: build
+    if: ${{ !cancelled() && needs.build.result == 'success' }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Linux
+            os: ubuntu-latest
+            platform: linux
+          - name: macOS
+            os: macos-latest
+            platform: macos
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: nyra-lang/nyra
+          ref: ${{ env.NYRA_REF }}
+          path: nyra
+      - uses: ./.github/actions/setup
+        with:
+          platform: ${{ matrix.platform }}
+          nyra-path: nyra
+      - name: make dist + verify-dist
+        run: |
+          VERSION="$(sed -n 's/^const NYRAPKG_VERSION: string = "\(.*\)"/\1/p' src/version.ny)"
+          make verify-dist NYRA_SRC="$NYRA_HOME" VERSION="$VERSION"
+      - name: Install tarball smoke
+        run: bash ci/install-smoke.sh "dist/nyrapkg-"*.tar.gz
+
+  # ── Summary ──────────────────────────────────────────────────────────────────
+  summary:
+    name: CI summary
+    needs: [check, test, build, lockfile, e2e, verify-dist]
+    if: always()
+    runs-on: ubuntu-latest
+    permissions:
+      contents: none
+    steps:
+      - name: Write job summary
+        env:
+          CHECK: ${{ needs.check.result }}
+          TEST: ${{ needs.test.result }}
+          BUILD: ${{ needs.build.result }}
+          LOCKFILE: ${{ needs.lockfile.result }}
+          E2E: ${{ needs.e2e.result }}
+          DIST: ${{ needs.verify-dist.result }}
+        run: |
+          set -euo pipefail
+          icon() {
+            case "$1" in
+              success) printf '✅' ;;
+              failure) printf '❌' ;;
+              skipped) printf '⏭️' ;;
+              cancelled) printf '🚫' ;;
+              '') printf '—' ;;
+              *) printf '⚠️ %s' "$1" ;;
+            esac
+          }
+          {
+            echo "## nyrapkg CI"
+            echo ""
+            echo "| Stage | Result |"
+            echo "|-------|--------|"
+            printf '| 1 check | %s |\n' "$(icon "$CHECK")"
+            printf '| 2 test | %s |\n' "$(icon "$TEST")"
+            printf '| 3 build | %s |\n' "$(icon "$BUILD")"
+            printf '| 4 lockfile | %s |\n' "$(icon "$LOCKFILE")"
+            printf '| 4 e2e | %s |\n' "$(icon "$E2E")"
+            printf '| 4 dist + install smoke | %s |\n' "$(icon "$DIST")"
+            echo ""
+            echo "_Matrix: Linux + macOS. Skipped stages usually mean an earlier stage failed._"
+          } >> "$GITHUB_STEP_SUMMARY"
+          for r in "$CHECK" "$TEST" "$BUILD" "$LOCKFILE" "$E2E" "$DIST"; do
+            if [[ "$r" == "failure" ]]; then
+              echo "::error::CI stage failed — see job logs and the summary table above."
+              exit 1
+            fi
+          done
+          if [[ "$CHECK" == "cancelled" || "$TEST" == "cancelled" || "$BUILD" == "cancelled" ]]; then
+            exit 1
+          fi

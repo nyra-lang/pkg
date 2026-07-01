@@ -5,7 +5,7 @@ fn main_argv_normalized() -> StrVec {
     return Cmd_normalize_argv(args)
 }
 
-fn main() {
+fn main() -> i32 {
     let args = main_argv_normalized()
-    let _code = Cmd_dispatch(args)
+    return Cmd_dispatch(args)
 }

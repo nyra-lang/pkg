@@ -25,6 +25,9 @@ ifeq ($(NYRA_SRC),)
   endif
 endif
 
+# Always export an absolute path — e2e tests `cd` into temp dirs.
+NYRA_SRC_ABS := $(abspath $(NYRA_SRC))
+
 BINARY    := target/release/nyrapkg
 DIST_DIR  := dist
 
@@ -54,7 +57,7 @@ endif
 ASSET := nyrapkg-$(ARCH)-$(PLATFORM).tar.gz
 DIST  := $(DIST_DIR)/$(ASSET)
 
-.PHONY: all help build dist release verify-dist clean
+.PHONY: all help build dist release verify-dist clean check test e2e lockfile ci install-smoke
 
 all: dist
 
@@ -62,19 +65,25 @@ help:
 	@echo "nyrapkg Makefile (version $(VERSION))"
 	@echo ""
 	@echo "  make build        nyra build --release -o nyrapkg"
+	@echo "  make check        nyra check ."
+	@echo "  make test         nyra test ."
+	@echo "  make e2e          CLI integration tests (needs build)"
+	@echo "  make lockfile     verify nyra.mod / lock / sum consistency"
+	@echo "  make install-smoke  test dist tarball install layout"
+	@echo "  make ci           check + test + build + lockfile + e2e + dist"
 	@echo "  make dist         build + $(DIST)"
 	@echo "  make release      alias for dist (upload $(ASSET) to GitHub v$(VERSION))"
 	@echo "  make verify-dist  list tarball contents"
 	@echo "  make clean        remove target/release/nyrapkg and dist/"
 	@echo ""
 	@echo "Variables:"
-	@echo "  NYRA_SRC=$(NYRA_SRC)"
+	@echo "  NYRA_SRC=$(NYRA_SRC_ABS)"
 	@echo "  NYRA=$(NYRA)"
 	@echo "  VERSION=$(VERSION)"
 
 build:
-	@test -d "$(NYRA_SRC)/stdlib" || (echo "error: Nyra source not found (need stdlib/): $(NYRA_SRC)" >&2; echo "  hint: make dist NYRA_SRC=/path/to/nyra" >&2; exit 1)
-	NYRA_HOME="$(NYRA_SRC)" "$(NYRA)" build --release -o nyrapkg .
+	@test -d "$(NYRA_SRC_ABS)/stdlib" || (echo "error: Nyra source not found (need stdlib/): $(NYRA_SRC_ABS)" >&2; echo "  hint: make dist NYRA_SRC=/path/to/nyra" >&2; exit 1)
+	NYRA_HOME="$(NYRA_SRC_ABS)" "$(NYRA)" build --release -o nyrapkg .
 	@test -x "$(BINARY)" || (echo "error: build did not produce $(BINARY)" >&2; exit 1)
 	@"$(BINARY)" --version || true
 
@@ -97,3 +106,23 @@ verify-dist: $(DIST)
 clean:
 	rm -f "$(BINARY)"
 	rm -rf "$(DIST_DIR)"
+
+check:
+	@test -d "$(NYRA_SRC_ABS)/stdlib" || (echo "error: Nyra source not found (need stdlib/): $(NYRA_SRC_ABS)" >&2; exit 1)
+	NYRA_HOME="$(NYRA_SRC_ABS)" bash ci/check.sh
+
+test:
+	@test -d "$(NYRA_SRC_ABS)/stdlib" || (echo "error: Nyra source not found (need stdlib/): $(NYRA_SRC_ABS)" >&2; exit 1)
+	NYRA_HOME="$(NYRA_SRC_ABS)" bash ci/test.sh
+
+e2e: build
+	NYRA_HOME="$(NYRA_SRC_ABS)" NYRAPKG_BIN="$(BINARY)" bash ci/e2e.sh
+
+lockfile: build
+	NYRAPKG_BIN="$(BINARY)" bash ci/lockfile-check.sh
+
+install-smoke: dist
+	bash ci/install-smoke.sh "$(DIST)"
+
+ci: check test build lockfile e2e install-smoke
+	@echo "ci ok"

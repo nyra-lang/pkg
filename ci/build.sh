@@ -6,7 +6,7 @@ ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
 # shellcheck source=ci/lib.sh
 source "$ROOT/ci/lib.sh"
-ci_resolve_nyra_home "$ROOT"
+ci_export_nyra_link_env "$ROOT"
 
 command -v nyra >/dev/null 2>&1 || { echo "error: nyra not found on PATH" >&2; exit 1; }
 

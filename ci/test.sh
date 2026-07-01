@@ -4,8 +4,10 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
+# shellcheck source=ci/lib.sh
+source "$ROOT/ci/lib.sh"
+ci_export_nyra_link_env "$ROOT"
 
-: "${NYRA_HOME:?NYRA_HOME must point at the Nyra source tree (stdlib/)}"
 command -v nyra >/dev/null 2>&1 || { echo "error: nyra not found on PATH" >&2; exit 1; }
 test -d "$NYRA_HOME/stdlib" || { echo "error: NYRA_HOME missing stdlib/: $NYRA_HOME" >&2; exit 1; }
 

@@ -76,9 +76,13 @@ runs:
         if (-not $zlibRoot) {
           Write-Error 'zlib headers not found (need MSYS2 ucrt64 or vcpkg)'
         }
-        "ZLIB_ROOT=$zlibRoot" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+        function Add-GhEnvLine([string]$Line) {
+          # Out-File -Encoding utf8 writes a BOM that breaks Nyra's NYRA_SYSROOT/gcc lookup.
+          [System.IO.File]::AppendAllText($env:GITHUB_ENV, "${Line}`n")
+        }
+        Add-GhEnvLine "ZLIB_ROOT=$zlibRoot"
         if (Test-Path (Join-Path $msysUcrt 'include\stdlib.h')) {
-          "NYRA_SYSROOT=$msysUcrt" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+          Add-GhEnvLine "NYRA_SYSROOT=$msysUcrt"
         }
 
     - name: System dependencies (Linux)
@@ -100,7 +104,15 @@ runs:
         cd "$NYRA_ROOT"
         cargo build -q -p cli -p compiler-ffi
         echo "NYRA_HOME=$NYRA_ROOT" >> "$GITHUB_ENV"
+        echo "NYRA_ROOT=$NYRA_ROOT" >> "$GITHUB_ENV"
         echo "$NYRA_ROOT/target/debug" >> "$GITHUB_PATH"
+        echo "$NYRA_ROOT/target/debug/deps" >> "$GITHUB_PATH"
+        if [[ "${{ inputs.platform }}" == "windows" ]]; then
+          echo "C:/msys64/ucrt64/bin" >> "$GITHUB_PATH"
+        fi
+        if [[ "${{ inputs.platform }}" == "linux" ]]; then
+          echo "LD_LIBRARY_PATH=${NYRA_ROOT}/target/debug:${NYRA_ROOT}/target/debug/deps" >> "$GITHUB_ENV"
+        fi
 
     - name: Verify nyra
       shell: bash
